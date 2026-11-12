@@ -720,6 +720,9 @@ REGIONS = {
     "estonia": (58.80, 21.90, 59.05, 22.20),
     # Kaliningrad: Baltiysk north to the Sambia coast and Zelenogradsk
     "kaliningrad": (54.60, 19.80, 55.00, 20.55),
+    # gap batch 2026-11-12e
+    # the Falklands: Surf Bay by Stanley, Bertha's Beach
+    "falklands": (-51.95, -58.45, -51.65, -57.70),
 }
 
 

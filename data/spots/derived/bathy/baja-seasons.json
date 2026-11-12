@@ -1,0 +1,72 @@
+{
+  "spot": "baja-seasons",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.0645,
+    -116.8808
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 478.0,
+  "mean_slope_m_per_km": 27.04,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.0645,
+      "lon": -116.88345,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.0645,
+      "lon": -116.88611,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.0645,
+      "lon": -116.89141,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.0645,
+      "lon": -116.90202,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.0645,
+      "lon": -116.91264,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.06449,
+      "lon": -116.93386,
+      "depth_m": 285.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.06447,
+      "lon": -116.9657,
+      "depth_m": 388.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.06444,
+      "lon": -117.00814,
+      "depth_m": 385.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.06436,
+      "lon": -117.07182,
+      "depth_m": 478.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "murtinheira",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.2033,
+    -8.9015
+  ],
+  "bearing_seaward_deg": 290.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 82.0,
+  "mean_slope_m_per_km": 4.23,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.20407,
+      "lon": -8.90427,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.20484,
+      "lon": -8.90703,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.20638,
+      "lon": -8.91257,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.20945,
+      "lon": -8.92363,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.21252,
+      "lon": -8.9347,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.21867,
+      "lon": -8.95684,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.22787,
+      "lon": -8.99005,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.24013,
+      "lon": -9.03435,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.25849,
+      "lon": -9.10083,
+      "depth_m": 82.0
+    }
+  ]
+}

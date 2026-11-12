@@ -1,0 +1,72 @@
+{
+  "spot": "los-muelles-lobitos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -4.4497,
+    -81.2786
+  ],
+  "bearing_seaward_deg": 300.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 1068.0,
+  "mean_slope_m_per_km": 59.83,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -4.44858,
+      "lon": -81.28055,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -4.44745,
+      "lon": -81.28251,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -4.4452,
+      "lon": -81.28641,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -4.44071,
+      "lon": -81.29422,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -4.43621,
+      "lon": -81.30204,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -4.42722,
+      "lon": -81.31766,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -4.41372,
+      "lon": -81.34109,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -4.39573,
+      "lon": -81.37234,
+      "depth_m": 173.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -4.36875,
+      "lon": -81.4192,
+      "depth_m": 1068.0
+    }
+  ]
+}

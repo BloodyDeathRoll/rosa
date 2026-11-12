@@ -42,3 +42,9 @@ spots:
 
   # ==== SEEDED 2026-11-04 - famous-break gap pass (web flow; OSM name search + ESRI z14/z16 render, every pin judged on the tile)
   - { id: telescopes, name: "Telescopes", town: "Tuapejat", lat: -2.0665, lon: 99.5430, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-11-04 (websearch-seeded; NW Sipora, long left peeling up the reef into the channel)
+
+  # ==== SEEDED 2026-11-12 - gap batch 4, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap4-mentawai/). North to south.
+  - { id: burgerworld, name: "Burgerworld", town: "Katurai", lat: -1.7957, lon: 99.2320, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: point, <<: *mtw }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

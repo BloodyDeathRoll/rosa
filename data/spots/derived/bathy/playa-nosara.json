@@ -1,0 +1,72 @@
+{
+  "spot": "playa-nosara",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    9.9777,
+    -85.6881
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 508.0,
+  "mean_slope_m_per_km": 29.07,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.97611,
+      "lon": -85.68971,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.97452,
+      "lon": -85.69133,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.97134,
+      "lon": -85.69456,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.96498,
+      "lon": -85.70101,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.95862,
+      "lon": -85.70747,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.9459,
+      "lon": -85.72038,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.92682,
+      "lon": -85.73975,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.90138,
+      "lon": -85.76556,
+      "depth_m": 128.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.86322,
+      "lon": -85.80428,
+      "depth_m": 508.0
+    }
+  ]
+}

@@ -70,3 +70,12 @@ spots:
 
   # ==== ADDED 2026-11-04 - operator-supplied pins (famous-break gap pass)
   - { id: safi, name: "Safi", town: "Safi", lat: 32.3171, lon: -9.2590, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, <<: *ma }  # user-verified 2026-11-04 (operator-supplied pin, sat-checked)
+
+  # ==== SEEDED 2026-11-12 - gap batch 4, 4 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap4-morocco/). North to south.
+  - { id: monica-plage, name: "Monica Plage", town: "Mohammedia", lat: 33.7131, lon: -7.3567, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, break_type: beach, <<: *ma }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: draculas, name: "Draculas", town: "Borj Daou", lat: 30.6236, lon: -9.8615, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, break_type: point, <<: *ma }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: kms-aourir, name: "KM 11-12", town: "Aourir", lat: 30.4953, lon: -9.6773, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: reef, <<: *ma }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: sidi-ifni-harbour, name: "Ifni Harbour", town: "Sidi Ifni", lat: 29.3486, lon: -10.1950, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, break_type: beach, <<: *ma }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

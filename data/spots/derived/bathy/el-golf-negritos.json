@@ -1,0 +1,72 @@
+{
+  "spot": "el-golf-negritos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -4.6067,
+    -81.2974
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 832.0,
+  "mean_slope_m_per_km": 46.87,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -4.6069,
+      "lon": -81.29965,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -4.60709,
+      "lon": -81.30189,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -4.60748,
+      "lon": -81.30639,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -4.60827,
+      "lon": -81.31538,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -4.60905,
+      "lon": -81.32436,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -4.61062,
+      "lon": -81.34234,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -4.61297,
+      "lon": -81.3693,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -4.6161,
+      "lon": -81.40526,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -4.62079,
+      "lon": -81.45919,
+      "depth_m": 832.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "porto-batel",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.3188,
+    -9.3555
+  ],
+  "bearing_seaward_deg": 230.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 65.0,
+  "mean_slope_m_per_km": 3.55,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.31735,
+      "lon": -9.35773,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.31591,
+      "lon": -9.35995,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.31302,
+      "lon": -9.3644,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.30724,
+      "lon": -9.37331,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.30145,
+      "lon": -9.38221,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.28989,
+      "lon": -9.40001,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.27253,
+      "lon": -9.42669,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.24938,
+      "lon": -9.46225,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.21464,
+      "lon": -9.51555,
+      "depth_m": 65.0
+    }
+  ]
+}

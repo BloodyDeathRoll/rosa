@@ -1,0 +1,72 @@
+{
+  "spot": "monica-plage",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.7131,
+    -7.3567
+  ],
+  "bearing_seaward_deg": 340.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 91.0,
+  "mean_slope_m_per_km": 5.58,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.71521,
+      "lon": -7.35762,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.71733,
+      "lon": -7.35855,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.72155,
+      "lon": -7.3604,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.73,
+      "lon": -7.3641,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.73845,
+      "lon": -7.3678,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.75535,
+      "lon": -7.3752,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.7807,
+      "lon": -7.38631,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.8145,
+      "lon": -7.40113,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.8652,
+      "lon": -7.42338,
+      "depth_m": 91.0
+    }
+  ]
+}

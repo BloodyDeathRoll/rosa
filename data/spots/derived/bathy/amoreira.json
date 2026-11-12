@@ -1,0 +1,72 @@
+{
+  "spot": "amoreira",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.3518,
+    -8.8457
+  ],
+  "bearing_seaward_deg": 290.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 186.0,
+  "mean_slope_m_per_km": 10.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.35257,
+      "lon": -8.84836,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.35334,
+      "lon": -8.85102,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.35488,
+      "lon": -8.85633,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.35795,
+      "lon": -8.86696,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.36102,
+      "lon": -8.8776,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.36717,
+      "lon": -8.89887,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.37638,
+      "lon": -8.93078,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.38864,
+      "lon": -8.97333,
+      "depth_m": 132.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.40701,
+      "lon": -9.0372,
+      "depth_m": 186.0
+    }
+  ]
+}

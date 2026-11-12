@@ -1,0 +1,72 @@
+{
+  "spot": "punta-mero",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -3.8971,
+    -80.8665
+  ],
+  "bearing_seaward_deg": 335.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 111.0,
+  "mean_slope_m_per_km": 6.59,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.89506,
+      "lon": -80.86745,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.89302,
+      "lon": -80.8684,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.88895,
+      "lon": -80.87031,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.8808,
+      "lon": -80.87412,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.87265,
+      "lon": -80.87793,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.85635,
+      "lon": -80.88555,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.83189,
+      "lon": -80.89697,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.79929,
+      "lon": -80.91221,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.75039,
+      "lon": -80.93506,
+      "depth_m": 111.0
+    }
+  ]
+}

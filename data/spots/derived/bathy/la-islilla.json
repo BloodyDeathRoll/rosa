@@ -1,0 +1,72 @@
+{
+  "spot": "la-islilla",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -5.2036,
+    -81.1919
+  ],
+  "bearing_seaward_deg": 300.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 147.0,
+  "mean_slope_m_per_km": 7.89,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -5.20248,
+      "lon": -81.19386,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -5.20135,
+      "lon": -81.19581,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -5.1991,
+      "lon": -81.19972,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -5.19461,
+      "lon": -81.20754,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -5.19011,
+      "lon": -81.21536,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -5.18112,
+      "lon": -81.231,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -5.16762,
+      "lon": -81.25446,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -5.14963,
+      "lon": -81.28574,
+      "depth_m": 115.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -5.12265,
+      "lon": -81.33265,
+      "depth_m": 147.0
+    }
+  ]
+}

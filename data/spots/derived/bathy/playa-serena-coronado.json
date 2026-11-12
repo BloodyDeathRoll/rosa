@@ -1,0 +1,72 @@
+{
+  "spot": "playa-serena-coronado",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    8.5222,
+    -79.8991
+  ],
+  "bearing_seaward_deg": 160.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 8.52009,
+      "lon": -79.89832,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 8.51797,
+      "lon": -79.89754,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 8.51375,
+      "lon": -79.89599,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 8.5053,
+      "lon": -79.89288,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 8.49685,
+      "lon": -79.88977,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 8.47995,
+      "lon": -79.88355,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 8.45459,
+      "lon": -79.87422,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 8.42079,
+      "lon": -79.86179,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 8.37008,
+      "lon": -79.84314,
+      "depth_m": 18.0
+    }
+  ]
+}

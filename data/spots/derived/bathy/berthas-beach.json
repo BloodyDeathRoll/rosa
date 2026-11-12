@@ -1,0 +1,72 @@
+{
+  "spot": "berthas-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -51.896,
+    -58.3886
+  ],
+  "bearing_seaward_deg": 130.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 51.0,
+  "mean_slope_m_per_km": 3.04,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -51.89745,
+      "lon": -58.38581,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -51.89889,
+      "lon": -58.38302,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -51.90178,
+      "lon": -58.37743,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -51.90756,
+      "lon": -58.36627,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -51.91334,
+      "lon": -58.3551,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -51.92489,
+      "lon": -58.33274,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -51.94221,
+      "lon": -58.2992,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -51.96529,
+      "lon": -58.25443,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -51.99988,
+      "lon": -58.18718,
+      "depth_m": 51.0
+    }
+  ]
+}

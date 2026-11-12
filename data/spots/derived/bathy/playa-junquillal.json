@@ -1,0 +1,72 @@
+{
+  "spot": "playa-junquillal",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.1593,
+    -85.8083
+  ],
+  "bearing_seaward_deg": 250.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 490.0,
+  "mean_slope_m_per_km": 28.28,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.15853,
+      "lon": -85.81045,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.15776,
+      "lon": -85.81259,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.15622,
+      "lon": -85.81689,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.15315,
+      "lon": -85.82547,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.15007,
+      "lon": -85.83406,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.14392,
+      "lon": -85.85123,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.13469,
+      "lon": -85.87698,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.12237,
+      "lon": -85.91131,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.1039,
+      "lon": -85.96281,
+      "depth_m": 490.0
+    }
+  ]
+}

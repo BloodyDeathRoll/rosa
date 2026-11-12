@@ -1,0 +1,72 @@
+{
+  "spot": "acapulquito",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    23.024,
+    -109.7161
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 465.0,
+  "mean_slope_m_per_km": 26.87,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 23.02361,
+      "lon": -109.71369,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 23.02322,
+      "lon": -109.71129,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 23.02244,
+      "lon": -109.70648,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 23.02088,
+      "lon": -109.69685,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 23.01931,
+      "lon": -109.68723,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 23.01618,
+      "lon": -109.66799,
+      "depth_m": 131.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 23.01149,
+      "lon": -109.63912,
+      "depth_m": 456.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 23.00522,
+      "lon": -109.60064,
+      "depth_m": 705.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 22.9958,
+      "lon": -109.54292,
+      "depth_m": 465.0
+    }
+  ]
+}

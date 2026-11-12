@@ -1,0 +1,72 @@
+{
+  "spot": "playa-langosta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.2848,
+    -85.8509
+  ],
+  "bearing_seaward_deg": 250.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 133.0,
+  "mean_slope_m_per_km": 7.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.28403,
+      "lon": -85.85305,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.28326,
+      "lon": -85.85519,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.28172,
+      "lon": -85.85949,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.27865,
+      "lon": -85.86808,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.27557,
+      "lon": -85.87667,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.26942,
+      "lon": -85.89384,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.26019,
+      "lon": -85.91961,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.24787,
+      "lon": -85.95395,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.2294,
+      "lon": -86.00547,
+      "depth_m": 133.0
+    }
+  ]
+}

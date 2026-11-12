@@ -342,6 +342,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     # the south-west Atlantic: Southern Ocean swell wrapping up onto the Uruguayan and
     # Argentine shelf, and the local S-SE wind swell that most of these beaches run on
     "argentina-uruguay": ("Uruguay", "Mar del Plata", "Patagonia Argentina"),
+    # the Falklands (seeded 2026-11-12), 500 km east of Patagonia: their own small frame
+    "falklands": ("Falklands",),
     "maldives": ("Maldives",),
     # Sydney + Byron Bay share one east-Australian frame: same Tasman/Coral Sea swell
     # the NSW Mid North Coast (Angourie to Newcastle) and South Coast (Illawarra to Eden) fill

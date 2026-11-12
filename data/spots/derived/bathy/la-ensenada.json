@@ -1,0 +1,72 @@
+{
+  "spot": "la-ensenada",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -12.6473,
+    -76.6702
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": -20.0,
+  "offshore_depth_m": 121.0,
+  "mean_slope_m_per_km": 7.94,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.6475,
+      "lon": -76.6725,
+      "depth_m": -20.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.64769,
+      "lon": -76.67479,
+      "depth_m": -20.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.64808,
+      "lon": -76.67938,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.64887,
+      "lon": -76.68856,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.64965,
+      "lon": -76.69775,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.65122,
+      "lon": -76.71611,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -12.65356,
+      "lon": -76.74366,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -12.65668,
+      "lon": -76.78039,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -12.66136,
+      "lon": -76.83548,
+      "depth_m": 121.0
+    }
+  ]
+}

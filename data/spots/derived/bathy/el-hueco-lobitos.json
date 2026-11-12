@@ -1,0 +1,72 @@
+{
+  "spot": "el-hueco-lobitos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -4.4522,
+    -81.2895
+  ],
+  "bearing_seaward_deg": 330.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 341.0,
+  "mean_slope_m_per_km": 19.49,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -4.45025,
+      "lon": -81.29063,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -4.44831,
+      "lon": -81.29176,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -4.44441,
+      "lon": -81.29401,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -4.43662,
+      "lon": -81.29852,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -4.42883,
+      "lon": -81.30303,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -4.41326,
+      "lon": -81.31205,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -4.38989,
+      "lon": -81.32558,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -4.35874,
+      "lon": -81.34362,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -4.31201,
+      "lon": -81.37067,
+      "depth_m": 341.0
+    }
+  ]
+}

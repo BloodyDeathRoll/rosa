@@ -1,0 +1,72 @@
+{
+  "spot": "playa-tivives",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    9.8769,
+    -84.7088
+  ],
+  "bearing_seaward_deg": 220.0,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 53.0,
+  "mean_slope_m_per_km": 3.89,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.87518,
+      "lon": -84.71027,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.87346,
+      "lon": -84.71173,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.87001,
+      "lon": -84.71467,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.86312,
+      "lon": -84.72053,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.85623,
+      "lon": -84.7264,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.84245,
+      "lon": -84.73814,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.82178,
+      "lon": -84.75573,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.79422,
+      "lon": -84.77919,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.75288,
+      "lon": -84.81438,
+      "depth_m": 53.0
+    }
+  ]
+}

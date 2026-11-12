@@ -1,0 +1,72 @@
+{
+  "spot": "lobos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.7487,
+    -13.8337
+  ],
+  "bearing_seaward_deg": 305.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 1594.0,
+  "mean_slope_m_per_km": 89.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.74999,
+      "lon": -13.8358,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.75128,
+      "lon": -13.8379,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.75386,
+      "lon": -13.8421,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.75902,
+      "lon": -13.85051,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.76417,
+      "lon": -13.85891,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.77448,
+      "lon": -13.87572,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.78995,
+      "lon": -13.90095,
+      "depth_m": 196.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.81056,
+      "lon": -13.93459,
+      "depth_m": 888.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.84146,
+      "lon": -13.98508,
+      "depth_m": 1594.0
+    }
+  ]
+}

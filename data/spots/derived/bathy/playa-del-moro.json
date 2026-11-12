@@ -1,0 +1,72 @@
+{
+  "spot": "playa-del-moro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.6739,
+    -13.8335
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 1192.0,
+  "mean_slope_m_per_km": 67.44,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.6737,
+      "lon": -13.83095,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.67351,
+      "lon": -13.82839,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.67312,
+      "lon": -13.82329,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.67233,
+      "lon": -13.81308,
+      "depth_m": 188.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.67155,
+      "lon": -13.80287,
+      "depth_m": 491.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.66997,
+      "lon": -13.78245,
+      "depth_m": 762.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.66761,
+      "lon": -13.75181,
+      "depth_m": 911.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.66444,
+      "lon": -13.71098,
+      "depth_m": 1071.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.65967,
+      "lon": -13.64972,
+      "depth_m": 1192.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "maruata",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.2692,
+    -103.3466
+  ],
+  "bearing_seaward_deg": 190.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 1292.0,
+  "mean_slope_m_per_km": 73.18,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.26699,
+      "lon": -103.34701,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.26477,
+      "lon": -103.34742,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.26034,
+      "lon": -103.34824,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.25149,
+      "lon": -103.34989,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.24263,
+      "lon": -103.35153,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.22492,
+      "lon": -103.35482,
+      "depth_m": 229.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.19835,
+      "lon": -103.35975,
+      "depth_m": 764.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.16292,
+      "lon": -103.36632,
+      "depth_m": 806.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.10978,
+      "lon": -103.37617,
+      "depth_m": 1292.0
+    }
+  ]
+}

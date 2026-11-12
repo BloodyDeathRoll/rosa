@@ -1,0 +1,72 @@
+{
+  "spot": "burgerworld",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -1.7957,
+    99.232
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": 15.0,
+  "offshore_depth_m": 354.0,
+  "mean_slope_m_per_km": 19.1,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -1.79729,
+      "lon": 99.23041,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -1.79888,
+      "lon": 99.22882,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -1.80206,
+      "lon": 99.22564,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -1.80842,
+      "lon": 99.21928,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -1.81478,
+      "lon": 99.21291,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -1.8275,
+      "lon": 99.20019,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -1.84657,
+      "lon": 99.1811,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -1.87201,
+      "lon": 99.15565,
+      "depth_m": 231.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -1.91016,
+      "lon": 99.11747,
+      "depth_m": 354.0
+    }
+  ]
+}

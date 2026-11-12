@@ -1,0 +1,72 @@
+{
+  "spot": "kedungu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -8.609,
+    115.083
+  ],
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 4.56,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.61029,
+      "lon": 115.08114,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.61158,
+      "lon": 115.07927,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.61416,
+      "lon": 115.07555,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.61932,
+      "lon": 115.0681,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.62447,
+      "lon": 115.06065,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.63479,
+      "lon": 115.04574,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.65026,
+      "lon": 115.02339,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.67089,
+      "lon": 114.99358,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.70183,
+      "lon": 114.94885,
+      "depth_m": 78.0
+    }
+  ]
+}

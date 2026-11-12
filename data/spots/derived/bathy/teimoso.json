@@ -1,0 +1,72 @@
+{
+  "spot": "teimoso",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.1757,
+    -8.897
+  ],
+  "bearing_seaward_deg": 205.0,
+  "nearshore_depth_m": -17.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 2.93,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.17366,
+      "lon": -8.89824,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.17162,
+      "lon": -8.89949,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.16755,
+      "lon": -8.90197,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.1594,
+      "lon": -8.90695,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.15125,
+      "lon": -8.91192,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.13494,
+      "lon": -8.92186,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.11049,
+      "lon": -8.93676,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.07788,
+      "lon": -8.95661,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.02895,
+      "lon": -8.98634,
+      "depth_m": 35.0
+    }
+  ]
+}

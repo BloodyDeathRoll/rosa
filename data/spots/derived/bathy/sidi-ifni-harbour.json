@@ -1,0 +1,72 @@
+{
+  "spot": "sidi-ifni-harbour",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.3486,
+    -10.195
+  ],
+  "bearing_seaward_deg": 300.0,
+  "nearshore_depth_m": -20.0,
+  "offshore_depth_m": 53.0,
+  "mean_slope_m_per_km": 4.11,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.34972,
+      "lon": -10.19723,
+      "depth_m": -20.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.35085,
+      "lon": -10.19947,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.3531,
+      "lon": -10.20394,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.35759,
+      "lon": -10.21287,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.36209,
+      "lon": -10.22181,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.37108,
+      "lon": -10.23969,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.38455,
+      "lon": -10.26651,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.40252,
+      "lon": -10.30228,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.42944,
+      "lon": -10.35596,
+      "depth_m": 53.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "kontiki-punta-hermosa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -12.3464,
+    -76.8204
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 103.0,
+  "mean_slope_m_per_km": 5.8,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.34698,
+      "lon": -76.82262,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.34756,
+      "lon": -76.82485,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.34873,
+      "lon": -76.82929,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.35105,
+      "lon": -76.83819,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.35338,
+      "lon": -76.84708,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.35803,
+      "lon": -76.86486,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -12.36501,
+      "lon": -76.89154,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -12.37431,
+      "lon": -76.92712,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -12.38825,
+      "lon": -76.98049,
+      "depth_m": 103.0
+    }
+  ]
+}

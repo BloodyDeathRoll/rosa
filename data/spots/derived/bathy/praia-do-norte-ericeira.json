@@ -1,0 +1,72 @@
+{
+  "spot": "praia-do-norte-ericeira",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.967,
+    -9.4201
+  ],
+  "bearing_seaward_deg": 275.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 114.0,
+  "mean_slope_m_per_km": 6.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.9672,
+      "lon": -9.42298,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.96739,
+      "lon": -9.42586,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.96778,
+      "lon": -9.43162,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.96857,
+      "lon": -9.44315,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.96935,
+      "lon": -9.45467,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.9709,
+      "lon": -9.47772,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.97323,
+      "lon": -9.51229,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.97632,
+      "lon": -9.55839,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.98092,
+      "lon": -9.62755,
+      "depth_m": 114.0
+    }
+  ]
+}

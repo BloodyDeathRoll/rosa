@@ -1,0 +1,72 @@
+{
+  "spot": "playa-grande-culebras",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.7755,
+    -78.2451
+  ],
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 100.0,
+  "mean_slope_m_per_km": 6.14,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.77679,
+      "lon": -78.24697,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.77808,
+      "lon": -78.24884,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.78066,
+      "lon": -78.25258,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.78582,
+      "lon": -78.26005,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.79097,
+      "lon": -78.26753,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.80129,
+      "lon": -78.28248,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.81676,
+      "lon": -78.30491,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.83739,
+      "lon": -78.33482,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.86832,
+      "lon": -78.37969,
+      "depth_m": 100.0
+    }
+  ]
+}

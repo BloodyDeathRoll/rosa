@@ -1,0 +1,72 @@
+{
+  "spot": "cruz-roja",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.0441,
+    -14.3321
+  ],
+  "bearing_seaward_deg": 175.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 1756.0,
+  "mean_slope_m_per_km": 99.21,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.04186,
+      "lon": -14.33188,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.03962,
+      "lon": -14.33166,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.03514,
+      "lon": -14.33121,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.02618,
+      "lon": -14.33032,
+      "depth_m": 347.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.01722,
+      "lon": -14.32944,
+      "depth_m": 777.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 27.99931,
+      "lon": -14.32766,
+      "depth_m": 1495.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 27.97243,
+      "lon": -14.325,
+      "depth_m": 1516.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.93659,
+      "lon": -14.32145,
+      "depth_m": 1700.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.88284,
+      "lon": -14.31614,
+      "depth_m": 1756.0
+    }
+  ]
+}

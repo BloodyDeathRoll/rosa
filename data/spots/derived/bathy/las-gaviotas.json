@@ -1,0 +1,72 @@
+{
+  "spot": "las-gaviotas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.2521,
+    -116.9617
+  ],
+  "bearing_seaward_deg": 205.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 299.0,
+  "mean_slope_m_per_km": 16.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.25006,
+      "lon": -116.96282,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.24802,
+      "lon": -116.96395,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.24395,
+      "lon": -116.96619,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.2358,
+      "lon": -116.97069,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.22765,
+      "lon": -116.97518,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.21134,
+      "lon": -116.98416,
+      "depth_m": 209.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.18689,
+      "lon": -116.99763,
+      "depth_m": 286.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.15428,
+      "lon": -117.01557,
+      "depth_m": 308.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.10536,
+      "lon": -117.04246,
+      "depth_m": 299.0
+    }
+  ]
+}

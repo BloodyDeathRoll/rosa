@@ -64,3 +64,18 @@ spots:
   - { id: geger, name: "Geger", town: "Nusa Dua", lat: -8.8193, lon: 115.2329, offshore_direction: 319, swell_window: [74, 204], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
   - { id: nyang-nyang, name: "Nyang Nyang", town: "Pecatu", lat: -8.8399, lon: 115.0958, offshore_direction: 29, swell_window: [144, 274], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
   - { id: green-bowl, name: "Green Bowl", town: "Ungasan", lat: -8.8503, lon: 115.1706, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch 4, 10 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap4-bali/). North to south.
+  - { id: yeh-sumbul, name: "Yeh Sumbul", town: "Yeh Sumbul", lat: -8.4123, lon: 114.7973, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, break_type: beach, <<: *bali }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: truck-stops, name: "Truck Stops", town: "Pengragoan", lat: -8.4670, lon: 114.9151, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, break_type: reef, <<: *bali }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: cucukan, name: "Cucukan", town: "Medahan", lat: -8.5886, lon: 115.3505, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: reef, <<: *bali }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: kedungu, name: "Kedungu", town: "Kedungu", lat: -8.6090, lon: 115.0830, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, break_type: beach, <<: *bali }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.8)
+  - { id: ketewel, name: "Ketewel", town: "Ketewel", lat: -8.6256, lon: 115.3025, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, break_type: reef, <<: *bali }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.8)
+  - { id: nyanyi, name: "Nyanyi", town: "Beraban", lat: -8.6347, lon: 115.0979, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *bali }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: tanjung-sari, name: "Tanjung Sari", town: "Sanur", lat: -8.6889, lon: 115.2701, offshore_direction: 260, shore_normal: 125, swell_window: [15, 145], offshore_km: 5.0, break_type: reef, <<: *bali }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: nikko, name: "Nikko", town: "Nusa Dua", lat: -8.8292, lon: 115.2214, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: reef, <<: *bali }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: nunggalan, name: "Nunggalan", town: "Pecatu", lat: -8.8454, lon: 115.1098, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, break_type: reef, <<: *bali }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: pandawa, name: "Pandawa", town: "Kutuh", lat: -8.8460, lon: 115.1850, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: reef, <<: *bali }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

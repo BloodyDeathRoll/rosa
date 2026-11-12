@@ -1,0 +1,72 @@
+{
+  "spot": "yumaque",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -13.9113,
+    -76.2822
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 107.0,
+  "mean_slope_m_per_km": 5.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -13.91188,
+      "lon": -76.28444,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -13.91246,
+      "lon": -76.28667,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -13.91363,
+      "lon": -76.29115,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -13.91595,
+      "lon": -76.3001,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -13.91828,
+      "lon": -76.30905,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -13.92293,
+      "lon": -76.32695,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -13.92991,
+      "lon": -76.3538,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -13.93921,
+      "lon": -76.3896,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -13.95314,
+      "lon": -76.44332,
+      "depth_m": 107.0
+    }
+  ]
+}

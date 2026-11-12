@@ -1,0 +1,72 @@
+{
+  "spot": "pedra-branca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.9786,
+    -9.4217
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 118.0,
+  "mean_slope_m_per_km": 6.42,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.9786,
+      "lon": -9.42459,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.9786,
+      "lon": -9.42748,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.9786,
+      "lon": -9.43327,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.9786,
+      "lon": -9.44484,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.97859,
+      "lon": -9.45641,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.97859,
+      "lon": -9.47954,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.97856,
+      "lon": -9.51425,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.97852,
+      "lon": -9.56052,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.97841,
+      "lon": -9.62993,
+      "depth_m": 118.0
+    }
+  ]
+}

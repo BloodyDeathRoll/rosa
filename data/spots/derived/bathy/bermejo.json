@@ -1,0 +1,72 @@
+{
+  "spot": "bermejo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -10.5659,
+    -77.9061
+  ],
+  "bearing_seaward_deg": 310.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 89.0,
+  "mean_slope_m_per_km": 5.07,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -10.56445,
+      "lon": -77.90785,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -10.56301,
+      "lon": -77.9096,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -10.56012,
+      "lon": -77.91311,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -10.55434,
+      "lon": -77.92012,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -10.54856,
+      "lon": -77.92712,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -10.53699,
+      "lon": -77.94114,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -10.51965,
+      "lon": -77.96216,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -10.49652,
+      "lon": -77.99018,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -10.46182,
+      "lon": -78.0322,
+      "depth_m": 89.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "yeh-sumbul",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -8.4123,
+    114.7973
+  ],
+  "bearing_seaward_deg": 195.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 355.0,
+  "mean_slope_m_per_km": 19.94,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.41447,
+      "lon": 114.79671,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.41664,
+      "lon": 114.79612,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.42099,
+      "lon": 114.79495,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.42967,
+      "lon": 114.79259,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.43836,
+      "lon": 114.79024,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.45573,
+      "lon": 114.78553,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.48179,
+      "lon": 114.77847,
+      "depth_m": 267.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.51654,
+      "lon": 114.76906,
+      "depth_m": 298.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.56866,
+      "lon": 114.75493,
+      "depth_m": 355.0
+    }
+  ]
+}

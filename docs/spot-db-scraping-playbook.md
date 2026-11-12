@@ -222,7 +222,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-11-12, DB = 4862 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-12, DB = 4988 spots, ALL sat-verified)
 
 **Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
 was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
@@ -459,6 +459,34 @@ gap3-china / gap3-beaches). All 24 at >= 0.65 kept after the contact-sheet read.
   38.0333, 14.0013 if a second turns up. Walker Point (Buffels Bay, named by Wesgro) was not searched.
 - The China agent ran out of web-search budget mid-batch: the Liu'ao bays (Fujian) and Taiji Bay (Zhejiang)
   deserve one more pass.
+
+**Gap batch 4: densify famous regions + old gap-queue names - 4862 -> 4988 (2026-11-12, cont. 9).** Twelve
+subagents at once (gap4-*), then 7 operator-approved 0.6 leftovers from earlier batches. **The session's 200
+web-search cap ran out early in this batch**: most agents sourced names by fetching official pages directly
+(tourism boards, municipal pages, Peru's surf-break protection registry, Wikipedia), so yields were lower than the
+breaks that exist. 121 agent pins at >= 0.65, all kept after the contact-sheet read; leftovers: Maruata, Surf Bay,
+Bertha's Beach, Palanga kept, Plaja Modern dropped (pin inside a closed breakwater pool), Santa Lucia (Cefalu)
+dropped (its only source puts the break on the other side of town), 2 Mai dropped (no Black Sea wave node -
+OPEN-ITEMS 45).
+- Added: peru 25 (names from DICAPI resolutions / the FENTA break inventory; Pico Alto and Kontiki are offshore
+  reefs pinned at the registry polygon), portugal 21, canary-islands 16 (Fuerteventura 11, Tenerife 4, La Palma's
+  first spot Nogales), mexico 15 (9 on the Rosarito-Ensenada corridor from the Baja California state tourism
+  coordinate list), bali 10, sri-lanka 9, costa-rica 9, panama 7, morocco 4, south-africa-east 3 (Durban),
+  falklands 2 (new region, own basin), mar-del-plata 1, santa-catarina 1, nicaragua 1, mentawai 1 (Burgerworld),
+  lithuania 1 (Palanga).
+- Hand `shore_normal` (middle of the wet arc): generoso 340 and rocky-point-corralejo 40 (the N rays hit
+  Lanzarote), lobos 305 (the SW ray crossed Fuerteventura), malpaso-chicama 245, playa-caletas 175, tanjung-sari
+  125, maruata 190. Maruata, Junquillal and Playa Serena keep GEBCO land to 1 km (coarse shoreline cells, deep
+  water beyond).
+- Nothing sourced or located: the Fraserburgh / Swakopmund / Kommetjie sub-peaks (forecast mirror sites only),
+  Cantabria's La Vaca / El Muro / Cuchia, O Corvo, Huelva, Bubble (= DB el-hierro), Cave Rock (located, not
+  sourced), Nungwi / Jambiani's outer reef, Bazaruto, Lajao / Sororoca, San Clemente del Tuyu, most Mentawai names
+  (placed only relative to resorts). Retry with a fresh search budget: Sidi Mghait, Punta Tur, Punta Balcones,
+  Ponta Backdoor (Tofo, OSM-tagged, 0.6), 365s (Kommetjie), Westbrook and the KZN South Coast.
+- Agents flagged existing pins (reported, see the session log): rifles (Mentawai, operators put it on Karangmajat
+  ~16 km SE), pottuvil-point, coxos, crazy, la-pastora, sanur-reef / hyatt-reef, bay-of-plenty / north-beach,
+  panic-point (= Pico Point), santa-maria-del-mar (= Playa Santa Rosa), bank-vaults, libanona; and two Peniche
+  spots sharing "Praia da Baia".
 
 **Gap queue (whole areas with zero spots, by box count 2026-11-12):** New Zealand is thin (17). Still
 empty: west Africa (Ivory Coast, Togo / Benin / Nigeria, Gabon, Sao Tome, Mauritania), Queensland north

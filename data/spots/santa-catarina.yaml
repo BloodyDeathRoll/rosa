@@ -68,3 +68,9 @@ spots:
   - { id: prainha-do-farol, name: "Prainha do Farol", town: "Farol de Santa Marta", lat: -28.6018, lon: -48.8169, offshore_direction: 236, swell_window: [351, 121], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 56 (GEBCO arc middle)
   - { id: cardoso, name: "Cardoso", town: "Farol de Santa Marta", lat: -28.6085, lon: -48.8340, offshore_direction: 324, swell_window: [79, 209], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
   - { id: praia-da-cigana, name: "Praia da Cigana", town: "Farol de Santa Marta", lat: -28.6126, lon: -48.8508, offshore_direction: 336, swell_window: [91, 221], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch 4, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap4-southam/). North to south.
+  - { id: praia-do-rincao, name: "Praia do Rincão", town: "Balneário Rincão", lat: -28.8344, lon: -49.2286, offshore_direction: 325, swell_window: [80, 210], offshore_km: 5.0, break_type: beach, <<: *sc }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

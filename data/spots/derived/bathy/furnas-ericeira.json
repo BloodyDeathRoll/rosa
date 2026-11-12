@@ -1,0 +1,72 @@
+{
+  "spot": "furnas-ericeira",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.9615,
+    -9.42
+  ],
+  "bearing_seaward_deg": 250.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 116.0,
+  "mean_slope_m_per_km": 5.92,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.96073,
+      "lon": -9.42272,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.95996,
+      "lon": -9.42543,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.95842,
+      "lon": -9.43087,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.95535,
+      "lon": -9.44173,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.95227,
+      "lon": -9.4526,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.94611,
+      "lon": -9.47433,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.93686,
+      "lon": -9.50692,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.92452,
+      "lon": -9.55035,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.90597,
+      "lon": -9.61548,
+      "depth_m": 116.0
+    }
+  ]
+}

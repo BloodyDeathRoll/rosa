@@ -56,3 +56,9 @@ spots:
   - { id: playa-amarillo, name: "Playa Amarillo", town: "El Gigante", lat: 11.3986, lon: -86.0385, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, break_type: beach, <<: *nic }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: playa-escameca, name: "Playa Escameca", town: "El Coco", lat: 11.1690, lon: -85.8087, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, break_type: beach, <<: *nic }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: playa-el-coco, name: "Playa El Coco", town: "El Coco", lat: 11.1575, lon: -85.8032, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, break_type: beach, <<: *nic }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch 4, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap4-centralam/). North to south.
+  - { id: playa-guasacate, name: "Playa Guasacate", town: "Guasacate", lat: 11.4674, lon: -86.1199, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, break_type: beach, <<: *nic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)

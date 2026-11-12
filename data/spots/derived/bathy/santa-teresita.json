@@ -1,0 +1,72 @@
+{
+  "spot": "santa-teresita",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.5505,
+    -56.6875
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 1.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.5505,
+      "lon": -56.6847,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.5505,
+      "lon": -56.6819,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.5505,
+      "lon": -56.67631,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.5505,
+      "lon": -56.66511,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.5505,
+      "lon": -56.65392,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.55049,
+      "lon": -56.63153,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.55047,
+      "lon": -56.59794,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.55042,
+      "lon": -56.55316,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.55033,
+      "lon": -56.48599,
+      "depth_m": 24.0
+    }
+  ]
+}

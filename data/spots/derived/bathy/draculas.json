@@ -1,0 +1,72 @@
+{
+  "spot": "draculas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    30.6236,
+    -9.8615
+  ],
+  "bearing_seaward_deg": 170.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 84.0,
+  "mean_slope_m_per_km": 4.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.62139,
+      "lon": -9.86105,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.61917,
+      "lon": -9.86059,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.61474,
+      "lon": -9.85969,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.60589,
+      "lon": -9.85787,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.59703,
+      "lon": -9.85606,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.57932,
+      "lon": -9.85243,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.55275,
+      "lon": -9.84699,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.51732,
+      "lon": -9.83975,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.46418,
+      "lon": -9.82889,
+      "depth_m": 84.0
+    }
+  ]
+}

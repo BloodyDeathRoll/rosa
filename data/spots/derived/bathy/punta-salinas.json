@@ -1,0 +1,72 @@
+{
+  "spot": "punta-salinas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.0764,
+    -14.4719
+  ],
+  "bearing_seaward_deg": 195.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 934.0,
+  "mean_slope_m_per_km": 52.11,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.07423,
+      "lon": -14.47256,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.07206,
+      "lon": -14.47322,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.06771,
+      "lon": -14.47454,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.05903,
+      "lon": -14.47718,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.05034,
+      "lon": -14.47981,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.03297,
+      "lon": -14.48508,
+      "depth_m": 639.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.0069,
+      "lon": -14.49299,
+      "depth_m": 1057.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.97216,
+      "lon": -14.50353,
+      "depth_m": 962.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.92003,
+      "lon": -14.51932,
+      "depth_m": 934.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "punta-burica",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    8.031,
+    -82.8705
+  ],
+  "bearing_seaward_deg": 165.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 1490.0,
+  "mean_slope_m_per_km": 83.44,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 8.02883,
+      "lon": -82.86991,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 8.02666,
+      "lon": -82.86932,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 8.02231,
+      "lon": -82.86815,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 8.01363,
+      "lon": -82.8658,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 8.00494,
+      "lon": -82.86345,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 7.98757,
+      "lon": -82.85875,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 7.96151,
+      "lon": -82.8517,
+      "depth_m": 474.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 7.92676,
+      "lon": -82.8423,
+      "depth_m": 833.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 7.87464,
+      "lon": -82.8282,
+      "depth_m": 1490.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "pandawa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -8.846,
+    115.185
+  ],
+  "bearing_seaward_deg": 160.0,
+  "nearshore_depth_m": 21.0,
+  "offshore_depth_m": 1190.0,
+  "mean_slope_m_per_km": 65.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.84811,
+      "lon": 115.18578,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.85023,
+      "lon": 115.18656,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.85445,
+      "lon": 115.18811,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.8629,
+      "lon": 115.19123,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.87135,
+      "lon": 115.19434,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.88825,
+      "lon": 115.20057,
+      "depth_m": 135.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.91361,
+      "lon": 115.20991,
+      "depth_m": 309.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.94741,
+      "lon": 115.22236,
+      "depth_m": 465.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.99811,
+      "lon": 115.24106,
+      "depth_m": 1190.0
+    }
+  ]
+}

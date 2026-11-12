@@ -1,0 +1,72 @@
+{
+  "spot": "san-pedro-lurin",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -12.2884,
+    -76.8809
+  ],
+  "bearing_seaward_deg": 205.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 107.0,
+  "mean_slope_m_per_km": 5.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.29044,
+      "lon": -76.88187,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.29248,
+      "lon": -76.88284,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.29655,
+      "lon": -76.88479,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.3047,
+      "lon": -76.88868,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.31285,
+      "lon": -76.89257,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.32915,
+      "lon": -76.90035,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -12.3536,
+      "lon": -76.91203,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -12.3862,
+      "lon": -76.9276,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -12.4351,
+      "lon": -76.95096,
+      "depth_m": 107.0
+    }
+  ]
+}

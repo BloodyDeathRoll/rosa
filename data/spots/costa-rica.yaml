@@ -76,3 +76,17 @@ spots:
   - { id: isla-uvita,         name: "Isla Uvita (Limón)", town: "Limón",     lat: 9.9946, lon: -83.0107, offshore_direction: 240, offshore_bearing: 91.7, offshore_km: 7.67, shore_normal: 91.7, swell_window: [2, 140], <<: *carib }  # sat-verified 2026-08-04 (island reef, boat access; pin on the island's exposed N shore)
   - { id: salsa-brava,        name: "Salsa Brava (Puerto Viejo)", town: "Cocles", lat: 9.6598, lon: -82.7447, offshore_direction: 235, offshore_bearing: 91.8, offshore_km: 5.96, shore_normal: 91.8, swell_window: [2, 105], <<: *carib }  # sat-verified 2026-08-15 (heavy shallow reef)
   - { id: playa-cocles,       name: "Playa Cocles", town: "Cocles",           lat: 9.6454, lon: -82.7237, offshore_direction: 240, offshore_bearing: 99.4, offshore_km: 5.97, break_type: beach, shore_normal: 99.4, <<: *carib }  # sat-verified 2026-08-15
+
+  # ==== SEEDED 2026-11-12 - gap batch 4, 9 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap4-centralam/). North to south.
+  - { id: playa-langosta, name: "Playa Langosta", town: "Langosta", lat: 10.2848, lon: -85.8509, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: rivermouth, <<: *pac }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: playa-junquillal, name: "Playa Junquillal", town: "Junquillal", lat: 10.1593, lon: -85.8083, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *pac }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: playa-lagarto, name: "Playa Lagarto", town: "Lagarto", lat: 10.1215, lon: -85.7952, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: beach, <<: *pac }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: playa-nosara, name: "Playa Nosara", town: "Santa Marta", lat: 9.9777, lon: -85.6881, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *pac }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: playa-tivives, name: "Playa Tivives", town: "Tivives", lat: 9.8769, lon: -84.7088, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, break_type: beach, <<: *pac }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: playa-caletas, name: "Playa Caletas", town: "Caletas", lat: 9.7565, lon: -85.2630, offshore_direction: 25, shore_normal: 175, swell_window: [140, 270], offshore_km: 5.0, break_type: beach, <<: *pac }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: playa-carmen, name: "Playa Carmen", town: "Carmen", lat: 9.6255, lon: -85.1515, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *pac }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: playa-palo-seco, name: "Playa Palo Seco", town: "Palo Seco", lat: 9.4836, lon: -84.2922, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: beach, <<: *pac }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: dominicalito, name: "Dominicalito", town: "Dominicalito", lat: 9.2342, lon: -83.8444, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, break_type: beach, <<: *pac }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

@@ -1,0 +1,72 @@
+{
+  "spot": "tanjung-sari",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -8.6889,
+    115.2701
+  ],
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 255.0,
+  "mean_slope_m_per_km": 13.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.69019,
+      "lon": 115.27196,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.69148,
+      "lon": 115.27383,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.69406,
+      "lon": 115.27755,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.69922,
+      "lon": 115.28501,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.70437,
+      "lon": 115.29246,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.71469,
+      "lon": 115.30736,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.73016,
+      "lon": 115.32973,
+      "depth_m": 122.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.75079,
+      "lon": 115.35954,
+      "depth_m": 141.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.78173,
+      "lon": 115.40428,
+      "depth_m": 255.0
+    }
+  ]
+}

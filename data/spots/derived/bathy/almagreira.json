@@ -1,0 +1,72 @@
+{
+  "spot": "almagreira",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.379,
+    -9.314
+  ],
+  "bearing_seaward_deg": 340.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 131.0,
+  "mean_slope_m_per_km": 7.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.38111,
+      "lon": -9.31499,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.38323,
+      "lon": -9.31599,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.38745,
+      "lon": -9.31798,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.3959,
+      "lon": -9.32196,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.40435,
+      "lon": -9.32594,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.42125,
+      "lon": -9.33391,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.4466,
+      "lon": -9.34587,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.4804,
+      "lon": -9.36182,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.53109,
+      "lon": -9.38578,
+      "depth_m": 131.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "playa-guasacate",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.4674,
+    -86.1199
+  ],
+  "bearing_seaward_deg": 215.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 70.0,
+  "mean_slope_m_per_km": 3.83,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.46556,
+      "lon": -86.12122,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.46372,
+      "lon": -86.12253,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.46003,
+      "lon": -86.12516,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.45267,
+      "lon": -86.13043,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.4453,
+      "lon": -86.13569,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.43056,
+      "lon": -86.14621,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.40846,
+      "lon": -86.162,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.37899,
+      "lon": -86.18304,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.33478,
+      "lon": -86.2146,
+      "depth_m": 70.0
+    }
+  ]
+}

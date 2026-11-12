@@ -1,0 +1,72 @@
+{
+  "spot": "playa-el-toro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    7.5297,
+    -80.0025
+  ],
+  "bearing_seaward_deg": 70.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 81.0,
+  "mean_slope_m_per_km": 5.35,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 7.53047,
+      "lon": -80.00037,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 7.53124,
+      "lon": -79.99824,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 7.53278,
+      "lon": -79.99398,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 7.53585,
+      "lon": -79.98545,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 7.53893,
+      "lon": -79.97693,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 7.54508,
+      "lon": -79.95988,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 7.5543,
+      "lon": -79.9343,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 7.5666,
+      "lon": -79.9002,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 7.58504,
+      "lon": -79.84904,
+      "depth_m": 81.0
+    }
+  ]
+}

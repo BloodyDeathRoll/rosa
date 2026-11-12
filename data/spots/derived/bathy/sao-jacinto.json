@@ -1,0 +1,72 @@
+{
+  "spot": "sao-jacinto",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.6763,
+    -8.7472
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 2.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.67669,
+      "lon": -8.75012,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.67708,
+      "lon": -8.75304,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.67786,
+      "lon": -8.75888,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.67942,
+      "lon": -8.77056,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.68098,
+      "lon": -8.78224,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.68409,
+      "lon": -8.8056,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.68876,
+      "lon": -8.84064,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.69496,
+      "lon": -8.88737,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.70422,
+      "lon": -8.95749,
+      "depth_m": 54.0
+    }
+  ]
+}

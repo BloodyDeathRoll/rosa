@@ -1,0 +1,72 @@
+{
+  "spot": "punta-blanca-tenerife",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.213,
+    -16.8381
+  ],
+  "bearing_seaward_deg": 260.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 348.0,
+  "mean_slope_m_per_km": 18.93,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.21261,
+      "lon": -16.84061,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.21222,
+      "lon": -16.84313,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.21144,
+      "lon": -16.84815,
+      "depth_m": 136.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.20988,
+      "lon": -16.8582,
+      "depth_m": 417.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.20831,
+      "lon": -16.86825,
+      "depth_m": 674.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.20518,
+      "lon": -16.88835,
+      "depth_m": 921.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.20048,
+      "lon": -16.9185,
+      "depth_m": 1153.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.19421,
+      "lon": -16.95869,
+      "depth_m": 768.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.18477,
+      "lon": -17.01896,
+      "depth_m": 348.0
+    }
+  ]
+}

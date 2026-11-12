@@ -1,0 +1,72 @@
+{
+  "spot": "centinela-huacho",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -11.0655,
+    -77.637
+  ],
+  "bearing_seaward_deg": 285.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 94.0,
+  "mean_slope_m_per_km": 5.92,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -11.06492,
+      "lon": -77.63921,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -11.06434,
+      "lon": -77.64143,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -11.06317,
+      "lon": -77.64585,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -11.06084,
+      "lon": -77.6547,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -11.05852,
+      "lon": -77.66355,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -11.05386,
+      "lon": -77.68125,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -11.04687,
+      "lon": -77.70781,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -11.03755,
+      "lon": -77.74321,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -11.02356,
+      "lon": -77.7963,
+      "depth_m": 94.0
+    }
+  ]
+}

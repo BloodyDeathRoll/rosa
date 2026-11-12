@@ -1,0 +1,72 @@
+{
+  "spot": "punta-del-tigre",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.078,
+    -14.5032
+  ],
+  "bearing_seaward_deg": 275.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 857.0,
+  "mean_slope_m_per_km": 47.77,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.0782,
+      "lon": -14.50574,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.07839,
+      "lon": -14.50828,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.07878,
+      "lon": -14.51335,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.07957,
+      "lon": -14.52351,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.08035,
+      "lon": -14.53366,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.08191,
+      "lon": -14.55397,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.08425,
+      "lon": -14.58444,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.08735,
+      "lon": -14.62506,
+      "depth_m": 511.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.09199,
+      "lon": -14.686,
+      "depth_m": 857.0
+    }
+  ]
+}

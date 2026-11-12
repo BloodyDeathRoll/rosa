@@ -1,0 +1,72 @@
+{
+  "spot": "pasamayito",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -12.8062,
+    -76.5652
+  ],
+  "bearing_seaward_deg": 220.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 115.0,
+  "mean_slope_m_per_km": 6.65,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.80792,
+      "lon": -76.56668,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.80964,
+      "lon": -76.56816,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.81309,
+      "lon": -76.57113,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.81998,
+      "lon": -76.57706,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.82687,
+      "lon": -76.58299,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.84064,
+      "lon": -76.59484,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -12.86131,
+      "lon": -76.61264,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -12.88886,
+      "lon": -76.63636,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -12.93018,
+      "lon": -76.67196,
+      "depth_m": 115.0
+    }
+  ]
+}

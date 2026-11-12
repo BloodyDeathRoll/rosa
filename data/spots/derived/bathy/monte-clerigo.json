@@ -1,0 +1,72 @@
+{
+  "spot": "monte-clerigo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.342,
+    -8.8539
+  ],
+  "bearing_seaward_deg": 300.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 191.0,
+  "mean_slope_m_per_km": 10.42,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.34312,
+      "lon": -8.85635,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.34425,
+      "lon": -8.8588,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.3465,
+      "lon": -8.8637,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.35099,
+      "lon": -8.87349,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.35549,
+      "lon": -8.88329,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.36447,
+      "lon": -8.9029,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.37795,
+      "lon": -8.93231,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.3959,
+      "lon": -8.97154,
+      "depth_m": 133.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.42281,
+      "lon": -9.03042,
+      "depth_m": 191.0
+    }
+  ]
+}

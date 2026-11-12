@@ -1,0 +1,72 @@
+{
+  "spot": "brighton-beach-durban",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -29.9409,
+    31.006
+  ],
+  "bearing_seaward_deg": 132.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 434.0,
+  "mean_slope_m_per_km": 24.06,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -29.9424,
+      "lon": 31.00793,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -29.94391,
+      "lon": 31.00986,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -29.94692,
+      "lon": 31.01371,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -29.95293,
+      "lon": 31.02143,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -29.95895,
+      "lon": 31.02914,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -29.97098,
+      "lon": 31.04457,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -29.98903,
+      "lon": 31.06773,
+      "depth_m": 114.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.01308,
+      "lon": 31.09862,
+      "depth_m": 243.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.04914,
+      "lon": 31.14498,
+      "depth_m": 434.0
+    }
+  ]
+}

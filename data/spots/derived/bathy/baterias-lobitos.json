@@ -1,0 +1,72 @@
+{
+  "spot": "baterias-lobitos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -4.4583,
+    -81.2989
+  ],
+  "bearing_seaward_deg": 340.0,
+  "nearshore_depth_m": 43.0,
+  "offshore_depth_m": 269.0,
+  "mean_slope_m_per_km": 12.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -4.45619,
+      "lon": -81.29967,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -4.45407,
+      "lon": -81.30044,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -4.44985,
+      "lon": -81.30199,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -4.4414,
+      "lon": -81.30507,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -4.43295,
+      "lon": -81.30816,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -4.41605,
+      "lon": -81.31433,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -4.39069,
+      "lon": -81.32358,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -4.35689,
+      "lon": -81.33592,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -4.30618,
+      "lon": -81.35442,
+      "depth_m": 269.0
+    }
+  ]
+}

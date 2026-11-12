@@ -1,0 +1,72 @@
+{
+  "spot": "surf-bay-stanley",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -51.6955,
+    -57.7775
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 131.0,
+  "mean_slope_m_per_km": 7.49,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -51.69589,
+      "lon": -57.77393,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -51.69628,
+      "lon": -57.77036,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -51.69706,
+      "lon": -57.76321,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -51.69862,
+      "lon": -57.74892,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -51.70018,
+      "lon": -57.73463,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -51.70329,
+      "lon": -57.70605,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -51.70794,
+      "lon": -57.66316,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -51.71411,
+      "lon": -57.60597,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -51.72333,
+      "lon": -57.52015,
+      "depth_m": 131.0
+    }
+  ]
+}

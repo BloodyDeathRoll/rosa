@@ -1,0 +1,72 @@
+{
+  "spot": "praia-do-rincao",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -28.8344,
+    -49.2286
+  ],
+  "bearing_seaward_deg": 145.0,
+  "nearshore_depth_m": 46.0,
+  "offshore_depth_m": 36.0,
+  "mean_slope_m_per_km": -0.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 5,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.83624,
+      "lon": -49.22713,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.83808,
+      "lon": -49.22566,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.84177,
+      "lon": -49.22271,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.84913,
+      "lon": -49.21682,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.8565,
+      "lon": -49.21093,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.87123,
+      "lon": -49.19915,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.89333,
+      "lon": -49.18147,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.92278,
+      "lon": -49.15788,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.96696,
+      "lon": -49.12247,
+      "depth_m": 36.0
+    }
+  ]
+}

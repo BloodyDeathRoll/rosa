@@ -1,0 +1,72 @@
+{
+  "spot": "piscinas-lobitos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -4.4459,
+    -81.2766
+  ],
+  "bearing_seaward_deg": 300.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 1000.0,
+  "mean_slope_m_per_km": 56.51,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -4.44478,
+      "lon": -81.27855,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -4.44365,
+      "lon": -81.28051,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -4.4414,
+      "lon": -81.28441,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -4.43691,
+      "lon": -81.29222,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -4.43241,
+      "lon": -81.30004,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -4.42342,
+      "lon": -81.31566,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -4.40992,
+      "lon": -81.33909,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -4.39193,
+      "lon": -81.37034,
+      "depth_m": 192.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -4.36495,
+      "lon": -81.4172,
+      "depth_m": 1000.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "narigama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    6.1192,
+    80.1147
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 71.0,
+  "mean_slope_m_per_km": 4.68,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.11761,
+      "lon": 80.1131,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.11602,
+      "lon": 80.1115,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.11284,
+      "lon": 80.1083,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 6.10648,
+      "lon": 80.10191,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 6.10012,
+      "lon": 80.09551,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.0874,
+      "lon": 80.08272,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 6.06832,
+      "lon": 80.06354,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 6.04288,
+      "lon": 80.03796,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 6.00472,
+      "lon": 79.9996,
+      "depth_m": 71.0
+    }
+  ]
+}

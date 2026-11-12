@@ -1,0 +1,72 @@
+{
+  "spot": "cantamar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.2231,
+    -116.9217
+  ],
+  "bearing_seaward_deg": 250.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 101.0,
+  "mean_slope_m_per_km": 6.31,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.22233,
+      "lon": -116.9242,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.22156,
+      "lon": -116.92669,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.22002,
+      "lon": -116.93169,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.21695,
+      "lon": -116.94168,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.21387,
+      "lon": -116.95167,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.20771,
+      "lon": -116.97164,
+      "depth_m": 164.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.19847,
+      "lon": -117.00159,
+      "depth_m": 273.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.18613,
+      "lon": -117.04152,
+      "depth_m": 262.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.16761,
+      "lon": -117.1014,
+      "depth_m": 101.0
+    }
+  ]
+}

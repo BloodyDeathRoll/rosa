@@ -1,0 +1,72 @@
+{
+  "spot": "dominicalito",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    9.2342,
+    -83.8444
+  ],
+  "bearing_seaward_deg": 240.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 94.0,
+  "mean_slope_m_per_km": 4.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.23308,
+      "lon": -83.84637,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.23195,
+      "lon": -83.84835,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.2297,
+      "lon": -83.85229,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.22521,
+      "lon": -83.86018,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.22071,
+      "lon": -83.86807,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.21171,
+      "lon": -83.88385,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.19822,
+      "lon": -83.90752,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.18023,
+      "lon": -83.93907,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.15323,
+      "lon": -83.9864,
+      "depth_m": 94.0
+    }
+  ]
+}

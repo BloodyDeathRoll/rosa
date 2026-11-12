@@ -1,0 +1,72 @@
+{
+  "spot": "vale-figueiras",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.2472,
+    -8.8697
+  ],
+  "bearing_seaward_deg": 285.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 146.0,
+  "mean_slope_m_per_km": 7.83,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.24778,
+      "lon": -8.87243,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.24836,
+      "lon": -8.87516,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.24953,
+      "lon": -8.88061,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.25185,
+      "lon": -8.89153,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.25418,
+      "lon": -8.90244,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.25883,
+      "lon": -8.92427,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.26579,
+      "lon": -8.95702,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.27506,
+      "lon": -9.0007,
+      "depth_m": 110.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.28893,
+      "lon": -9.06624,
+      "depth_m": 146.0
+    }
+  ]
+}

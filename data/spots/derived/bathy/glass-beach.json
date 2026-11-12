@@ -1,0 +1,72 @@
+{
+  "spot": "glass-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.6876,
+    -13.8305
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 1178.0,
+  "mean_slope_m_per_km": 65.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.6876,
+      "lon": -13.82794,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.6876,
+      "lon": -13.82537,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.6876,
+      "lon": -13.82025,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.6876,
+      "lon": -13.81,
+      "depth_m": 126.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.6876,
+      "lon": -13.79975,
+      "depth_m": 460.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.68759,
+      "lon": -13.77924,
+      "depth_m": 656.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.68758,
+      "lon": -13.74849,
+      "depth_m": 892.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.68754,
+      "lon": -13.70748,
+      "depth_m": 1046.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.68747,
+      "lon": -13.64597,
+      "depth_m": 1178.0
+    }
+  ]
+}

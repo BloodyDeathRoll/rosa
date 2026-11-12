@@ -1,0 +1,72 @@
+{
+  "spot": "sao-pedro-de-moel",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.7542,
+    -9.0346
+  ],
+  "bearing_seaward_deg": 285.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 103.0,
+  "mean_slope_m_per_km": 5.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.75478,
+      "lon": -9.03742,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.75536,
+      "lon": -9.04025,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.75653,
+      "lon": -9.0459,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.75885,
+      "lon": -9.0572,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.76118,
+      "lon": -9.0685,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.76582,
+      "lon": -9.09111,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.77279,
+      "lon": -9.12502,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.78205,
+      "lon": -9.17025,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.79592,
+      "lon": -9.23811,
+      "depth_m": 103.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "la-pared-fuerteventura",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.2181,
+    -14.2216
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 1238.0,
+  "mean_slope_m_per_km": 69.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.21849,
+      "lon": -14.22411,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.21888,
+      "lon": -14.22663,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.21966,
+      "lon": -14.23165,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.22122,
+      "lon": -14.2417,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.22278,
+      "lon": -14.25175,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.2259,
+      "lon": -14.27186,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.23057,
+      "lon": -14.30202,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.23679,
+      "lon": -14.34223,
+      "depth_m": 689.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.24609,
+      "lon": -14.40257,
+      "depth_m": 1238.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "calafia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.268,
+    -117.0193
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": 33.0,
+  "offshore_depth_m": 108.0,
+  "mean_slope_m_per_km": 4.23,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.26589,
+      "lon": -117.02021,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.26377,
+      "lon": -117.02112,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.25955,
+      "lon": -117.02294,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.2511,
+      "lon": -117.02657,
+      "depth_m": 113.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.24265,
+      "lon": -117.03021,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.22574,
+      "lon": -117.03748,
+      "depth_m": 179.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.20039,
+      "lon": -117.04838,
+      "depth_m": 198.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.16658,
+      "lon": -117.0629,
+      "depth_m": 196.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.11587,
+      "lon": -117.08467,
+      "depth_m": 108.0
+    }
+  ]
+}

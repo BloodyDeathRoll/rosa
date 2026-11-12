@@ -1,0 +1,72 @@
+{
+  "spot": "punta-brava",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    7.6151,
+    -81.2397
+  ],
+  "bearing_seaward_deg": 210.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 53.0,
+  "mean_slope_m_per_km": 2.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 7.61315,
+      "lon": -81.24083,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 7.61121,
+      "lon": -81.24197,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 7.60731,
+      "lon": -81.24424,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 7.59952,
+      "lon": -81.24877,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 7.59173,
+      "lon": -81.25331,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 7.57616,
+      "lon": -81.26238,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 7.55279,
+      "lon": -81.27599,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 7.52164,
+      "lon": -81.29413,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 7.4749,
+      "lon": -81.32133,
+      "depth_m": 53.0
+    }
+  ]
+}

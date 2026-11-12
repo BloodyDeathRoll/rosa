@@ -1,0 +1,72 @@
+{
+  "spot": "playa-morrillo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    7.4906,
+    -80.9551
+  ],
+  "bearing_seaward_deg": 205.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 70.0,
+  "mean_slope_m_per_km": 3.66,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 7.48856,
+      "lon": -80.95606,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 7.48652,
+      "lon": -80.95702,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 7.48245,
+      "lon": -80.95893,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 7.4743,
+      "lon": -80.96277,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 7.46615,
+      "lon": -80.9666,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 7.44985,
+      "lon": -80.97427,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 7.42539,
+      "lon": -80.98576,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 7.39279,
+      "lon": -81.00109,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 7.34388,
+      "lon": -81.02408,
+      "depth_m": 70.0
+    }
+  ]
+}

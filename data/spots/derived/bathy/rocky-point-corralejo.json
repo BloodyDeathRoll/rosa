@@ -1,0 +1,72 @@
+{
+  "spot": "rocky-point-corralejo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.732,
+    -13.8575
+  ],
+  "bearing_seaward_deg": 40.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 278.0,
+  "mean_slope_m_per_km": 15.49,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.73372,
+      "lon": -13.85585,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.73544,
+      "lon": -13.8542,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.73889,
+      "lon": -13.85091,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.74578,
+      "lon": -13.84431,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.75267,
+      "lon": -13.83772,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.76644,
+      "lon": -13.82453,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.7871,
+      "lon": -13.80473,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.81465,
+      "lon": -13.77833,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.85595,
+      "lon": -13.7387,
+      "depth_m": 278.0
+    }
+  ]
+}

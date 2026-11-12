@@ -1,0 +1,72 @@
+{
+  "spot": "el-rancho",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    17.9105,
+    -101.8639
+  ],
+  "bearing_seaward_deg": 195.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 932.0,
+  "mean_slope_m_per_km": 52.79,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 17.90833,
+      "lon": -101.86451,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 17.90616,
+      "lon": -101.86512,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 17.90181,
+      "lon": -101.86635,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 17.89313,
+      "lon": -101.86879,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 17.88444,
+      "lon": -101.87124,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 17.86707,
+      "lon": -101.87613,
+      "depth_m": 195.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 17.841,
+      "lon": -101.88346,
+      "depth_m": 433.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.80626,
+      "lon": -101.89324,
+      "depth_m": 481.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.75413,
+      "lon": -101.90789,
+      "depth_m": 932.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "nunggalan",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -8.8454,
+    115.1098
+  ],
+  "bearing_seaward_deg": 195.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 1328.0,
+  "mean_slope_m_per_km": 74.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.84757,
+      "lon": 115.10921,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.84974,
+      "lon": 115.10862,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.85409,
+      "lon": 115.10744,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.86277,
+      "lon": 115.10509,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.87146,
+      "lon": 115.10273,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.88883,
+      "lon": 115.09802,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.91489,
+      "lon": 115.09095,
+      "depth_m": 234.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.94964,
+      "lon": 115.08152,
+      "depth_m": 607.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.00176,
+      "lon": 115.06738,
+      "depth_m": 1328.0
+    }
+  ]
+}

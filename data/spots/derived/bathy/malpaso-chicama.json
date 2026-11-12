@@ -1,0 +1,72 @@
+{
+  "spot": "malpaso-chicama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -7.711,
+    -79.4684
+  ],
+  "bearing_seaward_deg": 245.0,
+  "nearshore_depth_m": -19.0,
+  "offshore_depth_m": 82.0,
+  "mean_slope_m_per_km": 5.69,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -7.71195,
+      "lon": -79.47046,
+      "depth_m": -19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -7.7129,
+      "lon": -79.47251,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -7.7148,
+      "lon": -79.47663,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -7.7186,
+      "lon": -79.48485,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -7.7224,
+      "lon": -79.49308,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -7.73,
+      "lon": -79.50953,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -7.7414,
+      "lon": -79.5342,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -7.7566,
+      "lon": -79.56711,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -7.77939,
+      "lon": -79.61647,
+      "depth_m": 82.0
+    }
+  ]
+}

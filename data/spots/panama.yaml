@@ -48,3 +48,15 @@ spots:
   - { id: playa-venao, name: "Playa Venao", town: "Pedasí", lat: 7.4321, lon: -80.1929, offshore_direction: 6, swell_window: [121, 251], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
   - { id: playa-guanico, name: "Playa Guánico", town: "Guanico Abajo", lat: 7.2743, lon: -80.4166, offshore_direction: 354, swell_window: [109, 239], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
   - { id: playa-cambutal, name: "Playa Cambutal", town: "Cambutal", lat: 7.2492, lon: -80.5036, offshore_direction: 47, swell_window: [162, 292], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch 4, 7 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap4-centralam/). North to south.
+  - { id: silverbacks, name: "Silverbacks", town: "Old Bank", lat: 9.3615, lon: -82.2032, offshore_direction: 165, swell_window: [280, 50], offshore_km: 5.0, break_type: reef, <<: *pa }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.8)
+  - { id: playa-serena-coronado, name: "Playa Serena", town: "Coronado", lat: 8.5222, lon: -79.8991, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: beach, <<: *pa }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: punta-burica, name: "Punta Burica", town: "Bella Vista", lat: 8.0310, lon: -82.8705, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, break_type: reef, <<: *pa }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: punta-brava, name: "Punta Brava", town: "Santa Catalina", lat: 7.6151, lon: -81.2397, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, break_type: point, <<: *pa }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: playa-el-toro, name: "Playa El Toro", town: "Pedasí", lat: 7.5297, lon: -80.0025, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, break_type: beach, <<: *pa }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: playa-morrillo, name: "Playa Morrillo", town: "Morrillo", lat: 7.4906, lon: -80.9551, offshore_direction: 25, swell_window: [140, 270], offshore_km: 5.0, break_type: beach, <<: *pa }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: punta-mala, name: "Punta Mala", town: "Punta Mala", lat: 7.4679, lon: -79.9997, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *pa }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

@@ -1,0 +1,72 @@
+{
+  "spot": "furadouro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.875,
+    -8.6774
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 48.0,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.87539,
+      "lon": -8.68033,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.87578,
+      "lon": -8.68326,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.87656,
+      "lon": -8.68911,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.87812,
+      "lon": -8.70083,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.87968,
+      "lon": -8.71254,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.88279,
+      "lon": -8.73597,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.88746,
+      "lon": -8.77112,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.89365,
+      "lon": -8.81799,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.90292,
+      "lon": -8.88832,
+      "depth_m": 48.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "barra-aveiro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.6366,
+    -8.7513
+  ],
+  "bearing_seaward_deg": 275.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 58.0,
+  "mean_slope_m_per_km": 2.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.6368,
+      "lon": -8.75425,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.63699,
+      "lon": -8.7572,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.63738,
+      "lon": -8.76311,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.63817,
+      "lon": -8.77491,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.63895,
+      "lon": -8.78672,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.6405,
+      "lon": -8.81033,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.64283,
+      "lon": -8.84576,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.64592,
+      "lon": -8.89299,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.65051,
+      "lon": -8.96385,
+      "depth_m": 58.0
+    }
+  ]
+}
