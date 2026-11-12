@@ -1,0 +1,72 @@
+{
+  "spot": "tarkwa-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    6.3999,
+    3.3966
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.39878,
+      "lon": 3.39856,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.39765,
+      "lon": 3.40052,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.3954,
+      "lon": 3.40444,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 6.39091,
+      "lon": 3.41227,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 6.38641,
+      "lon": 3.42011,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.37742,
+      "lon": 3.43578,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 6.36392,
+      "lon": 3.45929,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 6.34593,
+      "lon": 3.49064,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 6.31894,
+      "lon": 3.53765,
+      "depth_m": 34.0
+    }
+  ]
+}

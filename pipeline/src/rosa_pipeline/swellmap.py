@@ -144,7 +144,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     # Faroes, ~300 km north of Lewis, see the same swell train
     "scotland-west": ("Scotland West", "Faroe Islands"),
     # Lofoten, above the Arctic Circle: Norwegian Sea swell, ~1,000 km north of Jaeren
-    "lofoten": ("Lofoten",),
+    # Bleik on Andoya (Norway North) is 120 km up the same coast
+    "lofoten": ("Lofoten", "Norway North"),
     # Iceland, mid North Atlantic: every coast faces open ocean, its own frame
     "iceland": ("Iceland",),
     # the Azores, mid North Atlantic 1,400 km west of Lisbon: every coast faces open ocean and
@@ -192,7 +193,16 @@ BASINS: dict[str, tuple[str, ...]] = {
     # the West African Atlantic: the same NW groundswell that lights Morocco, arriving
     # smaller and from further north; Cape Verde sits in the same frame
     # Liberia (Robertsport, Monrovia) sits between Senegal and Ghana on the same coast
-    "west-africa": ("Senegal", "Cape Verde", "Ghana", "Liberia"),
+    # Sierra Leone, Ivory Coast and Lagos (seeded 2026-11-12) fill the same coast
+    "west-africa": (
+        "Senegal",
+        "Cape Verde",
+        "Ghana",
+        "Liberia",
+        "Sierra Leone",
+        "Ivory Coast",
+        "Nigeria",
+    ),
     # the south-west Indian Ocean: Southern Ocean groundswell up the South African
     # coast into Mozambique, and the monsoon swell on the equatorial reefs; Reunion sits
     # 200 km west of Mauritius in the same frame
@@ -230,7 +240,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     # the Gulf of Mexico: local windswell off winter fronts and tropical-storm swell; the
     # Florida panhandle, the Gulf side of the peninsula and the Texas coast share one closed basin
     "gulf-of-mexico": ("Florida Panhandle", "Florida Gulf", "Texas"),
-    "angola": ("Angola",),
+    # Pointe-Noire and Sao Tome (seeded 2026-11-12) take the same SW swell further up the coast
+    "angola": ("Angola", "Congo", "Sao Tome"),
     # the south-east Atlantic: Southern Ocean SW groundswell up the Cape and Namibian
     # coasts, Cape Agulhas round to the Kunene, between Angola's frame and east-africa's
     "southwest-africa": ("South Africa West", "Namibia"),
@@ -291,6 +302,10 @@ BASINS: dict[str, tuple[str, ...]] = {
         "Byron Bay",
         "Gold Coast",
         "Sunshine Coast",
+        # Moreton Bay islands and Queensland Central (Double Island Point to Yeppoon),
+        # seeded 2026-11-12
+        "Moreton Bay",
+        "Queensland Central",
         "NSW Mid North Coast",
         "NSW South Coast",
         "NSW Central Coast",

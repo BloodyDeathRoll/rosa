@@ -1,0 +1,72 @@
+{
+  "spot": "kemp-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.1718,
+    150.7921
+  ],
+  "bearing_seaward_deg": 55.0,
+  "nearshore_depth_m": 19.0,
+  "offshore_depth_m": 5.0,
+  "mean_slope_m_per_km": -0.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 4,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.17051,
+      "lon": 150.7941,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.16922,
+      "lon": 150.79611,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.16664,
+      "lon": 150.80011,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.16148,
+      "lon": 150.80813,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.15632,
+      "lon": 150.81614,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.146,
+      "lon": 150.83216,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.13052,
+      "lon": 150.85619,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.10987,
+      "lon": 150.88821,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.07889,
+      "lon": 150.93624,
+      "depth_m": 5.0
+    }
+  ]
+}

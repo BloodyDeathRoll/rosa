@@ -1,0 +1,72 @@
+{
+  "spot": "lighthouse-beach-lagos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    6.3937,
+    3.3921
+  ],
+  "bearing_seaward_deg": 190.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 66.0,
+  "mean_slope_m_per_km": 3.04,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.39149,
+      "lon": 3.39171,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.38927,
+      "lon": 3.39131,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.38484,
+      "lon": 3.39053,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 6.37599,
+      "lon": 3.38896,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 6.36713,
+      "lon": 3.38739,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.34942,
+      "lon": 3.38424,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 6.32285,
+      "lon": 3.37953,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 6.28742,
+      "lon": 3.37325,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 6.23428,
+      "lon": 3.36382,
+      "depth_m": 66.0
+    }
+  ]
+}

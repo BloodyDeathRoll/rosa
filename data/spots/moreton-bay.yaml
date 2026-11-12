@@ -1,0 +1,25 @@
+# Rosa spot database - Moreton Bay islands (seeded 2026-11-12). North Stradbroke (Point Lookout), Moreton and Bribie,
+# the sand islands off Brisbane between the Gold Coast and the Sunshine Coast: open E-SE Coral Sea swell on the
+# ocean beaches, N-facing points on big swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Australia"
+
+defaults: &mb
+  timezone: Australia/Brisbane
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [330, 100]
+  ideal:
+    wind_dir: [170, 260]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - moreton-bay, 4 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: moreton-north-point, name: "North Point (Moreton Island)", town: "Bulwer", lat: -27.0218, lon: 153.4532, offshore_direction: 150, swell_window: [265, 35], offshore_km: 5.0, break_type: point, <<: *mb }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: woorim, name: "Woorim", town: "Woorim", lat: -27.0700, lon: 153.2059, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, break_type: beach, <<: *mb }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: cylinder-beach, name: "Cylinder Beach", town: "Point Lookout", lat: -27.4249, lon: 153.5324, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, break_type: beach, <<: *mb }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: point-lookout-main-beach, name: "Main Beach (Point Lookout)", town: "Point Lookout", lat: -27.4378, lon: 153.5432, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, break_type: beach, <<: *mb }  # sat-verified 2026-11-12 (websearch-seeded)

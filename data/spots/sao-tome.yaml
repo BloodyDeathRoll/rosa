@@ -1,0 +1,21 @@
+# Rosa spot database - Sao Tome (seeded 2026-11-12). Porto Alegre's right point at the island's south tip.
+# S-SW South Atlantic swell, best Jun-Sep.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Sao Tome and Principe"
+
+defaults: &st
+  timezone: Africa/Sao_Tome
+  height_coeff: 1.0
+  break_type: point
+  swell_window: [45, 175]
+  ideal:
+    wind_dir: [245, 335]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - sao-tome, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: porto-alegre, name: "Porto Alegre", town: "Porto Alegre", lat: 0.0348, lon: 6.5366, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, break_type: point, <<: *st }  # sat-verified 2026-11-12 (osm-seeded)

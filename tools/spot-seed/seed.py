@@ -167,6 +167,10 @@ REGIONS = {
     # Sunshine Coast: Caloundra up through Alexandra Headland, Coolum and Peregian to
     # Noosa's points
     "sunshine-coast": (-26.85, 152.95, -26.35, 153.20),
+    # Moreton Bay islands: Point Lookout (North Stradbroke), Moreton North Point, Woorim (Bribie)
+    "moreton-bay": (-27.50, 153.15, -27.00, 153.60),
+    # Queensland Central: Double Island Point, Bargara, Agnes Water, the Capricorn Coast
+    "queensland-central": (-26.00, 150.70, -23.00, 153.25),
     # Victoria's Bass Strait surf: the Surf Coast from Lorne through Bells and Torquay,
     # the Mornington Peninsula back beaches and Phillip Island; Port Phillip Bay is inside
     # the box but bathy-prunes itself (enclosed water)
@@ -290,6 +294,16 @@ REGIONS = {
     "reunion": (-21.42, 55.18, -20.84, 55.86),
     # Liberia: Robertsport's points (Grand Cape Mount) south-east to Monrovia's beaches
     "liberia": (6.10, -11.55, 6.95, -10.55),
+    # Sierra Leone: the Freetown Peninsula (River No. 2, Bureh)
+    "sierra-leone": (8.10, -13.35, 8.50, -13.05),
+    # Ivory Coast: Sassandra (Grand Drewin) east to Assinie
+    "ivory-coast": (4.80, -6.30, 5.30, -3.10),
+    # Nigeria: the Lagos harbour mouth (Tarkwa Bay, Lighthouse Beach)
+    "nigeria": (6.35, 3.30, 6.45, 3.50),
+    # Sao Tome: the island
+    "sao-tome": (-0.05, 6.40, 0.45, 6.80),
+    # Congo: Pointe-Noire
+    "congo": (-4.95, 11.70, -4.65, 11.95),
     # ---- the US east coast. Every box is Atlantic-facing only; bays, sounds and the
     # Gulf side are excluded, and each box is scoped to ONE state extract.
     # New York's ocean beaches: Rockaway and Long Beach west, the Fire Island barrier,
@@ -403,7 +417,10 @@ REGIONS = {
     "scotland-east": (55.85, -3.60, 57.75, -1.75),
     # Norway's south-west: Lista and Jaeren (Borestranda, Brusand, Point Perfect) north to
     # Stad (Hoddevik, Ervik). Lofoten is its own box.
-    "norway-south": (57.95, 4.80, 62.30, 7.20),
+    # Hustadvika (Farstadsanden) added 2026-11-12
+    "norway-south": (57.95, 4.80, 63.10, 7.30),
+    # Norway North: Bleik on Andoya
+    "norway-north": (69.20, 15.80, 69.35, 16.10),
     # Lofoten: Unstad, Flakstad, Skagsanden
     "lofoten": (67.85, 12.90, 68.45, 14.50),
     # Iceland: the whole island - Reykjanes (Sandvik, Grindavik, Hafnir, Gardur), Thorlakshofn,

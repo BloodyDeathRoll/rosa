@@ -1,4 +1,4 @@
-# Rosa spot database - Norway South: south-west Norway: Lista, Jaeren and Stad. North Sea and Norwegian Sea swell from the W-NW; offshore on an E wind.
+# Rosa spot database - Norway South: south-west Norway: Lista, Jaeren, Karmoy, Stad and Hustadvika. North Sea and Norwegian Sea swell from the W-NW; offshore on an E wind.
 # Every spot carries offshore_km along its own seaward normal.
 
 country: "Norway"
@@ -39,3 +39,9 @@ spots:
   - { id: ogna, name: "Ogna", town: "Ogna", lat: 58.5138, lon: 5.7947, offshore_direction: 84, swell_window: [199, 329], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: lista-fyr, name: "Lista Fyr", town: "Vestbygd", lat: 58.1080, lon: 6.5655, offshore_direction: 48, swell_window: [163, 293], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: havika, name: "Havika", town: "Farsund", lat: 58.0691, lon: 6.7128, offshore_direction: 11, swell_window: [126, 256], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - 3 more (web-search flow; coordinates from OSM / Nominatim / Photon, every pin
+  # rendered and judged at z16): Sele on Jaeren, Stavasanden on Karmoy, Farstadsanden on Hustadvika
+  - { id: farstadsanden, name: "Farstadsanden", town: "Farstad", lat: 62.9831, lon: 7.1533, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: stavasanden, name: "Stavasanden", town: "Åkrehamn", lat: 59.2327, lon: 5.1835, offshore_direction: 155, swell_window: [270, 40], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: sele, name: "Sele", town: "Sele", lat: 58.8133, lon: 5.5454, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-11-12 (websearch-seeded)

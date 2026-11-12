@@ -1,0 +1,72 @@
+{
+  "spot": "moreton-north-point",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -27.0218,
+    153.4532
+  ],
+  "bearing_seaward_deg": 330.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 49.0,
+  "mean_slope_m_per_km": 2.14,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -27.01985,
+      "lon": 153.45194,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -27.01791,
+      "lon": 153.45068,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -27.01401,
+      "lon": 153.44815,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -27.00622,
+      "lon": 153.44311,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -26.99843,
+      "lon": 153.43806,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -26.98286,
+      "lon": 153.42797,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -26.95949,
+      "lon": 153.41284,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -26.92833,
+      "lon": 153.39268,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -26.88158,
+      "lon": 153.36246,
+      "depth_m": 49.0
+    }
+  ]
+}

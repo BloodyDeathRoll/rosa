@@ -1,0 +1,23 @@
+# Rosa spot database - Ivory Coast (seeded 2026-11-12). Assinie and Assouinde east of Abidjan, Grand Drewin by Sassandra.
+# S-SW South Atlantic swell, Oct to May-June; heavy shorebreak on the open beaches.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Ivory Coast"
+
+defaults: &ci
+  timezone: Africa/Abidjan
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [102, 232]
+  ideal:
+    wind_dir: [302, 32]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - ivory-coast, 3 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: assouinde, name: "Assouinde (Badro Beach)", town: "Assouinde", lat: 5.1587, lon: -3.4727, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, break_type: beach, <<: *ci }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: assinie, name: "Assinie", town: "Assinie-Mafia", lat: 5.1278, lon: -3.2917, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: beach, <<: *ci }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: grand-drewin, name: "Grand Drewin", town: "Sassandra", lat: 4.9149, lon: -6.1478, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, break_type: point, <<: *ci }  # sat-verified 2026-11-12 (websearch-seeded)

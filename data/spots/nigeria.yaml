@@ -1,0 +1,22 @@
+# Rosa spot database - Nigeria (seeded 2026-11-12). Lagos: Tarkwa Bay behind the harbour mole and Lighthouse Beach beside it.
+# S-SW swell, cleanest on the Harmattan offshores.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Nigeria"
+
+defaults: &ng
+  timezone: Africa/Lagos
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [90, 220]
+  ideal:
+    wind_dir: [290, 20]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - nigeria, 2 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: tarkwa-bay, name: "Tarkwa Bay", town: "Lagos", lat: 6.3999, lon: 3.3966, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: beach, <<: *ng }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: lighthouse-beach-lagos, name: "Lighthouse Beach", town: "Lagos", lat: 6.3937, lon: 3.3921, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, break_type: beach, <<: *ng }  # sat-verified 2026-11-12 (websearch-seeded)

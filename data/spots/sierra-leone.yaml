@@ -1,0 +1,22 @@
+# Rosa spot database - Sierra Leone (seeded 2026-11-12). The Freetown Peninsula: Bureh Beach's left point and River No. 2.
+# SW South Atlantic swell, best Nov-Apr in the dry season.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Sierra Leone"
+
+defaults: &sl
+  timezone: Africa/Freetown
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [198, 328]
+  ideal:
+    wind_dir: [38, 128]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - sierra-leone, 2 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: river-no-2, name: "River No. 2", town: "Tokeh", lat: 8.3353, lon: -13.2055, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *sl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: bureh, name: "Bureh Beach", town: "Bureh Town", lat: 8.2029, lon: -13.1591, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, break_type: point, <<: *sl }  # sat-verified 2026-11-12 (osm-seeded)

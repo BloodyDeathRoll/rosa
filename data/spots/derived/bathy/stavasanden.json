@@ -1,0 +1,72 @@
+{
+  "spot": "stavasanden",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    59.2327,
+    5.1835
+  ],
+  "bearing_seaward_deg": 335.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 49.0,
+  "mean_slope_m_per_km": 2.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 59.23474,
+      "lon": 5.18164,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 59.23678,
+      "lon": 5.17978,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 59.24085,
+      "lon": 5.17607,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 59.249,
+      "lon": 5.16863,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 59.25715,
+      "lon": 5.16119,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 59.27345,
+      "lon": 5.14631,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 59.29789,
+      "lon": 5.12395,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 59.33048,
+      "lon": 5.09409,
+      "depth_m": 128.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 59.37934,
+      "lon": 5.04919,
+      "depth_m": 49.0
+    }
+  ]
+}

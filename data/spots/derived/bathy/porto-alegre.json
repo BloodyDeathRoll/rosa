@@ -1,0 +1,72 @@
+{
+  "spot": "porto-alegre",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    0.0348,
+    6.5366
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": 41.0,
+  "offshore_depth_m": 2223.0,
+  "mean_slope_m_per_km": 122.93,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 0.03403,
+      "lon": 6.53871,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 0.03326,
+      "lon": 6.54083,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 0.03172,
+      "lon": 6.54505,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 0.02865,
+      "lon": 6.5535,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 0.02557,
+      "lon": 6.56195,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 0.01942,
+      "lon": 6.57885,
+      "depth_m": 136.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 0.01019,
+      "lon": 6.60421,
+      "depth_m": 532.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -0.00211,
+      "lon": 6.63801,
+      "depth_m": 1170.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -0.02057,
+      "lon": 6.68872,
+      "depth_m": 2223.0
+    }
+  ]
+}

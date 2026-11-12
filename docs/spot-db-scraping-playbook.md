@@ -222,7 +222,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-11-12, DB = 4200 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-12, DB = 4227 spots, ALL sat-verified)
 
 **Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
 was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
@@ -322,6 +322,19 @@ pin re-read by the coordinator on contact sheets. 41 new region files: greece 17
   local extract plus the tile.
 - New basins: `gulf-of-oman`, `adriatic`, `greece`, `black-sea`, `bermuda`. Lebanon, Alanya and
   Alexandria joined `cyprus`; Provence and Corsica `tyrrhenian`; Languedoc `western-med`; Malta `sicily`.
+
+**Thin-coast pass: Queensland 11, Norway 4, West Africa 12 - 4200 -> 4227 (2026-11-12, cont.).**
+Three subagents (same web flow). Queensland north of the Sunshine Coast and west Norway: 22 returned,
+15 kept as queensland-central (Double Island Point, Bargara, Agnes Water, the Capricorn Coast),
+moreton-bay (Point Lookout, Moreton North Point, Woorim), norway-north (Bleik) and 3 appended to
+norway-south (Sele, Stavasanden, Farstadsanden). West Africa: 40 returned, 12 kept (sierra-leone,
+ivory-coast, nigeria, sao-tome, congo, 3 appended to ghana). The keep rule was confidence >= 0.65,
+so a name from one blog or a competitor listing does not enter; that left Gambia, Togo, Benin,
+Cameroon, Gabon, Mauritania and Guinea empty. Hand shore_normal on Kemp Beach (ray hit Great
+Keppel), Double Island Point (10 deg: 45 deg put the beach's offshore wind 90 deg off the ray and
+failed test_offshore_wind_comes_from_the_land) and Cape Three Points (headland). **New Zealand's
+subagent died on a usage limit** after 345 renders with no final list
+(tools/spot-seed/work/new-zealand/, chunk*.json) - NZ is still at 17 and is the next pass.
 
 **Gap queue (whole areas with zero spots, by box count 2026-11-12):** New Zealand is thin (17). Still
 empty: west Africa (Ivory Coast, Togo / Benin / Nigeria, Gabon, Sao Tome, Mauritania), Queensland north

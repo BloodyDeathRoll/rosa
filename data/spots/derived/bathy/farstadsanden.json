@@ -1,0 +1,72 @@
+{
+  "spot": "farstadsanden",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    62.9831,
+    7.1533
+  ],
+  "bearing_seaward_deg": 300.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 151.0,
+  "mean_slope_m_per_km": 8.51,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 62.98422,
+      "lon": 7.14901,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 62.98535,
+      "lon": 7.14473,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 62.9876,
+      "lon": 7.13615,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 62.99209,
+      "lon": 7.119,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 62.99658,
+      "lon": 7.10184,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 63.00556,
+      "lon": 7.06751,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 63.01901,
+      "lon": 7.01597,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 63.03691,
+      "lon": 6.94718,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 63.0637,
+      "lon": 6.84383,
+      "depth_m": 151.0
+    }
+  ]
+}

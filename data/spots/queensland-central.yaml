@@ -1,0 +1,28 @@
+# Rosa spot database - Queensland Central (seeded 2026-11-12). Double Island Point, Bargara, Agnes Water / 1770 and the
+# Capricorn Coast: SE trade swell and E-NE cyclone swell, shadowed by K'gari and the Great Barrier Reef north of
+# Double Island Point, so small and fickle from Bundaberg north. Agnes Water is the northernmost reliable surf.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Australia"
+
+defaults: &qc
+  timezone: Australia/Brisbane
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [355, 125]
+  ideal:
+    wind_dir: [195, 285]
+    size_m: [0.5, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - queensland-central, 7 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: farnborough, name: "Farnborough (Big Dune)", town: "Yeppoon", lat: -23.0749, lon: 150.7662, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, break_type: beach, <<: *qc }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: kemp-beach, name: "Kemp Beach", town: "Yeppoon", lat: -23.1718, lon: 150.7921, offshore_direction: 265, shore_normal: 55, swell_window: [350, 120], offshore_km: 5.0, break_type: beach, <<: *qc }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: emu-park, name: "Emu Park (Fishermans Beach)", town: "Emu Park", lat: -23.2612, lon: 150.8291, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *qc }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: agnes-water, name: "Agnes Water", town: "Agnes Water", lat: -24.2085, lon: 151.9084, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, break_type: point, <<: *qc }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: springs-beach, name: "Springs Beach", town: "Agnes Water", lat: -24.2306, lon: 151.9312, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, break_type: beach, <<: *qc }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: nielson-park, name: "Nielson Park", town: "Bargara", lat: -24.8058, lon: 152.4576, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: point, <<: *qc }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: double-island-point, name: "Double Island Point", town: "Rainbow Beach", lat: -25.9291, lon: 153.1825, offshore_direction: 135, shore_normal: 10, swell_window: [305, 75], offshore_km: 5.0, break_type: point, <<: *qc }  # sat-verified 2026-11-12 (websearch-seeded)

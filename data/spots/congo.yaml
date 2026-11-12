@@ -1,0 +1,20 @@
+# Rosa spot database - Congo (seeded 2026-11-12). Pointe-Noire's Cote Sauvage beach break. W-SW South Atlantic swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Republic of the Congo"
+
+defaults: &cg
+  timezone: Africa/Brazzaville
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [160, 290]
+  ideal:
+    wind_dir: [0, 90]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - congo, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: cote-sauvage, name: "Cote Sauvage", town: "Pointe-Noire", lat: -4.8159, lon: 11.8504, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *cg }  # sat-verified 2026-11-12 (osm-seeded)
