@@ -1,0 +1,72 @@
+{
+  "spot": "baltiysk",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.6595,
+    19.8905
+  ],
+  "bearing_seaward_deg": 299.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 2.99,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.66059,
+      "lon": 19.8871,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.66168,
+      "lon": 19.8837,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.66386,
+      "lon": 19.8769,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.66822,
+      "lon": 19.8633,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.67257,
+      "lon": 19.84969,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.68128,
+      "lon": 19.82247,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.69433,
+      "lon": 19.78162,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.71171,
+      "lon": 19.72711,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.73773,
+      "lon": 19.64526,
+      "depth_m": 57.0
+    }
+  ]
+}

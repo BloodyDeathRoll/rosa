@@ -63,3 +63,10 @@ spots:
   - { id: machrihanish, name: "Machrihanish", town: "Machrihanish", lat: 55.4273, lon: -5.7250, offshore_direction: 135, swell_window: [250, 20], offshore_km: 5.0, <<: *scw }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: dunaverty-bay, name: "Dunaverty Bay", town: "Southend", lat: 55.3105, lon: -5.6498, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, <<: *scw }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: carskiey-bay, name: "Carskiey Bay", town: "Southend", lat: 55.3073, lon: -5.6902, offshore_direction: 347, swell_window: [102, 232], offshore_km: 5.0, <<: *scw }  # sat-verified 2026-09-29 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch 3, 2 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap3-nordic/). North to south.
+  - { id: sollas, name: "Sollas", town: "North Uist", lat: 57.6628, lon: -7.3626, offshore_direction: 172, swell_window: [287, 57], offshore_km: 5.0, break_type: beach, <<: *scw }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: hosta, name: "Hosta", town: "North Uist", lat: 57.6267, lon: -7.5040, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, break_type: beach, <<: *scw }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)

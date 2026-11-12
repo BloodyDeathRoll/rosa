@@ -271,6 +271,8 @@ REGION_PBF = {
     "Sakhalin": "far-eastern-fed-district-latest",
     "Orkney and Shetland": "scotland-latest",
     "Marquesas": "french-polynesia",
+    "Estonia": "estonia-latest",
+    "Kaliningrad": "kaliningrad-latest",
 }
 
 

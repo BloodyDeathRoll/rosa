@@ -1,0 +1,72 @@
+{
+  "spot": "balka",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    55.0353,
+    15.1106
+  ],
+  "bearing_seaward_deg": 65.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 69.0,
+  "mean_slope_m_per_km": 3.77,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 55.03625,
+      "lon": 15.11416,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 55.0372,
+      "lon": 15.11771,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 55.0391,
+      "lon": 15.12482,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 55.0429,
+      "lon": 15.13905,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 55.04669,
+      "lon": 15.15328,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 55.05428,
+      "lon": 15.18175,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 55.06565,
+      "lon": 15.22447,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 55.08079,
+      "lon": 15.28147,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 55.10344,
+      "lon": 15.36704,
+      "depth_m": 69.0
+    }
+  ]
+}

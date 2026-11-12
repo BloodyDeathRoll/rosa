@@ -148,7 +148,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     "canaries": ("Canary Islands", "Madeira", "Dakhla", "Laayoune"),
     # the southern Baltic (seeded 2026-11-12): Poland, Lithuania, Latvia, W-N storm wind swell;
     # the North Sea frame would have to stretch 900 km east over Denmark and Sweden
-    "baltic": ("Poland", "Lithuania", "Latvia"),
+    # Kaliningrad and Hiiumaa (seeded 2026-11-12, batch 3) on the same southern Baltic
+    "baltic": ("Poland", "Lithuania", "Latvia", "Kaliningrad", "Estonia"),
     # the North Sea / Pentland Firth coasts face the other way
     "north-sea": (
         "North East England",

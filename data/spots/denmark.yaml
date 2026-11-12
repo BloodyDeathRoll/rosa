@@ -47,3 +47,9 @@ spots:
   - { id: borsmose, name: "Børsmose", town: "Børsmose Strand", lat: 55.6717, lon: 8.1407, offshore_direction: 106, swell_window: [221, 351], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: vejers-strand, name: "Vejers Strand", town: "Vejers Strand", lat: 55.6265, lon: 8.1150, offshore_direction: 108, swell_window: [223, 353], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: rodvig, name: "Rødvig", town: "Rødvig", lat: 55.2503, lon: 12.3635, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch 3, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap3-nordic/). North to south.
+  - { id: balka, name: "Balka", town: "Balka", lat: 55.0353, lon: 15.1106, offshore_direction: 245, swell_window: [0, 130], offshore_km: 5.0, break_type: beach, <<: *dk }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

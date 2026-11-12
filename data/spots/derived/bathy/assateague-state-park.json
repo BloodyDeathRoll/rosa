@@ -1,0 +1,72 @@
+{
+  "spot": "assateague-state-park",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.2364,
+    -75.1357
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.23563,
+      "lon": -75.13301,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.23486,
+      "lon": -75.13032,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.23332,
+      "lon": -75.12494,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.23025,
+      "lon": -75.11418,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.22717,
+      "lon": -75.10343,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.22101,
+      "lon": -75.08192,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.21176,
+      "lon": -75.04966,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.19942,
+      "lon": -75.00666,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.18088,
+      "lon": -74.94218,
+      "depth_m": 20.0
+    }
+  ]
+}

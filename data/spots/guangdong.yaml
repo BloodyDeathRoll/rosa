@@ -33,3 +33,9 @@ spots:
   - { id: dongchong, name: "Dongchong", town: "Shenzhen", lat: 22.4919, lon: 114.5805, offshore_direction: 282, swell_window: [37, 167], offshore_km: 5.0, <<: *gd }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 102 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 228)
   - { id: xichong, name: "Xichong", town: "Shenzhen", lat: 22.4844, lon: 114.5440, offshore_direction: 2, swell_window: [117, 247], offshore_km: 5.0, <<: *gd }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 182 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 223)
   - { id: shangchuan-dao, name: "Shangchuan Dao", town: "Taishan", lat: 21.7029, lon: 112.8043, offshore_direction: 294, swell_window: [49, 179], offshore_km: 5.0, <<: *gd }  # sat-verified 2026-10-29 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch 3, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap3-china/). North to south.
+  - { id: yangmeikeng, name: "Yangmeikeng", town: "Shenzhen", lat: 22.5493, lon: 114.5649, offshore_direction: 230, swell_window: [345, 115], offshore_km: 5.0, break_type: beach, <<: *gd }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

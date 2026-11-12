@@ -38,3 +38,9 @@ spots:
   - { id: elliot-heads-beach, name: "Elliot Heads Beach", town: "Elliott Heads", lat: -24.9225, lon: 152.4916, offshore_direction: 347, shore_normal: 100, swell_window: [35, 165], offshore_km: 5.0, break_type: beach, <<: *qc }  # sat-verified 2026-11-12 (osm-seeded)
   - { id: coonarr-beach, name: "Coonarr Beach", town: "Coonarr", lat: -24.9517, lon: 152.4857, offshore_direction: 263, swell_window: [18, 148], offshore_km: 5.0, break_type: beach, <<: *qc }  # sat-verified 2026-11-12 (osm-seeded)
   - { id: south-waddy-beach, name: "South Waddy Beach", town: "Orchid Beach", lat: -24.9757, lon: 153.3505, offshore_direction: 273, swell_window: [28, 158], offshore_km: 5.0, break_type: beach, <<: *qc }  # sat-verified 2026-11-12 (osm-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch 3, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap3-beaches/). North to south.
+  - { id: freshwater-teewah, name: "Teewah Beach (Freshwater)", town: "Rainbow Beach", lat: -26.0058, lon: 153.1539, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, break_type: beach, <<: *qc }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

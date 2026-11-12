@@ -1,0 +1,72 @@
+{
+  "spot": "giardini-naxos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.8278,
+    15.2693
+  ],
+  "bearing_seaward_deg": 75.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 1262.0,
+  "mean_slope_m_per_km": 71.04,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.82838,
+      "lon": 15.27205,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.82896,
+      "lon": 15.2748,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.83013,
+      "lon": 15.2803,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.83245,
+      "lon": 15.2913,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.83478,
+      "lon": 15.3023,
+      "depth_m": 253.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.83943,
+      "lon": 15.3243,
+      "depth_m": 548.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.84639,
+      "lon": 15.35731,
+      "depth_m": 768.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.85566,
+      "lon": 15.40132,
+      "depth_m": 1023.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.86953,
+      "lon": 15.46737,
+      "depth_m": 1262.0
+    }
+  ]
+}

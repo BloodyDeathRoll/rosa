@@ -31,3 +31,9 @@ spots:
   - { id: cheung-sha, name: "Cheung Sha", town: "Lantau", lat: 22.2340, lon: 113.9524, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-10-29 (websearch-seeded)
   - { id: shek-o, name: "Shek O", town: "Shek O", lat: 22.2287, lon: 114.2515, offshore_direction: 286, swell_window: [41, 171], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 106 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 30)
   - { id: tai-long-wan-lantau, name: "Tai Long Wan Lantau", town: "Lantau", lat: 22.2210, lon: 113.8854, offshore_direction: 318, swell_window: [73, 203], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 138 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 207)
+
+  # ==== SEEDED 2026-11-12 - gap batch 3, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap3-china/). North to south.
+  - { id: tung-wan-sai-kung, name: "Tung Wan", town: "Sai Kung", lat: 22.4203, lon: 114.3860, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: beach, <<: *hk }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

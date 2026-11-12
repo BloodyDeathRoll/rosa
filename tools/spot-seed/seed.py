@@ -715,6 +715,11 @@ REGIONS = {
     "orkney-shetland": (58.85, -3.45, 59.95, -1.20),
     # the Marquesas: Nuku Hiva
     "marquesas": (-9.00, -140.30, -8.75, -139.95),
+    # gap batch 2026-11-12d
+    # Estonia: Hiiumaa's west tip (Ristna)
+    "estonia": (58.80, 21.90, 59.05, 22.20),
+    # Kaliningrad: Baltiysk north to the Sambia coast and Zelenogradsk
+    "kaliningrad": (54.60, 19.80, 55.00, 20.55),
 }
 
 

@@ -54,3 +54,9 @@ spots:
   - { id: westkapelle, name: "Westkapelle", town: "Westkapelle", lat: 51.5179, lon: 3.4473, offshore_direction: 42, swell_window: [157, 287], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed to the middle of the GEBCO open arc]
   - { id: zoutelande, name: "Zoutelande", town: "Zoutelande", lat: 51.4964, lon: 3.4882, offshore_direction: 39, swell_window: [154, 284], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed to the middle of the GEBCO open arc]
   - { id: cadzand, name: "Cadzand", town: "Cadzand-Bad", lat: 51.3813, lon: 3.3864, offshore_direction: 154, swell_window: [269, 39], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch 3, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap3-nordic/). North to south.
+  - { id: schiermonnikoog, name: "Schiermonnikoog", town: "Schiermonnikoog", lat: 53.4952, lon: 6.1436, offshore_direction: 151, shore_normal: 320, swell_window: [266, 36], offshore_km: 5.0, break_type: beach, <<: *nl }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

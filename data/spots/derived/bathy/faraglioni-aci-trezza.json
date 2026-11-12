@@ -1,0 +1,72 @@
+{
+  "spot": "faraglioni-aci-trezza",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.5597,
+    15.1614
+  ],
+  "bearing_seaward_deg": 140.0,
+  "nearshore_depth_m": 32.0,
+  "offshore_depth_m": 1556.0,
+  "mean_slope_m_per_km": 85.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.55798,
+      "lon": 15.16322,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.55626,
+      "lon": 15.16505,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.55281,
+      "lon": 15.16869,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.54592,
+      "lon": 15.17598,
+      "depth_m": 239.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.53903,
+      "lon": 15.18327,
+      "depth_m": 420.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.52525,
+      "lon": 15.19784,
+      "depth_m": 882.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.50457,
+      "lon": 15.2197,
+      "depth_m": 798.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.477,
+      "lon": 15.24881,
+      "depth_m": 1173.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.43562,
+      "lon": 15.29244,
+      "depth_m": 1556.0
+    }
+  ]
+}

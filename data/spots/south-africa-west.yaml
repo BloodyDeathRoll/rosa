@@ -117,3 +117,10 @@ spots:
 
   # ==== SEEDED 2026-11-04 - famous-break gap pass (web flow; OSM name search + ESRI z14/z16 render, every pin judged on the tile)
   - { id: dungeons, name: "Dungeons", town: "Hout Bay", lat: -34.0710, lon: 18.3331, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-11-04 (websearch-seeded; big-wave reef off The Sentinel, Hout Bay - the breaking ring is on the tile)
+
+  # ==== SEEDED 2026-11-12 - gap batch 3, 2 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap3-south/). North to south.
+  - { id: the-wedge-plett, name: "The Wedge (Plett)", town: "Plettenberg Bay", lat: -34.0547, lon: 23.3796, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, break_type: beach, <<: *saw }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.8)
+  - { id: goukamma-river-mouth, name: "Goukamma River Mouth", town: "Buffelsbaai", lat: -34.0785, lon: 22.9503, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, break_type: rivermouth, <<: *saw }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

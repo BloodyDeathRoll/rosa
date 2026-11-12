@@ -222,7 +222,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-11-12, DB = 4838 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-12, DB = 4862 spots, ALL sat-verified)
 
 **Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
 was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
@@ -439,6 +439,26 @@ Sakhalin, Orkney + Shetland, Marquesas - 4805 -> 4838 (2026-11-12, cont. 7).** A
 - Nothing sourced: Enggano, south Flores, Panaitan's breaks (per-break coordinates only on competitor sites), east
   Samar / Aurora / east Mindanao beyond the DB, Atacama, Tierra del Fuego, Comoros, Mayotte, Rodrigues, Palau, the
   Chathams, Bougainville. Falklands (Surf Bay, Bertha's Beach) and Maruata sit at 0.6 in the agents' dropped.json.
+
+**Gap batch 3: old gap-queue names, Kaliningrad, Estonia, Gotland, Uists, Sicily, Plett, China, long beaches,
+Kodiak - 4838 -> 4862 (2026-11-12, cont. 8).** Leads taken from the older per-region gap queues below (each name
+checked absent from the DB first) plus thin coasts. Five subagents (gap3-nordic / gap3-med / gap3-south /
+gap3-china / gap3-beaches). All 24 at >= 0.65 kept after the contact-sheet read.
+- Appended: sicily 3 (Capo San Marco, I Faraglioni Aci Trezza, Giardini Naxos), south-africa-west 2 (The Wedge,
+  Goukamma River Mouth), denmark 1 (Balka, Bornholm), sweden 2 (Sudersand, Ekeviken, Faro), norway-south 1
+  (Bausje), netherlands 1 (Schiermonnikoog, hand shore_normal 320 - the 331 ray met a 0 m Wadden shelf cell at
+  2 km), scotland-west 2 (Hosta, Sollas, North Uist), north-scotland 1 (Sinclair's Bay), guangdong 1
+  (Yangmeikeng), hong-kong 1 (Tung Wan), sunshine-coast 1 (Noosa North Shore), queensland-central 1 (Freshwater,
+  Teewah), alaska 1 (Surfers Beach, Kodiak), delmarva 1 (Assateague State Park - replaces north-america's unemitted
+  0.55 row of the same id). New regions estonia and kaliningrad (country Russia), both on the `baltic` basin.
+- Nothing sourced: Turkey's Aegean (windsurf/kite only), western Algeria, northern Mozambique, Montevideo /
+  Playa Mansa (Rio de la Plata, sheltered), the Antofagasta reefs, Maragogi, Morro dos Conventos, the Lencois
+  coast (Barra da Baleia real but unlocatable), De Kelders, Jacobs Bay, Vredenburg, Port Nolloth, Nine Mile Reef,
+  Sylt Ellenbogen and Fehmarn (flat-water windsurf), Spot X/Y and Point Perfect, Lampedusa, Pantelleria, Stradbroke
+  south, K'gari's 75 Mile Beach. Kamikaze / Santa Lucia (Cefalu) have one source each; Santa Lucia locatable at
+  38.0333, 14.0013 if a second turns up. Walker Point (Buffels Bay, named by Wesgro) was not searched.
+- The China agent ran out of web-search budget mid-batch: the Liu'ao bays (Fujian) and Taiji Bay (Zhejiang)
+  deserve one more pass.
 
 **Gap queue (whole areas with zero spots, by box count 2026-11-12):** New Zealand is thin (17). Still
 empty: west Africa (Ivory Coast, Togo / Benin / Nigeria, Gabon, Sao Tome, Mauritania), Queensland north

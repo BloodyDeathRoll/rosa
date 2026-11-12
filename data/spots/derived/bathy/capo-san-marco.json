@@ -1,0 +1,72 @@
+{
+  "spot": "capo-san-marco",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.5127,
+    13.0118
+  ],
+  "bearing_seaward_deg": 243.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 93.0,
+  "mean_slope_m_per_km": 5.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.51168,
+      "lon": 13.00927,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.51066,
+      "lon": 13.00675,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.50862,
+      "lon": 13.0017,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.50453,
+      "lon": 12.9916,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.50045,
+      "lon": 12.9815,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.49228,
+      "lon": 12.9613,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.48001,
+      "lon": 12.93102,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.46364,
+      "lon": 12.89066,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.43907,
+      "lon": 12.83015,
+      "depth_m": 93.0
+    }
+  ]
+}

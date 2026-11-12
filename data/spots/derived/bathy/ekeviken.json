@@ -1,0 +1,72 @@
+{
+  "spot": "ekeviken",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.973,
+    19.2507
+  ],
+  "bearing_seaward_deg": 12.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 40.0,
+  "mean_slope_m_per_km": 1.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.9752,
+      "lon": 19.25158,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.9774,
+      "lon": 19.25246,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.9818,
+      "lon": 19.25423,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.99059,
+      "lon": 19.25776,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.99939,
+      "lon": 19.26129,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.01698,
+      "lon": 19.26835,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.04337,
+      "lon": 19.27896,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.07855,
+      "lon": 19.29313,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.13132,
+      "lon": 19.31445,
+      "depth_m": 40.0
+    }
+  ]
+}

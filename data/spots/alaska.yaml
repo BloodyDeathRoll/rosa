@@ -22,3 +22,9 @@ spots:
   - { id: fossil-beach-kodiak, name: "Fossil Beach (Kodiak)", town: "Kodiak", lat: 57.4271, lon: -152.3541, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, break_type: beach, <<: *ak }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: sea-lion-cove-sitka, name: "Sea Lion Cove", town: "Sitka", lat: 57.3027, lon: -135.8272, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, break_type: beach, <<: *ak }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: sandy-beach-sitka, name: "Sandy Beach (Sitka)", town: "Sitka", lat: 57.0757, lon: -135.3737, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, break_type: beach, <<: *ak }  # sat-verified 2026-11-12 (osm-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch 3, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap3-beaches/). North to south.
+  - { id: surfers-beach-kodiak, name: "Surfers Beach (Kodiak)", town: "Kodiak", lat: 57.4365, lon: -152.4083, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, break_type: beach, <<: *ak }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)

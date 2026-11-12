@@ -1,0 +1,72 @@
+{
+  "spot": "schiermonnikoog",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    53.4952,
+    6.1436
+  ],
+  "bearing_seaward_deg": 320.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 53.49692,
+      "lon": 6.14117,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 53.49864,
+      "lon": 6.13874,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 53.50209,
+      "lon": 6.13388,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 53.50898,
+      "lon": 6.12416,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 53.51586,
+      "lon": 6.11443,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 53.52964,
+      "lon": 6.09497,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 53.55029,
+      "lon": 6.06576,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 53.57781,
+      "lon": 6.02676,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 53.61908,
+      "lon": 5.96818,
+      "depth_m": 24.0
+    }
+  ]
+}

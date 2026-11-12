@@ -1,0 +1,72 @@
+{
+  "spot": "noosa-north-shore",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -26.3338,
+    153.0631
+  ],
+  "bearing_seaward_deg": 85.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 3.61,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -26.3336,
+      "lon": 153.0656,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -26.33341,
+      "lon": 153.0681,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -26.33302,
+      "lon": 153.0731,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -26.33223,
+      "lon": 153.08309,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -26.33145,
+      "lon": 153.09309,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -26.32987,
+      "lon": 153.11308,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -26.32751,
+      "lon": 153.14307,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -26.32434,
+      "lon": 153.18305,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -26.31958,
+      "lon": 153.24301,
+      "depth_m": 57.0
+    }
+  ]
+}

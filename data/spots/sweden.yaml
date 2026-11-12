@@ -47,3 +47,10 @@ spots:
   - { id: hollviken, name: "Höllviken", town: "Höllviken", lat: 55.3991, lon: 12.9504, offshore_direction: 336, swell_window: [91, 221], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: kaseberga, name: "Kåseberga", town: "Kåseberga", lat: 55.3851, lon: 14.0668, offshore_direction: 322, swell_window: [77, 207], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: ales-stenar, name: "Ales Stenar", town: "Kåseberga", lat: 55.3820, lon: 14.0521, offshore_direction: 22, swell_window: [137, 267], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: 341 -> 22, middle of the open arc]
+
+  # ==== SEEDED 2026-11-12 - gap batch 3, 2 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap3-nordic/). North to south.
+  - { id: ekeviken, name: "Ekeviken", town: "Fårö", lat: 57.9730, lon: 19.2507, offshore_direction: 192, swell_window: [307, 77], offshore_km: 5.0, break_type: beach, <<: *se }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: sudersand, name: "Sudersand", town: "Fårö", lat: 57.9489, lon: 19.2363, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: beach, <<: *se }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

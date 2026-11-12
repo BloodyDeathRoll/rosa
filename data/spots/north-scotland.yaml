@@ -29,3 +29,9 @@ spots:
   - { id: melvich, name: "Melvich", town: "Melvich", lat: 58.5592, lon: -3.9142, offshore_direction: 173, swell_window: [288, 58], offshore_km: 5.0, <<: *nsc }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: farr-bay, name: "Farr Bay", town: "Bettyhill", lat: 58.5321, lon: -4.2119, offshore_direction: 235, swell_window: [350, 120], offshore_km: 5.0, <<: *nsc }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: torrisdale, name: "Torrisdale", town: "Bettyhill", lat: 58.5276, lon: -4.2419, offshore_direction: 166, swell_window: [281, 51], offshore_km: 5.0, <<: *nsc }  # sat-verified 2026-09-03 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch 3, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap3-nordic/). North to south.
+  - { id: sinclairs-bay, name: "Sinclair's Bay", town: "Wick", lat: 58.4824, lon: -3.1226, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: beach, <<: *nsc }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

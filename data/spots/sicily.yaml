@@ -66,3 +66,11 @@ spots:
   - { id: marina-di-modica, name: "Marina di Modica", town: "Marina di Modica", lat: 36.7108, lon: 14.7731, offshore_direction: 346, swell_window: [101, 231], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: morghella, name: "Morghella", town: "Pachino", lat: 36.7023, lon: 15.1230, offshore_direction: 247, swell_window: [2, 132], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: punta-delle-formiche, name: "Punta delle Formiche", town: "Pachino", lat: 36.6611, lon: 15.0556, offshore_direction: 44, swell_window: [159, 289], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch 3, 3 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap3-med/). North to south.
+  - { id: giardini-naxos, name: "Giardini Naxos", town: "Giardini Naxos", lat: 37.8278, lon: 15.2693, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, break_type: beach, <<: *sic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: faraglioni-aci-trezza, name: "I Faraglioni", town: "Aci Trezza", lat: 37.5597, lon: 15.1614, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, break_type: point, <<: *sic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: capo-san-marco, name: "Capo San Marco", town: "Sciacca", lat: 37.5127, lon: 13.0118, offshore_direction: 63, swell_window: [178, 308], offshore_km: 5.0, break_type: reef, <<: *sic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)

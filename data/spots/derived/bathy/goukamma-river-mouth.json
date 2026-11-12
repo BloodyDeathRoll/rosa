@@ -1,0 +1,72 @@
+{
+  "spot": "goukamma-river-mouth",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.0785,
+    22.9503
+  ],
+  "bearing_seaward_deg": 210.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 86.0,
+  "mean_slope_m_per_km": 4.96,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.08045,
+      "lon": 22.94894,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.08239,
+      "lon": 22.94759,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.08629,
+      "lon": 22.94487,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.09408,
+      "lon": 22.93944,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.10186,
+      "lon": 22.93401,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.11744,
+      "lon": 22.92314,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.1408,
+      "lon": 22.90684,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.17194,
+      "lon": 22.88508,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.21865,
+      "lon": 22.85242,
+      "depth_m": 86.0
+    }
+  ]
+}

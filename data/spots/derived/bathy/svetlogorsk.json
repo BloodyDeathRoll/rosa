@@ -1,0 +1,72 @@
+{
+  "spot": "svetlogorsk",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.9469,
+    20.156
+  ],
+  "bearing_seaward_deg": 345.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 3.1,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.94907,
+      "lon": 20.15499,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.95124,
+      "lon": 20.15397,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.95559,
+      "lon": 20.15195,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.96427,
+      "lon": 20.14789,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.97296,
+      "lon": 20.14383,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.99033,
+      "lon": 20.13571,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 55.01639,
+      "lon": 20.12352,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 55.05113,
+      "lon": 20.10724,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 55.10324,
+      "lon": 20.08277,
+      "depth_m": 57.0
+    }
+  ]
+}

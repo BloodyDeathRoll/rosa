@@ -1,0 +1,72 @@
+{
+  "spot": "yangmeikeng",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    22.5493,
+    114.5649
+  ],
+  "bearing_seaward_deg": 50.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 11.0,
+  "mean_slope_m_per_km": -0.06,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 5,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 22.55075,
+      "lon": 114.56676,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 22.55219,
+      "lon": 114.56863,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 22.55508,
+      "lon": 114.57236,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 22.56086,
+      "lon": 114.57982,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 22.56664,
+      "lon": 114.58728,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 22.5782,
+      "lon": 114.60221,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 22.59553,
+      "lon": 114.6246,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 22.61864,
+      "lon": 114.65446,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 22.6533,
+      "lon": 114.69927,
+      "depth_m": 11.0
+    }
+  ]
+}

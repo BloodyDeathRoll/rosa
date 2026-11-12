@@ -1,0 +1,72 @@
+{
+  "spot": "the-wedge-plett",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.0547,
+    23.3796
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 79.0,
+  "mean_slope_m_per_km": 5.07,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.05509,
+      "lon": 23.38227,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.05548,
+      "lon": 23.38494,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.05626,
+      "lon": 23.39029,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.05782,
+      "lon": 23.40098,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.05938,
+      "lon": 23.41167,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.0625,
+      "lon": 23.43305,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.06716,
+      "lon": 23.46513,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.07337,
+      "lon": 23.50791,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.08266,
+      "lon": 23.57208,
+      "depth_m": 79.0
+    }
+  ]
+}

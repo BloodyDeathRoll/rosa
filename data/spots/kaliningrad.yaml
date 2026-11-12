@@ -1,0 +1,25 @@
+# Rosa spot database - Russia (seeded 2026-11-12, gap batch 3). The Sambia coast (Zelenogradsk, Svetlogorsk, Pionersky) and Baltiysk: Baltic wind swell from W-N storms.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Russia"
+
+defaults: &kgd
+  timezone: Europe/Kaliningrad
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [274, 44]
+  ideal:
+    wind_dir: [114, 204]
+    size_m: [0.5, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - gap batch 3, 4 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap3-nordic/). North to south.
+  - { id: zelenogradsk, name: "Zelenogradsk", town: "Zelenogradsk", lat: 54.9613, lon: 20.4720, offshore_direction: 153, swell_window: [268, 38], offshore_km: 5.0, break_type: beach, <<: *kgd }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: pionersky, name: "Pionersky", town: "Pionersky", lat: 54.9551, lon: 20.2268, offshore_direction: 178, swell_window: [293, 63], offshore_km: 5.0, break_type: beach, <<: *kgd }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: svetlogorsk, name: "Svetlogorsk", town: "Svetlogorsk", lat: 54.9469, lon: 20.1560, offshore_direction: 165, swell_window: [280, 50], offshore_km: 5.0, break_type: beach, <<: *kgd }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: baltiysk, name: "Baltiysk", town: "Baltiysk", lat: 54.6595, lon: 19.8905, offshore_direction: 119, swell_window: [234, 4], offshore_km: 5.0, break_type: beach, <<: *kgd }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
