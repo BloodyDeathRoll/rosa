@@ -1,0 +1,72 @@
+{
+  "spot": "west-voe-sumburgh",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    59.875,
+    -1.2934
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": 17.0,
+  "offshore_depth_m": 98.0,
+  "mean_slope_m_per_km": 4.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 59.87275,
+      "lon": -1.2934,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 59.8705,
+      "lon": -1.2934,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 59.86601,
+      "lon": -1.2934,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 59.85701,
+      "lon": -1.2934,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 59.84802,
+      "lon": -1.2934,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 59.83003,
+      "lon": -1.2934,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 59.80305,
+      "lon": -1.2934,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 59.76708,
+      "lon": -1.2934,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 59.71312,
+      "lon": -1.2934,
+      "depth_m": 98.0
+    }
+  ]
+}

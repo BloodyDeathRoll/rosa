@@ -1,0 +1,72 @@
+{
+  "spot": "second-beach-port-st-johns",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -31.6503,
+    29.5197
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 1296.0,
+  "mean_slope_m_per_km": 72.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.65225,
+      "lon": 29.52102,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.65419,
+      "lon": 29.52234,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.65809,
+      "lon": 29.52498,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -31.66588,
+      "lon": 29.53027,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -31.67366,
+      "lon": 29.53555,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -31.68924,
+      "lon": 29.54612,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -31.7126,
+      "lon": 29.56199,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -31.74374,
+      "lon": 29.58315,
+      "depth_m": 405.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -31.79045,
+      "lon": 29.61492,
+      "depth_m": 1296.0
+    }
+  ]
+}

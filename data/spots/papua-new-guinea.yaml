@@ -31,3 +31,12 @@ spots:
   # on ESRI imagery at z16 and seen on surf before entering. offshore_direction = nearest coastline
   # candidate's shore normal, checked by the 3c gate on the cut profile. North to south.
   - { id: kavieng, name: "Kavieng", town: "Kavieng", lat: -2.5603, lon: 150.7919, offshore_direction: 134, swell_window: [249, 19], offshore_km: 5.0, <<: *png }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+
+  # ==== SEEDED 2026-11-12 - gap batch 2, 4 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap2-north/). North to south.
+  - { id: yako, name: "Yako", town: "Vanimo", lat: -2.6425, lon: 141.2142, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, break_type: reef, <<: *png }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: waromo, name: "Waromo", town: "Vanimo", lat: -2.6576, lon: 141.2418, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, break_type: reef, <<: *png }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: lido-left, name: "Lido Left", town: "Vanimo", lat: -2.6619, lon: 141.2792, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: reef, <<: *png }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: moem-point, name: "Moem Point", town: "Wewak", lat: -3.5487, lon: 143.7026, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, break_type: reef, <<: *png }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

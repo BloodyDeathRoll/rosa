@@ -1,0 +1,72 @@
+{
+  "spot": "murud-dapoli",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    17.7745,
+    73.1127
+  ],
+  "bearing_seaward_deg": 250.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 17.77373,
+      "lon": 73.11048,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 17.77296,
+      "lon": 73.10826,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 17.77142,
+      "lon": 73.10383,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 17.76835,
+      "lon": 73.09495,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 17.76527,
+      "lon": 73.08608,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 17.75912,
+      "lon": 73.06833,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 17.74988,
+      "lon": 73.04171,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.73756,
+      "lon": 73.00623,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.71907,
+      "lon": 72.95301,
+      "depth_m": 21.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "mdumbi-point",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -31.9368,
+    29.2178
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 136.0,
+  "mean_slope_m_per_km": 7.72,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.9368,
+      "lon": 29.22045,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.9368,
+      "lon": 29.2231,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.9368,
+      "lon": 29.2284,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -31.9368,
+      "lon": 29.23899,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -31.9368,
+      "lon": 29.24959,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -31.93679,
+      "lon": 29.27079,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -31.93677,
+      "lon": 29.30258,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -31.93674,
+      "lon": 29.34497,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -31.93666,
+      "lon": 29.40855,
+      "depth_m": 136.0
+    }
+  ]
+}

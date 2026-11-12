@@ -1,0 +1,72 @@
+{
+  "spot": "marwick-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    59.0971,
+    -3.347
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 97.0,
+  "mean_slope_m_per_km": 5.58,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 59.09652,
+      "lon": -3.35123,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 59.09594,
+      "lon": -3.35546,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 59.09477,
+      "lon": -3.36391,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 59.09244,
+      "lon": -3.38082,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 59.09011,
+      "lon": -3.39773,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 59.08543,
+      "lon": -3.43154,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 59.07841,
+      "lon": -3.48224,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 59.06901,
+      "lon": -3.5498,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 59.05485,
+      "lon": -3.65108,
+      "depth_m": 97.0
+    }
+  ]
+}

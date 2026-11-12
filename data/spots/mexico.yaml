@@ -105,3 +105,11 @@ spots:
   - { id: el-zapotal-pijijiapan, name: "El Zapotal", town: "La Esperanza (El Zapotal)", lat: 15.4493, lon: -93.1673, offshore_direction: 42, swell_window: [157, 287], offshore_km: 5.0, break_type: beach, <<: *mx }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
   - { id: puerto-madero, name: "Puerto Madero", town: "Puerto Chiapas", lat: 14.7250, lon: -92.4310, offshore_direction: 56, swell_window: [171, 301], offshore_km: 5.0, break_type: beach, <<: *mx }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
   - { id: playa-linda-chiapas, name: "Playa Linda", town: "Playa Linda", lat: 14.6691, lon: -92.3790, offshore_direction: 38, swell_window: [153, 283], offshore_km: 5.0, break_type: beach, <<: *mx }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+
+  # ==== SEEDED 2026-11-12 - gap batch 2, 3 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap2-americas/). North to south.
+  - { id: quimixto, name: "Quimixto", town: "Quimixto", lat: 20.5052, lon: -105.3651, offshore_direction: 165, swell_window: [280, 50], offshore_km: 5.0, break_type: beach, <<: *mx }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: arroyo-seco-jalisco, name: "Arroyo Seco", town: "Arroyo Seco", lat: 19.3175, lon: -104.9449, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, break_type: beach, <<: *mx }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: el-tecuan, name: "El Tecuán", town: "El Rebalsito", lat: 19.3070, lon: -104.9281, offshore_direction: 25, swell_window: [140, 270], offshore_km: 5.0, break_type: beach, <<: *mx }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

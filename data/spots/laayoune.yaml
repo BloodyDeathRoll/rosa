@@ -1,0 +1,23 @@
+# Rosa spot database - Morocco (seeded 2026-11-12, gap batch 2). Tarfaya and Foum el Oued (Laayoune): open Atlantic beaches facing the Canaries, NW groundswell under the trade wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Morocco"
+
+defaults: &lay
+  timezone: Africa/El_Aaiun
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [250, 20]
+  ideal:
+    wind_dir: [90, 180]
+    size_m: [0.5, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - gap batch 2, 2 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap2-africa/). North to south.
+  - { id: tarfaya, name: "Tarfaya", town: "Tarfaya", lat: 27.9466, lon: -12.9261, offshore_direction: 150, swell_window: [265, 35], offshore_km: 5.0, break_type: beach, <<: *lay }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: foum-el-oued, name: "Foum El Oued", town: "Foum El Oued", lat: 27.1783, lon: -13.3983, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, break_type: beach, <<: *lay }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

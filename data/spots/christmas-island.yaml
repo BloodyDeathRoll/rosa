@@ -1,0 +1,22 @@
+# Rosa spot database - Australia (seeded 2026-11-12, gap batch 2). Flying Fish Cove: reef in the island's one bay, works when NW-N swell runs in the wet season.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Australia"
+
+defaults: &cxi
+  timezone: Indian/Christmas
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [265, 35]
+  ideal:
+    wind_dir: [105, 195]
+    size_m: [0.5, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - gap batch 2, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap2-africa/). North to south.
+  - { id: flying-fish-cove, name: "Flying Fish Cove", town: "Flying Fish Cove", lat: -10.4299, lon: 105.6689, offshore_direction: 150, shore_normal: 0, swell_window: [265, 35], offshore_km: 5.0, break_type: reef, <<: *cxi }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)

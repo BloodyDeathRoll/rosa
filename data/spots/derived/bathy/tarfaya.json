@@ -1,0 +1,72 @@
+{
+  "spot": "tarfaya",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    27.9466,
+    -12.9261
+  ],
+  "bearing_seaward_deg": 330.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 64.0,
+  "mean_slope_m_per_km": 3.04,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 27.94855,
+      "lon": -12.92737,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 27.95049,
+      "lon": -12.92865,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 27.95439,
+      "lon": -12.93119,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 27.96218,
+      "lon": -12.93628,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 27.96996,
+      "lon": -12.94137,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 27.98554,
+      "lon": -12.95156,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.0089,
+      "lon": -12.96685,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.04005,
+      "lon": -12.98724,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.08676,
+      "lon": -13.01784,
+      "depth_m": 64.0
+    }
+  ]
+}

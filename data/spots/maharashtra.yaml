@@ -21,3 +21,10 @@ spots:
   - { id: rajodi, name: "Rajodi Beach", town: "Virar", lat: 19.4355, lon: 72.7538, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *mh }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: ganpatipule, name: "Ganpatipule", town: "Ganpatipule", lat: 17.1467, lon: 73.2654, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: beach, <<: *mh }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: devgad, name: "Devgad Beach", town: "Devgad", lat: 16.3737, lon: 73.3716, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, break_type: beach, <<: *mh }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch 2, 2 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap2-africa/). North to south.
+  - { id: kashid, name: "Kashid", town: "Kashid", lat: 18.4460, lon: 72.9025, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: beach, <<: *mh }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: murud-dapoli, name: "Murud (Dapoli)", town: "Murud", lat: 17.7745, lon: 73.1127, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *mh }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

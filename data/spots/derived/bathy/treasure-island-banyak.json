@@ -1,0 +1,72 @@
+{
+  "spot": "treasure-island-banyak",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    2.0045,
+    97.1163
+  ],
+  "bearing_seaward_deg": 190.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 87.0,
+  "mean_slope_m_per_km": 4.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 2.00229,
+      "lon": 97.11591,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 2.00007,
+      "lon": 97.11552,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 1.99564,
+      "lon": 97.11474,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 1.98679,
+      "lon": 97.11317,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 1.97793,
+      "lon": 97.11161,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 1.96022,
+      "lon": 97.10849,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 1.93365,
+      "lon": 97.1038,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 1.89822,
+      "lon": 97.09755,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 1.84508,
+      "lon": 97.08818,
+      "depth_m": 87.0
+    }
+  ]
+}

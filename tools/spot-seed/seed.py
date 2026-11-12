@@ -702,6 +702,19 @@ REGIONS = {
     "lithuania": (55.65, 20.95, 55.95, 21.15),
     # Latvia: Liepaja north to Pavilosta
     "latvia": (56.45, 20.90, 56.95, 21.25),
+    # gap batch 2026-11-12c
+    # Laayoune: Tarfaya south to Foum el Oued
+    "laayoune": (27.00, -13.60, 28.05, -12.80),
+    # Christmas Island: Flying Fish Cove
+    "christmas-island": (-10.60, 105.50, -10.38, 105.75),
+    # Primorye: Vladivostok, Russky Island, Shamora
+    "primorye": (42.90, 131.80, 43.30, 132.25),
+    # Sakhalin: the south (Aniva Bay, Okhotskoye, the Tatar Strait side)
+    "sakhalin": (46.60, 141.80, 48.20, 143.30),
+    # Orkney's west coast and Dingieshowe; Shetland's south end
+    "orkney-shetland": (58.85, -3.45, 59.95, -1.20),
+    # the Marquesas: Nuku Hiva
+    "marquesas": (-9.00, -140.30, -8.75, -139.95),
 }
 
 

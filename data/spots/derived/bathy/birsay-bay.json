@@ -1,0 +1,72 @@
+{
+  "spot": "birsay-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    59.1253,
+    -3.3197
+  ],
+  "bearing_seaward_deg": 300.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 3.38,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 59.12642,
+      "lon": -3.32349,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 59.12755,
+      "lon": -3.32729,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 59.1298,
+      "lon": -3.33488,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 59.13429,
+      "lon": -3.35006,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 59.13878,
+      "lon": -3.36525,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 59.14776,
+      "lon": -3.39564,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 59.16122,
+      "lon": -3.44124,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 59.17913,
+      "lon": -3.50211,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 59.20595,
+      "lon": -3.59353,
+      "depth_m": 59.0
+    }
+  ]
+}

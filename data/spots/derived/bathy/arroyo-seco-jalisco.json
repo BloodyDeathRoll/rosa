@@ -1,0 +1,72 @@
+{
+  "spot": "arroyo-seco-jalisco",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.3175,
+    -104.9449
+  ],
+  "bearing_seaward_deg": 215.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 603.0,
+  "mean_slope_m_per_km": 34.2,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.31566,
+      "lon": -104.94627,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.31382,
+      "lon": -104.94763,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.31013,
+      "lon": -104.95037,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.30277,
+      "lon": -104.95583,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.2954,
+      "lon": -104.9613,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.28066,
+      "lon": -104.97222,
+      "depth_m": 124.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.25856,
+      "lon": -104.98861,
+      "depth_m": 149.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.22909,
+      "lon": -105.01046,
+      "depth_m": 432.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.18487,
+      "lon": -105.04321,
+      "depth_m": 603.0
+    }
+  ]
+}

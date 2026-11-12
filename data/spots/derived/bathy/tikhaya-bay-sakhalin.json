@@ -1,0 +1,72 @@
+{
+  "spot": "tikhaya-bay-sakhalin",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    48.0099,
+    142.5334
+  ],
+  "bearing_seaward_deg": 105.0,
+  "nearshore_depth_m": -19.0,
+  "offshore_depth_m": 80.0,
+  "mean_slope_m_per_km": 5.58,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 48.00932,
+      "lon": 142.53665,
+      "depth_m": -19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 48.00874,
+      "lon": 142.53989,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 48.00757,
+      "lon": 142.54638,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 48.00524,
+      "lon": 142.55937,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 48.00291,
+      "lon": 142.57235,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 47.99824,
+      "lon": 142.59831,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 47.99123,
+      "lon": 142.63724,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 47.98186,
+      "lon": 142.68913,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 47.96777,
+      "lon": 142.76693,
+      "depth_m": 80.0
+    }
+  ]
+}

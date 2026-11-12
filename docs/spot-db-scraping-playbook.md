@@ -222,7 +222,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-11-12, DB = 4805 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-12, DB = 4838 spots, ALL sat-verified)
 
 **Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
 was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
@@ -418,6 +418,27 @@ cove, no surf) and Anse Leslie (harbour bay beside Cap-aux-Meules).
   (madagascar) may sit on Plage Ankoba, 1.2 km west of OSM's Plage Libanona - unchecked.
 - Extracts downloaded: `seychelles-latest`, `newfoundland-and-labrador-latest`, `quebec-latest`. Poland,
   Lithuania, Latvia and Kamchatka pins came from Nominatim; no local extract, so towns.py has no entry for them.
+
+**Gap batch 2: Wild Coast, Laayoune, Konkan, Christmas Island, Jalisco, Banyak, La Union, PNG north, Primorye,
+Sakhalin, Orkney + Shetland, Marquesas - 4805 -> 4838 (2026-11-12, cont. 7).** A second box count; four subagents
+(gap2-africa / gap2-americas / gap2-sea / gap2-north, same brief). 36 returned at >= 0.65.
+- Coordinator drops: Malem (Kosrae - no located take-off, dropped by brazil-pacific before), Sobol Bay (unplaced
+  inside the bay, 0.5 km from Patrokl), Playa Azul (Michoacan - every bearing crosses 1-2 km of GEBCO land on the
+  Balsas delta, no open arc).
+- Appended: south-africa-east 6 (Coffee Bay, Bomvu, Mdumbi, Second Beach, Cintsa East, Morgan Bay), mexico 3
+  (Quimixto, Arroyo Seco, El Tecuan), papua-new-guinea 4 (Waromo, Yako, Lido Left, Moem Point), maharashtra 2,
+  simeulue 1 (Treasure Island, Banyak), philippines 1 (Bacnotan). New regions laayoune (country Morocco, as Dakhla;
+  basin canaries), christmas-island (indonesia), primorye + sakhalin (japan), orkney-shetland (scotland-west),
+  marquesas (own basin).
+- GFS-Wave wet nodes at every new area (live file): Primorye 1/6, Sakhalin 3/6 + 1/4 + 3/4, Christmas 4/4,
+  Marquesas 4/4, Vanimo 2/4, Wewak 1/4, Banyak 4/4, Orkney 6/8, Tarfaya 9/20. Primorye's Ussuri Bay is marginal:
+  typhoon and wind swell only.
+- Hand `shore_normal`: birsay-bay 300, west-voe-sumburgh 180, flying-fish-cove 0, patrokl 140 (middle of the
+  wet arc; the agents' bearings crossed GEBCO land at 1-12 km). Haatuatua keeps GEBCO land to 1 km on every bearing
+  (steep volcanic bay, deep water beyond - the documented case).
+- Nothing sourced: Enggano, south Flores, Panaitan's breaks (per-break coordinates only on competitor sites), east
+  Samar / Aurora / east Mindanao beyond the DB, Atacama, Tierra del Fuego, Comoros, Mayotte, Rodrigues, Palau, the
+  Chathams, Bougainville. Falklands (Surf Bay, Bertha's Beach) and Maruata sit at 0.6 in the agents' dropped.json.
 
 **Gap queue (whole areas with zero spots, by box count 2026-11-12):** New Zealand is thin (17). Still
 empty: west Africa (Ivory Coast, Togo / Benin / Nigeria, Gabon, Sao Tome, Mauritania), Queensland north

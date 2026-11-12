@@ -1,0 +1,72 @@
+{
+  "spot": "cape-akhlestyshev",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.9958,
+    131.9344
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 47.0,
+  "mean_slope_m_per_km": 2.14,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.99503,
+      "lon": 131.93729,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.99426,
+      "lon": 131.94018,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.99272,
+      "lon": 131.94595,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.98965,
+      "lon": 131.95751,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.98657,
+      "lon": 131.96906,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.98041,
+      "lon": 131.99216,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.97116,
+      "lon": 132.0268,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.95881,
+      "lon": 132.07297,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.94025,
+      "lon": 132.14219,
+      "depth_m": 47.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "coffee-bay-point",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -31.9854,
+    29.1528
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 468.0,
+  "mean_slope_m_per_km": 26.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.98652,
+      "lon": 29.1551,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.98765,
+      "lon": 29.15739,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.9899,
+      "lon": 29.16198,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -31.99439,
+      "lon": 29.17117,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -31.99889,
+      "lon": 29.18035,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.00787,
+      "lon": 29.19872,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.02135,
+      "lon": 29.22629,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.03931,
+      "lon": 29.26305,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.06623,
+      "lon": 29.31823,
+      "depth_m": 468.0
+    }
+  ]
+}

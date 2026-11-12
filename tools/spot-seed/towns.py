@@ -265,6 +265,12 @@ REGION_PBF = {
     "Seychelles": "seychelles-latest",
     "Tanzania": "tanzania-latest",
     "Bangladesh": "bangladesh-latest",
+    # gap batch 2026-11-12c (Christmas Island: no local extract)
+    "Laayoune": "morocco",
+    "Primorye": "far-eastern-fed-district-latest",
+    "Sakhalin": "far-eastern-fed-district-latest",
+    "Orkney and Shetland": "scotland-latest",
+    "Marquesas": "french-polynesia",
 }
 
 

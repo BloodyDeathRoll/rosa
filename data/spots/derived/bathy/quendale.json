@@ -1,0 +1,72 @@
+{
+  "spot": "quendale",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    59.899,
+    -1.33
+  ],
+  "bearing_seaward_deg": 187.0,
+  "nearshore_depth_m": 17.0,
+  "offshore_depth_m": 85.0,
+  "mean_slope_m_per_km": 3.83,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 59.89677,
+      "lon": -1.33055,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 59.89454,
+      "lon": -1.33109,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 59.89007,
+      "lon": -1.33218,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 59.88115,
+      "lon": -1.33437,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 59.87222,
+      "lon": -1.33655,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 59.85437,
+      "lon": -1.34091,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 59.82759,
+      "lon": -1.34745,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 59.79188,
+      "lon": -1.35614,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 59.73832,
+      "lon": -1.36915,
+      "depth_m": 85.0
+    }
+  ]
+}

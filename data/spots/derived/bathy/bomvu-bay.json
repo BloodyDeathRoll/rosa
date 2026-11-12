@@ -1,0 +1,72 @@
+{
+  "spot": "bomvu-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -31.9883,
+    29.1497
+  ],
+  "bearing_seaward_deg": 140.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 654.0,
+  "mean_slope_m_per_km": 37.24,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.99002,
+      "lon": 29.1514,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.99174,
+      "lon": 29.15311,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.99519,
+      "lon": 29.15652,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.00208,
+      "lon": 29.16333,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.00897,
+      "lon": 29.17015,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.02274,
+      "lon": 29.18379,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.0434,
+      "lon": 29.20426,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.07094,
+      "lon": 29.23156,
+      "depth_m": 126.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.11225,
+      "lon": 29.27255,
+      "depth_m": 654.0
+    }
+  ]
+}

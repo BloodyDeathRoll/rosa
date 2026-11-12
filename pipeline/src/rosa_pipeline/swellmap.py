@@ -144,7 +144,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     # open North Atlantic and Morocco's box would have to stretch 700 km south-west.
     # Madeira, ~450 km north, takes the same open North Atlantic swell; Dakhla's points,
     # ~450 km south-west of Gran Canaria, the same NW groundswell under the N trade
-    "canaries": ("Canary Islands", "Madeira", "Dakhla"),
+    # Tarfaya and Foum el Oued (Laayoune, seeded 2026-11-12) face Fuerteventura across 100 km of sea
+    "canaries": ("Canary Islands", "Madeira", "Dakhla", "Laayoune"),
     # the southern Baltic (seeded 2026-11-12): Poland, Lithuania, Latvia, W-N storm wind swell;
     # the North Sea frame would have to stretch 900 km east over Denmark and Sweden
     "baltic": ("Poland", "Lithuania", "Latvia"),
@@ -161,7 +162,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     ),
     # Scotland's Atlantic side takes open North Atlantic groundswell from the W-NW; the
     # Faroes, ~300 km north of Lewis, see the same swell train
-    "scotland-west": ("Scotland West", "Faroe Islands"),
+    # Orkney and Shetland (seeded 2026-11-12) sit between Lewis and the Faroes
+    "scotland-west": ("Scotland West", "Faroe Islands", "Orkney and Shetland"),
     # Lofoten, above the Arctic Circle: Norwegian Sea swell, ~1,000 km north of Jaeren
     # Bleik on Andoya (Norway North) is 120 km up the same coast
     "lofoten": ("Lofoten", "Norway North"),
@@ -192,7 +194,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     "gulf-of-oman": ("Oman", "Pakistan", "Iran", "United Arab Emirates"),
     # Hokkaido joins Honshu's frame: the same NE Pacific / Sea of Japan swell, and the
     # padded Honshu box already reaches 44 N
-    "japan": ("Japan", "Hokkaido"),
+    # Vladivostok and south Sakhalin (seeded 2026-11-12) sit on the Sea of Japan / Okhotsk edge
+    "japan": ("Japan", "Hokkaido", "Primorye", "Sakhalin"),
     # the Ryukyu arc is 600-1,000 km SW of Honshu's surf coast: its own frame
     "ryukyu": ("Tanegashima Amami", "Okinawa"),
     # Taiwan sits between the Ryukyu arc and Luzon, but its breaks face every way (NE
@@ -380,8 +383,12 @@ BASINS: dict[str, tuple[str, ...]] = {
         # Raijua (Savu Sea) and Dili, east of Rote on the same arc
         "Savu",
         "Timor Leste",
+        # Christmas Island (seeded 2026-11-12), 350 km south of Java
+        "Christmas Island",
     ),
     "french-polynesia": ("French Polynesia",),
+    # the Marquesas (seeded 2026-11-12), 1,400 km NE of Tahiti: their own small frame
+    "marquesas": ("Marquesas",),
     "fiji": ("Fiji",),
     # Melanesia, seeded 2026-09-21: PNG's two clusters sit ~1,300 km apart on the same
     # north coast and ~2,000 km from Vanuatu/New Caledonia - each gets its own frame

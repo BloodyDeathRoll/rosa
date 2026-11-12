@@ -1,0 +1,72 @@
+{
+  "spot": "okhotskoye",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.8488,
+    143.1765
+  ],
+  "bearing_seaward_deg": 37.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 93.0,
+  "mean_slope_m_per_km": 5.35,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.8506,
+      "lon": 143.17848,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.85239,
+      "lon": 143.18046,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.85598,
+      "lon": 143.18441,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.86316,
+      "lon": 143.19233,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.87034,
+      "lon": 143.20025,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.8847,
+      "lon": 143.21609,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.90624,
+      "lon": 143.23988,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.93495,
+      "lon": 143.27161,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.97799,
+      "lon": 143.31929,
+      "depth_m": 93.0
+    }
+  ]
+}

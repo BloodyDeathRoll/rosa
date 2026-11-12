@@ -1,0 +1,24 @@
+# Rosa spot database - Russia (seeded 2026-11-12, gap batch 2). Vladivostok's surf (Patrokl, Russky Island, Shamora): Ussuri and Amur Bay beaches, typhoon swell and local wind swell, mostly autumn.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Russia"
+
+defaults: &pri
+  timezone: Asia/Vladivostok
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [105, 235]
+  ideal:
+    wind_dir: [305, 35]
+    size_m: [0.5, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - gap batch 2, 3 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap2-north/). North to south.
+  - { id: shamora, name: "Shamora", town: "Vladivostok", lat: 43.1954, lon: 132.1220, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, break_type: beach, <<: *pri }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: patrokl, name: "Patrokl", town: "Vladivostok", lat: 43.0735, lon: 131.9597, offshore_direction: 30, shore_normal: 140, swell_window: [145, 275], offshore_km: 5.0, break_type: beach, <<: *pri }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: cape-akhlestyshev, name: "Cape Akhlestyshev", town: "Russky", lat: 42.9958, lon: 131.9344, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, break_type: beach, <<: *pri }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)

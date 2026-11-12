@@ -1,0 +1,72 @@
+{
+  "spot": "bay-of-skaill",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    59.0522,
+    -3.3365
+  ],
+  "bearing_seaward_deg": 285.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 102.0,
+  "mean_slope_m_per_km": 5.97,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 59.05278,
+      "lon": -3.34072,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 59.05336,
+      "lon": -3.34495,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 59.05453,
+      "lon": -3.35339,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 59.05685,
+      "lon": -3.37029,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 59.05917,
+      "lon": -3.38719,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 59.06381,
+      "lon": -3.42099,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 59.07075,
+      "lon": -3.47171,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 59.07997,
+      "lon": -3.53937,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 59.09374,
+      "lon": -3.64092,
+      "depth_m": 102.0
+    }
+  ]
+}

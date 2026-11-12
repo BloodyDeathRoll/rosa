@@ -1,0 +1,72 @@
+{
+  "spot": "el-tecuan",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.307,
+    -104.9281
+  ],
+  "bearing_seaward_deg": 205.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 539.0,
+  "mean_slope_m_per_km": 30.59,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.30496,
+      "lon": -104.92911,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.30292,
+      "lon": -104.93011,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.29885,
+      "lon": -104.93213,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.2907,
+      "lon": -104.93615,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.28255,
+      "lon": -104.94018,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.26625,
+      "lon": -104.94823,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.24179,
+      "lon": -104.9603,
+      "depth_m": 142.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.20919,
+      "lon": -104.9764,
+      "depth_m": 282.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.16027,
+      "lon": -105.00052,
+      "depth_m": 539.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "yako",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -2.6425,
+    141.2142
+  ],
+  "bearing_seaward_deg": 45.0,
+  "nearshore_depth_m": 96.0,
+  "offshore_depth_m": 2006.0,
+  "mean_slope_m_per_km": 107.61,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -2.64091,
+      "lon": 141.21579,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -2.63932,
+      "lon": 141.21738,
+      "depth_m": 133.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -2.63614,
+      "lon": 141.22057,
+      "depth_m": 214.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -2.62978,
+      "lon": 141.22693,
+      "depth_m": 366.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -2.62342,
+      "lon": 141.2333,
+      "depth_m": 571.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -2.6107,
+      "lon": 141.24603,
+      "depth_m": 853.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -2.59163,
+      "lon": 141.26513,
+      "depth_m": 1152.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -2.56619,
+      "lon": 141.29059,
+      "depth_m": 1539.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -2.52803,
+      "lon": 141.32878,
+      "depth_m": 2006.0
+    }
+  ]
+}

@@ -56,3 +56,14 @@ spots:
   - { id: kidds-beach, name: "Kidd's Beach", town: "Kidd's Beach", lat: -33.1468, lon: 27.7029, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-04 (websearch-seeded)
   - { id: yellow-sands, name: "Yellow Sands", town: "Gonubie", lat: -32.9063, lon: 28.0782, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-04 (websearch-seeded)
   - { id: queensberry-bay, name: "Queensberry Bay", town: "Queensberry Bay", lat: -32.8830, lon: 28.1012, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, break_type: point, <<: *sae }  # sat-verified 2026-11-04 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch 2, 6 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap2-africa/). North to south.
+  - { id: second-beach-port-st-johns, name: "Second Beach", town: "Port St Johns", lat: -31.6503, lon: 29.5197, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: mdumbi-point, name: "Mdumbi Point", town: "Umtata Mouth", lat: -31.9368, lon: 29.2178, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: point, <<: *sae }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: coffee-bay-point, name: "Coffee Bay Point", town: "Coffee Bay", lat: -31.9854, lon: 29.1528, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: point, <<: *sae }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: bomvu-bay, name: "Bomvu Bay", town: "Coffee Bay", lat: -31.9883, lon: 29.1497, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, break_type: point, <<: *sae }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: morgan-bay, name: "Morgan Bay", town: "Morgan Bay", lat: -32.7118, lon: 28.3385, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: point, <<: *sae }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: cintsa-east, name: "Cintsa East", town: "Cintsa East", lat: -32.8301, lon: 28.1187, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
