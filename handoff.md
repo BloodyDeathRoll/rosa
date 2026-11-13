@@ -1,67 +1,49 @@
-# Session Handoff — 2026-11-05
+# Session Handoff - 2026-11-13
 
 ## Goal
-1. Give the Charts map the same buttons as the Map: share, search and north, plus zoom +/- on desktop.
-2. Close the famous-break gaps in the spot DB, before seeding unnamed coastline.
+Keep seeding coasts with no or few spots: zero-spot areas from box counts, thin coasts, and densifying famous regions that were thin. DB went 4750 -> 4988 over 4 gap batches, plus 2 pin moves.
 
 ## Current State
-- Everything is committed and pushed to main. Last commit: `c045795`. The working tree is clean.
-- **Charts buttons:** commit `9162e6a`. Deployed to rosa.surf (Vercel project "rosa"). Not checked by eye on the live site.
-- **Spot DB is 4000 spots** (it was 3593). `pipeline` pytest: 718 passed.
-- The new spots go live in the next VM cycle (cron 02:20/08:20/14:20/20:20 UTC). **Not yet verified on the CDN** that the new spots publish. The new regions and basins (`southern-italy`, `tyrrhenian`, `malaysia` and others) have never run through `run --all`.
-- The famous-break gap queue is closed. The playbook §5 now says so.
-- Google geocoding still returns `REQUEST_DENIED` (billing is off on the key). Nominatim and Photon were used instead.
+- All committed and pushed to main from worktree branch `suggested-new-seeding-areas-de40f56e`. Last commit `481c4636`. Only `handoff.md` uncommitted.
+- DB = 4988 spots (checked with `rosa_pipeline.spots.load_spots(Path('../data/spots'))`). `pipeline` pytest: 718 passed at 4988.
+- `data/spots/derived/bathy/` has 4989 files: the extra one is `bathy_elevations.json`, a cache, not a spot.
+- **Not verified on the CDN.** None of the 238 new spots or the new regions (kamchatka, newfoundland, gulf-of-st-lawrence, seychelles, tanzania, bangladesh, poland, lithuania, latvia, christmas-island, primorye, laayoune, orkney-shetland, marquesas, sakhalin, estonia, kaliningrad, falklands) was checked after a VM cycle.
+- **Black Sea has no wave data** (OPEN-ITEMS 45): GFS-Wave has no wet nodes there. Existing `harmani` and `aglayankaya` get no forecast. Kilyos is published but probably samples a Sea of Marmara node (not verified). Nothing changed for those spots.
+- Web search is capped at 200 per session, shared by all subagents. Batch 4 ran out early, so most of its names came from official pages fetched directly.
 
 ## Active Files
-- `web/src/pages/MapPage.tsx`: `MapSearch` was pulled out as a shared search overlay.
-- `web/src/pages/ChartsPage.tsx`: uses the Map's fabs and `MapSearch`. Picking a spot zooms to level 6.
-- `data/spots/*.yaml`: new regions puerto-rico, nova-scotia, vancouver-island, liguria, tuscany, lazio, sardinia, dakhla, tobago, british-virgin-islands, malaysia, thailand, nsw-mid-north-coast, nsw-south-coast, nsw-central-coast, campania, basilicata, calabria and puglia. Many existing regions also grew.
-- `data/spots/derived/bathy/*.json` and the tide files: one per new spot.
-- `pipeline/src/rosa_pipeline/swellmap.py`: `BASINS` entries for the new regions. New basins: `tyrrhenian`, `southern-italy`, `malaysia`.
-- `tools/spot-seed/{emit_spots,seed,towns}.py`: tables for the new regions (anchor, bbox, region name).
-- `pipeline/tests/test_geo_seam.py:154`: the spot count, now 4000. CLAUDE.md sanctions this edit.
-- `CLAUDE.md` and `docs/SPOT-DB.md`: spot counts and the per-region list.
-- `docs/spot-db-scraping-playbook.md` §5: the session log, and the gap queue marked closed.
-- `docs/SESSIONS.md`: entries for 2026-11-04 cont. 1-3.
+- `data/spots/*.yaml`: new region files (list above) and many extended ones.
+- `data/spots/derived/bathy/*.json`, `data/spots/derived/tide/*.json`: one each per new spot; rifles and pottuvil-point recut.
+- `pipeline/src/rosa_pipeline/swellmap.py`: `BASINS` for the new regions.
+- `tools/spot-seed/{seed,emit_spots,towns}.py`: REGIONS bbox, CFG anchor, REGION_PBF for new regions.
+- `pipeline/tests/test_geo_seam.py`: spot count 4988 (CLAUDE.md sanctions this edit).
+- `CLAUDE.md`, `docs/SPOT-DB.md`: total and per-region counts.
+- `docs/spot-db-scraping-playbook.md` §5: per-batch log, including the flagged-pin list.
+- `docs/SESSIONS.md`, `docs/OPEN-ITEMS.md` (item 45 Black Sea).
+- `tools/spot-seed/work/{gap-*,gap2-*,gap3-*,gap4-*}/` (gitignored): each agent's final.json, dropped.json, build.py, tiles/.
+- New OSM extracts in `data/osm/`: seychelles, newfoundland-and-labrador, quebec, comores, mayotte, russia far-east, estonia, kaliningrad.
+- Memory: `no-agent-concurrency-cap.md` (user removed the 4-agent cap on 2026-11-12).
 
 ## Changes Made This Session
-1. **`9162e6a` Charts fabs.** On mobile: share, search, north. On desktop: +/- zoom, and share moves to the top bar, as on the Map. Search is the same `MapSearch` component as the Map's.
-2. **Famous-break gap analysis.** A hand-written list of about 470 breaks was name-matched against the DB, then the misses were geocoded and measured. That gave two lists: single missing breaks in existing regions, and whole areas with no spots.
-3. **`7fe9ed0` (3593 -> 3613).**
-   - 9 singles added.
-   - 11 operator pins added.
-   - `lowers` moved onto the operator's Trestles pin and renamed Lower Trestles.
-   - `hash-point` renamed Mysteries (Hash Point).
-   - Sacate moved inshore at the operator's request.
-   - Las Islitas closed OPEN-ITEMS 18.
-4. **`eb54145` (-> 3706).** Big Island 25, Puerto Rico 35, Vancouver Island 13, Nova Scotia 20.
-5. **`b56a3a5` (-> 3931).** Italy and Sardinia 49, Australia 136, East London 11, Dakhla 3, Tobago 4, BVI 5, Malaysia 7, Thailand 10.
-6. **`c045795` (-> 4000).**
-   - NSW Central Coast 25 and southern Italy 41.
-   - Operator pins: Blackfellows, Little Kirra, Pigeon Point.
-   - Dakhla's country set to "Morocco" (operator decision, 2026-11-05).
-   - terrigal-haven re-aimed 20 -> 70 and dudley-beach to 118.
-- **Method for every batch:**
-  - Background subagents placed and judged the pins in the scratchpad only.
-  - The coordinator re-checked every pin on a z16 contact sheet.
-  - The coordinator then emitted the YAML, cut bathy and tide per spot, and re-aimed any normal whose ray crossed land.
-- Competitor sites were used for break names only, never for coordinates.
-- Operator pins are tagged `user-verified` in the YAML comment.
+1. **3810f656, 4750 -> 4805:** Gippsland 14, Molokai/Lanai 5, Kochi 4, Kamchatka 1, Chiapas 4, Chile 2, Atlantic Canada 7, East Africa 4, Bangladesh 1, Seychelles 4, Baltic 9. Percé and Shipwreck Beach rays re-aimed off land.
+2. **8e695da3, -> 4838:** Wild Coast 6, Western Sahara 2 (region laayoune), Christmas Island 1, Konkan 2, Jalisco/Michoacán 4, Banyak 1, La Union 1, PNG 4, Primorye 3, Sakhalin 3, Orkney/Shetland 6, Marquesas 1. Six rays re-aimed.
+3. **bea6e507, -> 4862:** Kaliningrad 4, Gotland 2, North Uist 2, Sicily 3, Plettenberg 2, plus single spots (Bornholm, Lista, Schiermonnikoog, Hiiumaa, Sinclair's Bay, Shenzhen, Hong Kong, Noosa North Shore, Teewah, Kodiak, Assateague).
+4. **fa21131c, -> 4988:** Peru 25 (names from Peru's official surf-break registry), Portugal 21, Canaries 16, Mexico 15 (9 Ensenada pins use Baja California state tourism coordinates), Bali 10, Sri Lanka 9, Costa Rica 9, Panama 7, Morocco 4, Durban 3, Falklands 2, others 1 each. 2 Mai (Romania) dropped because the Black Sea has no wave data. Seven rays re-aimed.
+5. **481c4636:** moved `rifles` 14 km onto Karangmajat's east reef (Kandui Resort + 3 operators; long right on the tile) and `pottuvil-point` 0.7 km south onto the boulder point. Both checked on z15 tiles; bathy and tide recut.
+
+Decisions:
+- Keep bar stays at confidence 0.65. On 2026-11-12 the user said "do all" to a list that included the 0.6 leftovers. I read that as approval for those leftovers only: Maruata, Surf Bay, Bertha's Beach and Palanga went in. Plaja Modern (inside a breakwater pool) and Santa Lucia (its source points elsewhere) were dropped on the tile. That approval does not carry forward.
+- Before adding a batch, every spot is checked against the GFS-Wave wet grid using the pipeline's own 0.6° nearest-node rule.
 
 ## Failed Attempts
-- **`git push` failed** at first: the pre-push hook needs `uv`, and `uv` is not on PATH by default. Fix: `export PATH=$HOME/.local/bin:$PATH`.
-- **Google geocoder:** `REQUEST_DENIED`. Do not retry until billing is turned on.
-- **Nominatim** returned 429 when several agents ran at once. Photon worked as the fallback.
-- **Dropped for having no locatable source**, so not added. Each needs an operator pin:
-  - Puerto Rico: Indicators, Dogman's, Little Malibu, Antonio's, Middles, Margara, Aviones, Inches, Table Rock, Bridges.
-  - Big Island: Kehena, Miloli'i, Ho'okena, Napo'opo'o, Old Airport, Kings Landing, South Point.
-  - Vancouver Island: Lennard Island, Botanical Beach.
-  - Nova Scotia: Minutes, Lawrencetown Reef, Backyards, Caldwells Cove.
-  - Dakhla: Arish, Pukas.
-  - Southern Italy: Tombino (Bari), Pizzo, Capo Miseno.
-- **`aim_normal`'s land count is no proof on steep coves.** GEBCO reads the first 0.25-1 km as land on every bearing there. Only `offshore_depth_m <= 0` disqualifies a spot.
+- **Black Sea:** no wave source, so Romania and Georgia stay out (OPEN-ITEMS 45).
+- **Emptied by the 0.65 bar (sources were competitor-only or windsurf-only):** Cucao and Pumillahue, Lance Cove and Middle Cove, Bukhta Zhirovaya, Atacama, Tierra del Fuego, Comoros, Mayotte, Rodrigues, Palau, Chathams, Enggano, south Flores, Panaitan, east Samar, Aurora, east Mindanao, Turkey's Aegean coast, west Algeria, north Mozambique, Uruguay, the Antofagasta reefs, Zanzibar, Bazaruto, Cantabria/Galicia/Huelva, and sub-peaks (Fraserburgh, Swakopmund, Kommetjie).
+- **Borongan pins** (`sabang-borongan`, `bato-borongan` in gaps-b): dropped on purpose earlier. They are river mouths in a sheltered bay, and `borongan` is already in the DB.
+- **Search-cap casualties worth a rerun:** China's Liu'ao bays and Taiji Bay; 19 located Morocco beaches each needing one more source (Sidi Mghait first); Cantabria/Galicia/Huelva; Pipa reefs; Ponta Backdoor (Tofo, pin ready at 0.6); 365s (Kommetjie); Playa Linda in Ixtapa (0.6).
 
 ## Next Step
-1. After the next VM cycle, check from the CDN that the new spots publish. Check one id per new region, e.g. `nsw-central-coast`'s `terrigal-beach`, `capo-suvero` and `domes` (Puerto Rico): fetch `data/spots/<id>.json` from the rosa-data CDN and check `fetched_at`. Also check that the `southern-italy` and `malaysia` swellmap frames exist. Do not run `run --all` locally (memory rule).
-2. Next seeding phase: the unnamed-coastline frontier (playbook §5). It needs satellite checks or user-submitted spots. Ask the operator before starting.
-3. Optional: give the operator the dropped-names list above, to get pins for them.
+1. After the next VM cycle (Asia/Jerusalem 04:20/10:20/16:20/22:20), check the CDN: sample `rosa.surf/spot/<id>` answers 200 with wave rows for, e.g., `kilcunda`, `melnrage`, `coffee-bay-point`, `zelenogradsk`, `burgerworld`, `surf-bay`, `rifles`.
+2. Fix the Black Sea spots (OPEN-ITEMS 45): decide what to do with `harmani` / `aglayankaya`, and verify which node Kilyos samples.
+3. Flagged existing pins the tiles didn't settle (listed in playbook §5): `coxos`, `crazy`, `libanona`, `bay-of-plenty` / `north-beach`, `sanur-reef` / `hyatt-reef`, `bank-vaults`, `panic-point`, `santa-maria-del-mar`; two Peniche spots share the name "Praia da Baía".
+4. Rerun the search-cap casualties above in a fresh session with a full search budget.
+5. Still open from earlier: the NZ council surf-break layer licence (footer credit if CC-BY), Hourtin, Porpoise Bay, and widening the tight seed.py boxes.
