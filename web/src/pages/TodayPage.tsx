@@ -387,6 +387,7 @@ export function TodayPage() {
   const mode = useMode();
   const [index, setIndex] = useState<Record<string, IndexEntry> | null>(null);
   const [pos, setPos] = useState<LatLon | null>(null);
+  const [posDone, setPosDone] = useState(false);
   const [payloads, setPayloads] = useState<Record<string, SpotPayload>>({});
   const [group, setGroup] = useState<string>(savedGroup());
   const [prompt, setPrompt] = useState<FbPrompt | null>(pendingPrompt);
@@ -400,20 +401,25 @@ export function TodayPage() {
   const [recents] = useState(getRecents);
   const [homeSpot] = useState(() => getHome()?.spot ?? null);
 
-  // Index + position first (both small); payloads follow per selected region.
+  // The index and the position load side by side. Today never waits on the fix
+  // when it has somewhere to measure from (see `plan`): a location prompt left
+  // open has no time limit, and held the whole screen on "Loading…".
   useEffect(() => {
     let disposed = false;
-    (async () => {
-      try {
-        const [idx, at] = await Promise.all([fetchIndex(), getPosition()]);
-        if (disposed) return;
-        setIndex(idx.spots);
-        setPos(at);
-      } catch (e) {
-        if (!disposed) setError((e as Error).message);
+    fetchIndex().then(
+      (idx) => {
+        if (!disposed) setIndex(idx.spots);
+      },
+      (e: Error) => {
+        if (!disposed) setError(e.message);
         signalReady();
-      }
-    })();
+      },
+    );
+    void getPosition().then((at) => {
+      if (disposed) return;
+      setPos(at);
+      setPosDone(true);
+    });
     return () => {
       disposed = true;
     };
@@ -422,9 +428,13 @@ export function TodayPage() {
   // What Today is about: which regions you can flip between, and which spots
   // each one shows. Pure index arithmetic - no payloads needed, so the chips
   // and the ordering are settled before a single forecast has downloaded.
+  // Until the fix answers, plan only from what is already known about you (an
+  // earlier fix's spot, favorites, the last spot opened). With none of those the
+  // plan would lead with an arbitrary spot and then swap, so that case waits.
+  const canPlan = posDone || homeSpot !== null || favs.length > 0 || recents.length > 0;
   const plan = useMemo(
-    () => (index ? planToday({ index, pos, favs, recents, group, homeSpot }) : null),
-    [index, pos, favs, recents, group, homeSpot],
+    () => (index && canPlan ? planToday({ index, pos, favs, recents, group, homeSpot }) : null),
+    [index, canPlan, pos, favs, recents, group, homeSpot],
   );
 
   // Where the user actually is: remembered for the feedback loop (which asks

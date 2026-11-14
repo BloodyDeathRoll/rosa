@@ -5,22 +5,56 @@ export interface LatLon {
 
 let cached: Promise<LatLon | null> | null = null;
 
+/* The last fix, kept on this device only (never sent anywhere), so the next load
+   ranks spots at once instead of waiting on a new fix. */
+const POS_KEY = "rosa.pos";
+
+function savedPosition(): LatLon | null {
+  try {
+    const raw: unknown = JSON.parse(localStorage.getItem(POS_KEY) ?? "null");
+    const p = raw as LatLon | null;
+    return p && typeof p.lat === "number" && typeof p.lon === "number" ? p : null;
+  } catch {
+    return null;
+  }
+}
+
 function request(maximumAge: number): Promise<LatLon | null> {
   return new Promise((resolve) => {
     if (!("geolocation" in navigator)) return resolve(null);
     navigator.geolocation.getCurrentPosition(
-      (p) => resolve({ lat: p.coords.latitude, lon: p.coords.longitude }),
-      () => resolve(null),
+      (p) => {
+        const at = { lat: p.coords.latitude, lon: p.coords.longitude };
+        try {
+          localStorage.setItem(POS_KEY, JSON.stringify(at));
+        } catch {
+          // storage full or blocked - the fix still serves this session
+        }
+        resolve(at);
+      },
+      (e) => {
+        // permission taken back: forget the saved fix too
+        if (e.code === e.PERMISSION_DENIED) localStorage.removeItem(POS_KEY);
+        resolve(null);
+      },
       { timeout: 8000, maximumAge }
     );
   });
 }
 
 /** One geolocation request per session; resolves null on denial/timeout/unsupported.
+    A fix saved by an earlier visit answers at once, and a fresh one is fetched
+    behind it for the next load.
+    shortcut: this session keeps the saved fix even if you moved, the map's locate
+    button (refreshPosition) or a reload picks up the new one.
     NOTE: a failed fix caches null for the whole session - the map's locate button
     calls refreshPosition() to bust it. */
 export function getPosition(): Promise<LatLon | null> {
-  cached ??= request(5 * 60_000);
+  if (!cached) {
+    const saved = savedPosition();
+    const fresh = request(5 * 60_000);
+    cached = saved ? Promise.resolve(saved) : fresh;
+  }
   return cached;
 }
 

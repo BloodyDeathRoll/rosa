@@ -3,6 +3,7 @@ import { fetchIndex } from "../api";
 import { ratingVar } from "../conditions";
 import { useFavorites } from "../favorites";
 import { splitName } from "../format";
+import { ABOUT_TITLES } from "../seo";
 import { ACCOUNT_EVENT, profile, type Profile } from "../session";
 import { TAB_ROUTES, type Tab } from "../tabs";
 import { fmtRange, useUnits } from "../units";
@@ -134,5 +135,23 @@ export function DesktopBar({ active }: { active: Tab | null }) {
         </div>
       )}
     </header>
+  );
+}
+
+/** Wide-screen footer (styles.css DESKTOP block; `display: none` on phones): the
+    About pages Profile lists, as small text links, and the copyright line. Pinned
+    to the bottom of the viewport on every screen. */
+export function DesktopFooter() {
+  return (
+    <footer class="desk-foot">
+      <nav class="desk-foot-row" aria-label="About Rosa">
+        {Object.entries(ABOUT_TITLES).map(([doc, title]) => (
+          <a key={doc} href={`/about/${doc}`}>
+            {title}
+          </a>
+        ))}
+        <span>© {new Date().getFullYear()} Rosa. All rights reserved.</span>
+      </nav>
+    </footer>
   );
 }

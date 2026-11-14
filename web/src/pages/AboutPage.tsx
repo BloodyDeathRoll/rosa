@@ -410,8 +410,9 @@ function Privacy() {
       </p>
       <h2>Location</h2>
       <p>
-        If you allow location access, Rosa uses it only to show the spots nearest you. Your location
-        is not stored and is not sent to us; only the id of the nearest spot is, as above.
+        If you allow location access, Rosa uses it only to show the spots nearest you. Your last
+        location is kept on your own device, so the app opens faster, and is not sent to us; only the
+        id of the nearest spot is, as above.
       </p>
       <h2>Analytics</h2>
       <p>

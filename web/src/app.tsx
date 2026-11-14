@@ -1,7 +1,7 @@
 import { useEffect, useState } from "preact/hooks";
 import { HomeIcon, MapIcon, StarIcon, UserIcon, WavesIcon } from "./components/icons";
 import { BottomGlow } from "./components/BottomGlow";
-import { DesktopBar } from "./components/DesktopBar";
+import { DesktopBar, DesktopFooter } from "./components/DesktopBar";
 import { DuplicateNote } from "./components/DuplicateNote";
 import { InstallPrompt } from "./components/InstallPrompt";
 import { ConsentBar } from "./components/ConsentBar";
@@ -108,6 +108,8 @@ export function App() {
       {/* Search stays focused (no nav). Spot pages show the nav but light no tab
           (you're deeper than any section). About lives under Profile. */}
       {route.page !== "search" && <TabBar active={active} />}
+      {/* wide screens only (CSS) */}
+      <DesktopFooter />
       <ConsentBar />
       <TangoNotice />
       <ReportNudge />

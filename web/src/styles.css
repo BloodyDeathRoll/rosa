@@ -4154,6 +4154,7 @@ a.rank-card:hover {
    ========================================================================== */
 
 .desk-bar,
+.desk-foot,
 .sheet-title {
   display: none;
 }
@@ -4168,6 +4169,7 @@ a.rank-card:hover {
     --desk-max: 1440px;
     /* the reading column for text-and-rows screens (Spots, Profile, About, Search) */
     --desk-narrow: 760px;
+    --desk-foot-h: 36px;
   }
   :root:has(.desk-ticker) {
     --desk-top: calc(var(--desk-bar-h) + var(--desk-ticker-h));
@@ -4176,6 +4178,45 @@ a.rank-card:hover {
   .app {
     max-width: none;
     box-shadow: none;
+    /* the pinned footer covers this strip */
+    padding-bottom: var(--desk-foot-h);
+  }
+
+  /* ----- Footer: pinned to the bottom of every screen */
+  .desk-foot {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 30;
+    /* the same frost as the top bar */
+    background: color-mix(in srgb, var(--body-bg) 90%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border);
+  }
+  .desk-foot-row {
+    height: var(--desk-foot-h);
+    max-width: var(--desk-max);
+    margin: 0 auto;
+    padding: 0 var(--desk-pad);
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    font-size: 13px;
+    color: var(--muted-foreground);
+    white-space: nowrap;
+  }
+  .desk-foot-row a {
+    color: inherit;
+    transition: color 0.15s;
+  }
+  .desk-foot-row a:hover {
+    color: var(--foreground);
+  }
+  .desk-foot-row span {
+    margin-left: auto;
   }
   .tabs {
     display: none;
@@ -4225,8 +4266,8 @@ a.rank-card:hover {
   .desk-nav a {
     padding: 8px 13px;
     border-radius: 9999px;
-    font-size: 16.5px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 400;
     color: var(--muted-foreground);
     transition: color 0.15s, background 0.15s;
   }
@@ -4433,6 +4474,16 @@ a.rank-card:hover {
   }
   .detail-card .dc-cam {
     height: 160px;
+  }
+  .detail-card .top .spot-title b {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .detail-card .surf-range {
+    font-size: 22px;
+  }
+  .detail-card .line {
+    font-size: 13px;
   }
   .detail-card {
     transition: transform 0.18s ease, box-shadow 0.18s ease;
@@ -4647,7 +4698,7 @@ a.rank-card:hover {
   /* ----- Map & Charts: full bleed under the bar */
   .map-page,
   .app:has(.map-page) .map-canvas {
-    height: calc(100dvh - var(--desk-top));
+    height: calc(100dvh - var(--desk-top) - var(--desk-foot-h));
   }
   .map-screen {
     height: 100%;
@@ -4799,7 +4850,7 @@ a.rank-card:hover {
     left: 0;
     top: var(--desk-top);
     width: 50vw;
-    height: calc(100dvh - var(--desk-top));
+    height: calc(100dvh - var(--desk-top) - var(--desk-foot-h));
     aspect-ratio: auto;
     align-items: center;
     z-index: 1;
