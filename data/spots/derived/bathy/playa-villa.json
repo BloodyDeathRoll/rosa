@@ -1,0 +1,72 @@
+{
+  "spot": "playa-villa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -12.2196,
+    -77.0031
+  ],
+  "bearing_seaward_deg": 210.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 109.0,
+  "mean_slope_m_per_km": 5.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.22155,
+      "lon": -77.00425,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.22349,
+      "lon": -77.0054,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.22739,
+      "lon": -77.0077,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.23518,
+      "lon": -77.0123,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.24296,
+      "lon": -77.0169,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.25854,
+      "lon": -77.02611,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -12.2819,
+      "lon": -77.03992,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -12.31305,
+      "lon": -77.05833,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -12.35978,
+      "lon": -77.08596,
+      "depth_m": 109.0
+    }
+  ]
+}

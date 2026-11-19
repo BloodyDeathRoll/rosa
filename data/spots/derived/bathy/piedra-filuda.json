@@ -1,0 +1,72 @@
+{
+  "spot": "piedra-filuda",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -4.2245,
+    -81.1979
+  ],
+  "bearing_seaward_deg": 345.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 478.0,
+  "mean_slope_m_per_km": 26.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -4.22233,
+      "lon": -81.19848,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -4.22016,
+      "lon": -81.19907,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -4.21581,
+      "lon": -81.20023,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -4.20713,
+      "lon": -81.20257,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -4.19844,
+      "lon": -81.2049,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -4.18107,
+      "lon": -81.20957,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -4.15501,
+      "lon": -81.21657,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -4.12026,
+      "lon": -81.2259,
+      "depth_m": 345.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -4.06814,
+      "lon": -81.2399,
+      "depth_m": 478.0
+    }
+  ]
+}

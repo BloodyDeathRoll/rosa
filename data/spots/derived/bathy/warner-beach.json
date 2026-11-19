@@ -1,0 +1,72 @@
+{
+  "spot": "warner-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -30.0796,
+    30.8722
+  ],
+  "bearing_seaward_deg": 118.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 338.0,
+  "mean_slope_m_per_km": 18.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -30.08066,
+      "lon": 30.87449,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -30.08171,
+      "lon": 30.87679,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -30.08382,
+      "lon": 30.88138,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -30.08804,
+      "lon": 30.89055,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -30.09226,
+      "lon": 30.89973,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.1007,
+      "lon": 30.91809,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -30.11336,
+      "lon": 30.94564,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.13022,
+      "lon": 30.98237,
+      "depth_m": 159.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.15549,
+      "lon": 31.0375,
+      "depth_m": 338.0
+    }
+  ]
+}

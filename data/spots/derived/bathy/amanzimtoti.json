@@ -1,0 +1,72 @@
+{
+  "spot": "amanzimtoti",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -30.0499,
+    30.8921
+  ],
+  "bearing_seaward_deg": 124.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 385.0,
+  "mean_slope_m_per_km": 21.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -30.05116,
+      "lon": 30.89425,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -30.05241,
+      "lon": 30.89641,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -30.05493,
+      "lon": 30.90071,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -30.05996,
+      "lon": 30.90933,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -30.06498,
+      "lon": 30.91794,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.07504,
+      "lon": 30.93518,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -30.09011,
+      "lon": 30.96104,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.11021,
+      "lon": 30.99552,
+      "depth_m": 168.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.14033,
+      "lon": 31.04728,
+      "depth_m": 385.0
+    }
+  ]
+}

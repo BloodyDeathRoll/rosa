@@ -1,0 +1,72 @@
+{
+  "spot": "tamahroucht",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.5544,
+    -10.0575
+  ],
+  "bearing_seaward_deg": 293.0,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 5.3,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.55528,
+      "lon": -10.05988,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.55616,
+      "lon": -10.06226,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.55791,
+      "lon": -10.06702,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.56143,
+      "lon": -10.07653,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.56494,
+      "lon": -10.08605,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.57196,
+      "lon": -10.10509,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.58249,
+      "lon": -10.13365,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.59652,
+      "lon": -10.17175,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.61754,
+      "lon": -10.2289,
+      "depth_m": 78.0
+    }
+  ]
+}

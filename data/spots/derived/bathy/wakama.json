@@ -1,0 +1,72 @@
+{
+  "spot": "wakama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -13.2915,
+    -76.2709
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": -42.0,
+  "offshore_depth_m": 106.0,
+  "mean_slope_m_per_km": 8.34,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -13.29309,
+      "lon": -76.27253,
+      "depth_m": -42.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -13.29468,
+      "lon": -76.27417,
+      "depth_m": -42.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -13.29786,
+      "lon": -76.27743,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -13.30422,
+      "lon": -76.28397,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -13.31058,
+      "lon": -76.2905,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -13.32329,
+      "lon": -76.30358,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -13.34237,
+      "lon": -76.32318,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -13.3678,
+      "lon": -76.34933,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -13.40594,
+      "lon": -76.38857,
+      "depth_m": 106.0
+    }
+  ]
+}

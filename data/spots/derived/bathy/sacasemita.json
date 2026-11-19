@@ -1,0 +1,72 @@
+{
+  "spot": "sacasemita",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -14.1505,
+    -76.2797
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": 25.0,
+  "offshore_depth_m": 256.0,
+  "mean_slope_m_per_km": 13.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -14.15108,
+      "lon": -76.28194,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -14.15166,
+      "lon": -76.28418,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -14.15283,
+      "lon": -76.28866,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -14.15515,
+      "lon": -76.29762,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -14.15748,
+      "lon": -76.30658,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -14.16213,
+      "lon": -76.3245,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -14.16911,
+      "lon": -76.35137,
+      "depth_m": 168.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -14.17841,
+      "lon": -76.38722,
+      "depth_m": 183.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -14.19234,
+      "lon": -76.44098,
+      "depth_m": 256.0
+    }
+  ]
+}

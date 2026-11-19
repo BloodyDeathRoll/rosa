@@ -1,0 +1,72 @@
+{
+  "spot": "garvies",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -29.9128,
+    31.0327
+  ],
+  "bearing_seaward_deg": 130.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 433.0,
+  "mean_slope_m_per_km": 24.23,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -29.91425,
+      "lon": 31.03469,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -29.91569,
+      "lon": 31.03667,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -29.91858,
+      "lon": 31.04065,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -29.92436,
+      "lon": 31.0486,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -29.93014,
+      "lon": 31.05655,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -29.9417,
+      "lon": 31.07245,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -29.95903,
+      "lon": 31.09631,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -29.98213,
+      "lon": 31.12814,
+      "depth_m": 323.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.01678,
+      "lon": 31.17591,
+      "depth_m": 433.0
+    }
+  ]
+}

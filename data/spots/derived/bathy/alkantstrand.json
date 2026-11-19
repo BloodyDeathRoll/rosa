@@ -1,0 +1,72 @@
+{
+  "spot": "alkantstrand",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -28.7972,
+    32.102
+  ],
+  "bearing_seaward_deg": 137.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 76.0,
+  "mean_slope_m_per_km": 4.34,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.79884,
+      "lon": 32.10375,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.80049,
+      "lon": 32.1055,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.80378,
+      "lon": 32.109,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.81035,
+      "lon": 32.116,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.81693,
+      "lon": 32.123,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.83008,
+      "lon": 32.13701,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.84981,
+      "lon": 32.15802,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.8761,
+      "lon": 32.18605,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.91553,
+      "lon": 32.22812,
+      "depth_m": 76.0
+    }
+  ]
+}

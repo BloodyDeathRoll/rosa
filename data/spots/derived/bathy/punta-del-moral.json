@@ -1,0 +1,72 @@
+{
+  "spot": "punta-del-moral",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.1807,
+    -7.3392
+  ],
+  "bearing_seaward_deg": 155.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 51.0,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.17866,
+      "lon": -7.33801,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.17662,
+      "lon": -7.33681,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.17255,
+      "lon": -7.33443,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.1644,
+      "lon": -7.32966,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.15625,
+      "lon": -7.32489,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.13994,
+      "lon": -7.31536,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.11549,
+      "lon": -7.30107,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.08288,
+      "lon": -7.28203,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.03396,
+      "lon": -7.2535,
+      "depth_m": 51.0
+    }
+  ]
+}

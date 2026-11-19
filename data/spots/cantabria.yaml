@@ -41,3 +41,15 @@ spots:
   - { id: oyambre, name: "Oyambre", town: "San Vicente de la Barquera", lat: 43.3929, lon: -4.3315, offshore_direction: 213, swell_window: [328, 98], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
   - { id: meron, name: "Meron", town: "San Vicente de la Barquera", lat: 43.3914, lon: -4.3819, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
   - { id: comillas, name: "Comillas", town: "Comillas", lat: 43.3901, lon: -4.2873, offshore_direction: 236, swell_window: [351, 121], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-19 - candidates batch, 7 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/cand-spain/). North to south.
+  - { id: la-vaca, name: "La Vaca", town: "Santander", lat: 43.4914, lon: -3.8200, offshore_direction: 150, swell_window: [265, 35], offshore_km: 5.0, break_type: reef, <<: *can }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.65)
+  - { id: galizano, name: "Galizano", town: "Galizano", lat: 43.4810, lon: -3.6765, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, break_type: beach, <<: *can }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.7)
+  - { id: isla-de-santa-marina, name: "Isla de Santa Marina", town: "Loredo", lat: 43.4700, lon: -3.7289, offshore_direction: 105, shore_normal: 335, swell_window: [220, 350], offshore_km: 5.0, break_type: reef, <<: *can }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.7)
+  - { id: la-tablia, name: "La Tablía", town: "Suances", lat: 43.4348, lon: -4.0554, offshore_direction: 165, swell_window: [280, 50], offshore_km: 5.0, break_type: beach, <<: *can }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.75)
+  - { id: orinon, name: "Oriñón", town: "Oriñón", lat: 43.4020, lon: -3.3233, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, break_type: beach, <<: *can }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.75)
+  - { id: gerra, name: "Gerra", town: "San Vicente de la Barquera", lat: 43.4010, lon: -4.3559, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, break_type: beach, <<: *can }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.85)
+  - { id: luana, name: "Luaña", town: "Cóbreces", lat: 43.3963, lon: -4.2214, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, break_type: beach, <<: *can }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.7)

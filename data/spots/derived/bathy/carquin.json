@@ -1,0 +1,72 @@
+{
+  "spot": "carquin",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -11.0905,
+    -77.6326
+  ],
+  "bearing_seaward_deg": 300.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 83.0,
+  "mean_slope_m_per_km": 4.96,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -11.08938,
+      "lon": -77.63458,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -11.08825,
+      "lon": -77.63657,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -11.086,
+      "lon": -77.64054,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -11.08151,
+      "lon": -77.64847,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -11.07701,
+      "lon": -77.65641,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -11.06801,
+      "lon": -77.67228,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -11.05452,
+      "lon": -77.69608,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -11.03653,
+      "lon": -77.72782,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -11.00953,
+      "lon": -77.77542,
+      "depth_m": 83.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "la-costa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -12.6781,
+    -76.6608
+  ],
+  "bearing_seaward_deg": 250.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 130.0,
+  "mean_slope_m_per_km": 6.99,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.67887,
+      "lon": -76.66297,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.67964,
+      "lon": -76.66513,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.68118,
+      "lon": -76.66946,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.68425,
+      "lon": -76.67812,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.68733,
+      "lon": -76.68679,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.69348,
+      "lon": -76.70411,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -12.7027,
+      "lon": -76.7301,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -12.71499,
+      "lon": -76.76476,
+      "depth_m": 113.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -12.73342,
+      "lon": -76.81675,
+      "depth_m": 130.0
+    }
+  ]
+}

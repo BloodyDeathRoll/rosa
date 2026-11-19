@@ -79,3 +79,17 @@ spots:
   - { id: draculas, name: "Draculas", town: "Borj Daou", lat: 30.6236, lon: -9.8615, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, break_type: point, <<: *ma }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
   - { id: kms-aourir, name: "KM 11-12", town: "Aourir", lat: 30.4953, lon: -9.6773, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: reef, <<: *ma }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
   - { id: sidi-ifni-harbour, name: "Ifni Harbour", town: "Sidi Ifni", lat: 29.3486, lon: -10.1950, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, break_type: beach, <<: *ma }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+
+  # ==== SEEDED 2026-11-19 - candidates batch, 9 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/cand-morocco/). North to south.
+  - { id: achakar, name: "Achakar", town: "Tangier", lat: 35.7658, lon: -5.9371, offshore_direction: 104, swell_window: [219, 349], offshore_km: 5.0, break_type: beach, <<: *ma }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.65)
+  - { id: sidi-mghait, name: "Sidi Mghait", town: "Asilah", lat: 35.3834, lon: -6.0842, offshore_direction: 105, swell_window: [220, 350], offshore_km: 5.0, break_type: beach, <<: *ma }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.65)
+  - { id: haouzia, name: "Haouzia", town: "Azemmour", lat: 33.2754, lon: -8.4008, offshore_direction: 151, swell_window: [266, 36], offshore_km: 5.0, break_type: beach, <<: *ma }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.7)
+  - { id: cap-sim, name: "Cap Sim", town: "Sidi Kaouki", lat: 31.3877, lon: -9.8394, offshore_direction: 22, swell_window: [137, 267], offshore_km: 5.0, break_type: point, <<: *ma }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.65)
+  - { id: unicorns, name: "Unicorns", town: "Borj Daou", lat: 30.6231, lon: -9.8692, offshore_direction: 6, swell_window: [121, 251], offshore_km: 5.0, break_type: reef, <<: *ma }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.65)
+  - { id: desert-point-tiguert, name: "Desert Point", town: "Tiguert", lat: 30.6223, lon: -9.8160, offshore_direction: 28, swell_window: [143, 273], offshore_km: 5.0, break_type: reef, <<: *ma }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.75)
+  - { id: marabout-mirleft, name: "Marabout", town: "Mirleft", lat: 29.5695, lon: -10.0529, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, break_type: beach, <<: *ma }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.7)
+  - { id: tamahroucht, name: "Tamahroucht", town: "Mirleft", lat: 29.5544, lon: -10.0575, offshore_direction: 113, swell_window: [228, 358], offshore_km: 5.0, break_type: beach, <<: *ma }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.65)
+  - { id: sidi-el-ouafi, name: "Sidi El Ouafi", town: "Mirleft", lat: 29.5370, lon: -10.0670, offshore_direction: 128, swell_window: [243, 13], offshore_km: 5.0, break_type: beach, <<: *ma }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.7)

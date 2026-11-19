@@ -1,0 +1,72 @@
+{
+  "spot": "punta-balcones",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -4.6809,
+    -81.3283
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 1207.0,
+  "mean_slope_m_per_km": 67.44,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -4.6811,
+      "lon": -81.33055,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -4.68129,
+      "lon": -81.33279,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -4.68168,
+      "lon": -81.33729,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -4.68247,
+      "lon": -81.34628,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -4.68325,
+      "lon": -81.35527,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -4.68482,
+      "lon": -81.37325,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -4.68717,
+      "lon": -81.40021,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -4.6903,
+      "lon": -81.43617,
+      "depth_m": 324.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -4.69499,
+      "lon": -81.4901,
+      "depth_m": 1207.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "sidi-el-ouafi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.537,
+    -10.067
+  ],
+  "bearing_seaward_deg": 308.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 4.51,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.53838,
+      "lon": -10.06904,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.53977,
+      "lon": -10.07107,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.54254,
+      "lon": -10.07515,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.54807,
+      "lon": -10.08329,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.55361,
+      "lon": -10.09144,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.56468,
+      "lon": -10.10774,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.58128,
+      "lon": -10.13219,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.60341,
+      "lon": -10.16481,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.63658,
+      "lon": -10.21376,
+      "depth_m": 78.0
+    }
+  ]
+}

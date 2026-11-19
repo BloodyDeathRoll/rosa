@@ -1,0 +1,72 @@
+{
+  "spot": "el-brujo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -7.9211,
+    -79.3106
+  ],
+  "bearing_seaward_deg": 245.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 62.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -7.92205,
+      "lon": -79.31266,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -7.923,
+      "lon": -79.31471,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -7.9249,
+      "lon": -79.31883,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -7.9287,
+      "lon": -79.32706,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -7.9325,
+      "lon": -79.33529,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -7.9401,
+      "lon": -79.35175,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -7.9515,
+      "lon": -79.37644,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -7.9667,
+      "lon": -79.40936,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -7.98949,
+      "lon": -79.45875,
+      "depth_m": 62.0
+    }
+  ]
+}

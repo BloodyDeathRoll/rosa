@@ -1,0 +1,72 @@
+{
+  "spot": "achakar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.7658,
+    -5.9371
+  ],
+  "bearing_seaward_deg": 284.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 382.0,
+  "mean_slope_m_per_km": 20.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.76634,
+      "lon": -5.93979,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.76689,
+      "lon": -5.94248,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.76798,
+      "lon": -5.94785,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.77015,
+      "lon": -5.95861,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.77232,
+      "lon": -5.96937,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.77667,
+      "lon": -5.99088,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.78317,
+      "lon": -6.02315,
+      "depth_m": 176.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.79184,
+      "lon": -6.06619,
+      "depth_m": 292.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.80481,
+      "lon": -6.13077,
+      "depth_m": 382.0
+    }
+  ]
+}

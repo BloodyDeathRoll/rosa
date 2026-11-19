@@ -78,3 +78,11 @@ spots:
   - { id: san-francisco, name: "San Francisco", town: "Oia", lat: 42.0232, lon: -8.8867, offshore_direction: 117, swell_window: [232, 2], offshore_km: 5.0, <<: *gal }  # sat-verified 2026-09-10 (osm-seeded)
   - { id: oia, name: "Oia", town: "Oia", lat: 41.9967, lon: -8.8826, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, <<: *gal }  # sat-verified 2026-09-10 (osm-seeded)
   - { id: area-grande, name: "Area Grande", town: "A Guarda", lat: 41.9100, lon: -8.8765, offshore_direction: 102, swell_window: [217, 347], offshore_km: 5.0, <<: *gal }  # sat-verified 2026-09-10 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-19 - candidates batch, 3 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/cand-spain/). North to south.
+  - { id: illa-pancha, name: "Illa Pancha", town: "Ribadeo", lat: 43.5573, lon: -7.0421, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, break_type: reef, <<: *gal }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.7)
+  - { id: o-portino, name: "O Portiño", town: "A Coruña", lat: 43.3736, lon: -8.4484, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, break_type: reef, <<: *gal }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.65)
+  - { id: mar-de-fora, name: "Mar de Fóra", town: "Fisterra", lat: 42.9090, lon: -9.2758, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *gal }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.75)

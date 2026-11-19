@@ -1,0 +1,72 @@
+{
+  "spot": "margate-za",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -30.8623,
+    30.3726
+  ],
+  "bearing_seaward_deg": 124.0,
+  "nearshore_depth_m": -17.0,
+  "offshore_depth_m": 1390.0,
+  "mean_slope_m_per_km": 79.27,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -30.86356,
+      "lon": 30.37477,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -30.86481,
+      "lon": 30.37694,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -30.86733,
+      "lon": 30.38129,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -30.87236,
+      "lon": 30.38997,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -30.87738,
+      "lon": 30.39866,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.88744,
+      "lon": 30.41604,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -30.90251,
+      "lon": 30.44211,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.92261,
+      "lon": 30.47689,
+      "depth_m": 147.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.95273,
+      "lon": 30.52909,
+      "depth_m": 1390.0
+    }
+  ]
+}

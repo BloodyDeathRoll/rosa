@@ -1,0 +1,72 @@
+{
+  "spot": "desert-point-tiguert",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    30.6223,
+    -9.816
+  ],
+  "bearing_seaward_deg": 208.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 114.0,
+  "mean_slope_m_per_km": 5.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.62031,
+      "lon": -9.81723,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.61833,
+      "lon": -9.81845,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.61436,
+      "lon": -9.82091,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.60642,
+      "lon": -9.82581,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.59848,
+      "lon": -9.83072,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.5826,
+      "lon": -9.84052,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.55877,
+      "lon": -9.85522,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.527,
+      "lon": -9.87482,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.47934,
+      "lon": -9.90418,
+      "depth_m": 114.0
+    }
+  ]
+}

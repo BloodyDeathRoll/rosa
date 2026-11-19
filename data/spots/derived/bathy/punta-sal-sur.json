@@ -1,0 +1,72 @@
+{
+  "spot": "punta-sal-sur",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -3.9804,
+    -80.9829
+  ],
+  "bearing_seaward_deg": 320.0,
+  "nearshore_depth_m": 25.0,
+  "offshore_depth_m": 238.0,
+  "mean_slope_m_per_km": 12.0,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.97868,
+      "lon": -80.98435,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.97696,
+      "lon": -80.9858,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.97351,
+      "lon": -80.98869,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.96662,
+      "lon": -80.99449,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.95973,
+      "lon": -81.00028,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.94595,
+      "lon": -81.01187,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.92529,
+      "lon": -81.02925,
+      "depth_m": 120.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.89773,
+      "lon": -81.05243,
+      "depth_m": 157.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.85639,
+      "lon": -81.08719,
+      "depth_m": 238.0
+    }
+  ]
+}

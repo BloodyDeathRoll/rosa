@@ -1,0 +1,72 @@
+{
+  "spot": "lucien-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -30.8561,
+    30.3795
+  ],
+  "bearing_seaward_deg": 135.0,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 1373.0,
+  "mean_slope_m_per_km": 78.25,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -30.85769,
+      "lon": 30.38135,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -30.85928,
+      "lon": 30.3832,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -30.86246,
+      "lon": 30.38691,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -30.86882,
+      "lon": 30.39432,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -30.87518,
+      "lon": 30.40173,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.88789,
+      "lon": 30.41655,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -30.90696,
+      "lon": 30.43879,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.93238,
+      "lon": 30.46846,
+      "depth_m": 209.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.9705,
+      "lon": 30.513,
+      "depth_m": 1373.0
+    }
+  ]
+}

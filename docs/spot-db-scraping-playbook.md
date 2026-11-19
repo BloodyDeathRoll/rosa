@@ -222,7 +222,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-11-12, DB = 4988 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-19, DB = 5053 spots, ALL sat-verified)
 
 **Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
 was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
@@ -491,6 +491,41 @@ OPEN-ITEMS 45).
   Libanona is 350 m from the new plage-monseigneur), bay-of-plenty / north-beach (Durban beachfront order),
   sanur-reef / hyatt-reef, bank-vaults, panic-point (= Pico Point), santa-maria-del-mar (= Playa Santa Rosa).
   la-pastora's tile shows a right point - kept. Two Peniche spots share "Praia da Baia".
+
+**Candidates batch: gap-batch leftovers re-run with a fresh search budget - 4988 -> 5053 (2026-11-19).** The leads
+the 2026-11-12 batches dropped for lack of search budget (their build.py files were recovered from the session
+transcripts into `tools/spot-seed/work/prior/`). Six subagents (cand-kzn / cand-capes / cand-morocco / cand-spain /
+cand-china / cand-americas), brief `tools/spot-seed/work/BRIEF-2026-11-19.md`, 25 WebSearch calls each; they used
+77 in total. 66 returned at >= 0.65; the coordinator re-read every tile on contact sheets and dropped `la-curva`
+(Negritos - pin in flat water inside the bay).
+- Added: peru 29 (Punta Tur and Punta Balcones on the FENTA break inventory, plus 27 more FENTA names where the
+  tile shows a break at the official position), south-africa-east 10 (KZN South Coast: Westbrook, Amanzimtoti,
+  Warner Beach, Happy Wanderers, Uvongo, Margate, Lucien; Garvies in Durban; Alkantstrand at Richards Bay;
+  Sodwana Bay), morocco 9 (Sidi Mghait, Achakar, Haouzia, Cap Sim, Unicorns, Desert Point `desert-point-tiguert`,
+  three Mirleft beaches), cantabria 7 (La Vaca, Isla de Santa Marina, Gerra, La Tablia, Galizano, Luana, Orinon),
+  galicia 3 (O Portino, Illa Pancha, Mar de Fora), cadiz 2 (Huelva: Mazagon, Punta del Moral - the cadiz region
+  now covers the whole Andalusian Atlantic), south-africa-west 2 (365s at Kommetjie, Walker Point at Buffelsbaai),
+  mexico 2 (Monuments, Playa Linda at Ixtapa), mozambique 1 (Ponta Backdoor at Tofo, `backdoor-tofo`).
+- Region by nearest DB pin, with three overrides: Sodwana Bay (nearest pin is in Mozambique), Illa Pancha
+  (nearest is in Asturias; Ribadeo is Galicia), Achakar (nearest is Tarifa).
+- Hand `shore_normal`: isla-de-santa-marina 335 (the 285 ray crossed the Santander bay mouth onto land at 5-8 km;
+  open arc 300-5). sidi-mghait, marabout-mirleft, tamahroucht, carquin, puerto-caballas keep GEBCO land to 0.5 km
+  and wakama to 1 km on the shoreline cells, deep water beyond (the documented case; each bearing sits inside its
+  open arc past 1 km). Every new spot has a GFS-Wave wet node within 0.6 deg (live 2026-11-19 file).
+- **Mexico timezones:** the web-seeded Baja and Nayarit rows of 2026-11-04 and 2026-11-12 carried no per-spot
+  `timezone`, so they fell back to the anchor's America/Mexico_City (2 h off in Baja California). Set:
+  America/Tijuana on santa-rosalillita, seven-sisters and the nine Rosarito-Ensenada pins; America/Mazatlan on
+  acapulquito, monuments, stoners-point, chacala, las-islitas. Sayulita / El Anclote / La Lancha / Burros carry
+  America/Mazatlan but sit in Bahia de Banderas municipality (America/Bahia_Banderas, UTC-6) - not changed.
+- Nothing sourced: all of the China leads (Liu'ao bays, Taiji Bay, Yuliao, Qingdao No. 1/3 Beach, Weihai,
+  Beihai / Weizhou - one ranking site or an OSM name only; Qingdao papers name Shilaoren, already in the DB),
+  Donkin Bay, Wreck and Guns at Swakopmund (Wreck sourced but the Strand Street sewage pipe is not locatable),
+  Cave Rock (only competitor sites tie the name to the tidal pool), Vetch's, Port Edward / Southbroom / Shelly
+  Beach (one source; Port Edward located at -31.0442, 30.2283), El Muro, Cuchia, Las Quebrantas, O Corvo,
+  Punta Umbria, Isla Cristina, Matalascanas, El Portil, Lajao and Sororoca (Lajao now has two name sources but no
+  locatable position), La Caleta (Chacala), the Punta de Mita breaks, the Casablanca and Rabat names, Plage Blanche.
+- Agents flagged existing pins, not moved: `green-point` (south-africa-east) sits on Umzumbe beach - Green Point
+  proper is in Clansthal, 47 km NE.
 
 **Gap queue (whole areas with zero spots, by box count 2026-11-12):** New Zealand is thin (17). Still
 empty: west Africa (Ivory Coast, Togo / Benin / Nigeria, Gabon, Sao Tome, Mauritania), Queensland north

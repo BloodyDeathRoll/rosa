@@ -1,0 +1,72 @@
+{
+  "spot": "salinas-huacho",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -11.2898,
+    -77.6496
+  ],
+  "bearing_seaward_deg": 340.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 3.61,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -11.28769,
+      "lon": -77.65038,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -11.28557,
+      "lon": -77.65117,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -11.28135,
+      "lon": -77.65274,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -11.2729,
+      "lon": -77.65587,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -11.26445,
+      "lon": -77.65901,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -11.24755,
+      "lon": -77.66528,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -11.22219,
+      "lon": -77.67469,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -11.18839,
+      "lon": -77.68723,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -11.13768,
+      "lon": -77.70603,
+      "depth_m": 50.0
+    }
+  ]
+}

@@ -75,3 +75,18 @@ spots:
   - { id: addington-beach, name: "Addington Beach", town: "Durban", lat: -29.8603, lon: 31.0437, offshore_direction: 248, swell_window: [3, 133], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
   - { id: ushaka-beach, name: "uShaka Beach", town: "Durban", lat: -29.8650, lon: 31.0471, offshore_direction: 237, swell_window: [352, 122], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
   - { id: brighton-beach-durban, name: "Brighton Beach", town: "Durban", lat: -29.9409, lon: 31.0060, offshore_direction: 312, swell_window: [67, 197], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+
+  # ==== SEEDED 2026-11-19 - candidates batch, 10 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/cand-kzn/). North to south.
+  - { id: sodwana-bay, name: "Sodwana Bay", town: "Sodwana Bay", lat: -27.5378, lon: 32.6762, offshore_direction: 251, swell_window: [6, 136], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.65)
+  - { id: alkantstrand, name: "Alkantstrand", town: "Richards Bay", lat: -28.7972, lon: 32.1020, offshore_direction: 317, swell_window: [72, 202], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.75)
+  - { id: westbrook, name: "Westbrook", town: "Westbrook", lat: -29.5925, lon: 31.1713, offshore_direction: 297, swell_window: [52, 182], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.7)
+  - { id: garvies, name: "Garvies", town: "Durban", lat: -29.9128, lon: 31.0327, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.65)
+  - { id: amanzimtoti, name: "Amanzimtoti", town: "Amanzimtoti", lat: -30.0499, lon: 30.8921, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.7)
+  - { id: warner-beach, name: "Warner Beach", town: "Warner Beach", lat: -30.0796, lon: 30.8722, offshore_direction: 298, swell_window: [53, 183], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.65)
+  - { id: happy-wanderers, name: "Happy Wanderers", town: "Kelso", lat: -30.3552, lon: 30.7195, offshore_direction: 299, swell_window: [54, 184], offshore_km: 5.0, break_type: reef, <<: *sae }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.65)
+  - { id: uvongo, name: "Uvongo", town: "Uvongo", lat: -30.8344, lon: 30.3969, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, break_type: reef, <<: *sae }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.65)
+  - { id: lucien-beach, name: "Lucien Beach", town: "Margate", lat: -30.8561, lon: 30.3795, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.7)
+  - { id: margate-za, name: "Margate", town: "Margate", lat: -30.8623, lon: 30.3726, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.7)

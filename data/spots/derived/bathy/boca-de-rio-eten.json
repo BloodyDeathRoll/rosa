@@ -1,0 +1,72 @@
+{
+  "spot": "boca-de-rio-eten",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -6.9158,
+    -79.8875
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -6.91739,
+      "lon": -79.8891,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -6.91898,
+      "lon": -79.8907,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -6.92216,
+      "lon": -79.89391,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -6.92852,
+      "lon": -79.90031,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -6.93488,
+      "lon": -79.90672,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -6.94759,
+      "lon": -79.91953,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -6.96667,
+      "lon": -79.93875,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -6.9921,
+      "lon": -79.96438,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -7.03025,
+      "lon": -80.00283,
+      "depth_m": 45.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "la-vaca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.4914,
+    -3.82
+  ],
+  "bearing_seaward_deg": 330.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 501.0,
+  "mean_slope_m_per_km": 27.66,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.49335,
+      "lon": -3.82155,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.49529,
+      "lon": -3.8231,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.49919,
+      "lon": -3.8262,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.50698,
+      "lon": -3.8324,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.51476,
+      "lon": -3.8386,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.53034,
+      "lon": -3.85101,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.5537,
+      "lon": -3.86964,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.58484,
+      "lon": -3.89449,
+      "depth_m": 118.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.63154,
+      "lon": -3.93183,
+      "depth_m": 501.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "sodwana-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -27.5378,
+    32.6762
+  ],
+  "bearing_seaward_deg": 71.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 787.0,
+  "mean_slope_m_per_km": 44.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -27.53707,
+      "lon": 32.6786,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -27.53634,
+      "lon": 32.68099,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -27.53487,
+      "lon": 32.68579,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -27.53194,
+      "lon": 32.69538,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -27.52901,
+      "lon": 32.70497,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -27.52315,
+      "lon": 32.72414,
+      "depth_m": 164.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -27.51436,
+      "lon": 32.7529,
+      "depth_m": 366.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -27.50262,
+      "lon": 32.79124,
+      "depth_m": 542.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -27.48499,
+      "lon": 32.84873,
+      "depth_m": 787.0
+    }
+  ]
+}

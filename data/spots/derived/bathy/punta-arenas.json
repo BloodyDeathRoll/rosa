@@ -1,0 +1,72 @@
+{
+  "spot": "punta-arenas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -4.5879,
+    -81.2889
+  ],
+  "bearing_seaward_deg": 285.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 976.0,
+  "mean_slope_m_per_km": 55.15,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -4.58732,
+      "lon": -81.29108,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -4.58674,
+      "lon": -81.29326,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -4.58557,
+      "lon": -81.29761,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -4.58324,
+      "lon": -81.30633,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -4.58092,
+      "lon": -81.31504,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -4.57626,
+      "lon": -81.33247,
+      "depth_m": 174.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -4.56928,
+      "lon": -81.35862,
+      "depth_m": 442.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -4.55996,
+      "lon": -81.39347,
+      "depth_m": 133.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -4.54599,
+      "lon": -81.44576,
+      "depth_m": 976.0
+    }
+  ]
+}

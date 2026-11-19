@@ -1,5 +1,5 @@
 # Rosa spot database - Cadiz (seeded 2026-09-10). Andalucia's Atlantic coast from Chipiona to
-# Tarifa: SW-facing beaches and reefs (El Palmar, Los Canos) on W-SW swell through the Gulf
+# Tarifa (Huelva's Mazagon and Punta del Moral joined 2026-11-19): SW-facing beaches and reefs (El Palmar, Los Canos) on W-SW swell through the Gulf
 # of Cadiz, offshore on the E Levante wind.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
@@ -48,3 +48,10 @@ spots:
   - { id: valdevaqueros, name: "Valdevaqueros", town: "Tarifa", lat: 36.0680, lon: -5.6913, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
   - { id: bunker-del-hurricane, name: "Bunker del Hurricane", town: "Tarifa", lat: 36.0549, lon: -5.6567, offshore_direction: 24, swell_window: [139, 269], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
   - { id: balneario, name: "Balneario", town: "Tarifa", lat: 36.0103, lon: -5.6099, offshore_direction: 66, swell_window: [181, 311], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-19 - candidates batch, 2 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/cand-spain/). North to south.
+  - { id: punta-del-moral, name: "Punta del Moral", town: "Ayamonte", lat: 37.1807, lon: -7.3392, offshore_direction: 335, swell_window: [90, 220], offshore_km: 5.0, break_type: beach, <<: *cad }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.7)
+  - { id: mazagon, name: "Mazagón", town: "Mazagón", lat: 37.1426, lon: -6.8558, offshore_direction: 25, swell_window: [140, 270], offshore_km: 5.0, break_type: beach, <<: *cad }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.75)

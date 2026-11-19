@@ -1,0 +1,72 @@
+{
+  "spot": "puerto-caballas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -14.9407,
+    -75.5009
+  ],
+  "bearing_seaward_deg": 300.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 2.59,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -14.93958,
+      "lon": -75.50292,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -14.93845,
+      "lon": -75.50493,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -14.9362,
+      "lon": -75.50896,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -14.93171,
+      "lon": -75.51702,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -14.92721,
+      "lon": -75.52508,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -14.91821,
+      "lon": -75.5412,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -14.90472,
+      "lon": -75.56538,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -14.88672,
+      "lon": -75.59761,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -14.85972,
+      "lon": -75.64594,
+      "depth_m": 33.0
+    }
+  ]
+}

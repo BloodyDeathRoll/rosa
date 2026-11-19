@@ -1,0 +1,72 @@
+{
+  "spot": "westbrook",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -29.5925,
+    31.1713
+  ],
+  "bearing_seaward_deg": 117.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 79.0,
+  "mean_slope_m_per_km": 4.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -29.59352,
+      "lon": 31.1736,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -29.59454,
+      "lon": 31.17591,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -29.59658,
+      "lon": 31.18052,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -29.60066,
+      "lon": 31.18973,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -29.60475,
+      "lon": 31.19895,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -29.61291,
+      "lon": 31.21738,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -29.62514,
+      "lon": 31.24504,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -29.64145,
+      "lon": 31.28193,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -29.66589,
+      "lon": 31.33729,
+      "depth_m": 79.0
+    }
+  ]
+}
