@@ -142,6 +142,7 @@ REGION_PBF = {
     "Simeulue": "simeulue",
     "Nias": "nias",
     "Krui": "krui",
+    "Bengkulu": "bengkulu",
     "Tanegashima Amami": "tanegashima-amami",
     "Okinawa": "okinawa",
     "Taiwan": "taiwan",

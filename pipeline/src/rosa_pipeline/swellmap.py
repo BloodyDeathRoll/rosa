@@ -381,6 +381,8 @@ BASINS: dict[str, tuple[str, ...]] = {
         "Simeulue",
         "Nias",
         "Krui",
+        # Bengkulu (2026-11-19), between Mentawai and Krui on the same coast
+        "Bengkulu",
         # Phuket and Khao Lak, 500 km NE of Aceh up the Andaman Sea: the same SW monsoon swell
         "Thailand",
         # Raijua (Savu Sea) and Dili, east of Rote on the same arc

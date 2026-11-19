@@ -59,3 +59,9 @@ spots:
   - { id: jialeshui, name: "Jialeshui", town: "Manzhou", lat: 21.9941, lon: 120.8640, offshore_direction: 307, swell_window: [62, 192], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
   - { id: nanwan, name: "Nanwan", town: "Hengchun", lat: 21.9588, lon: 120.7647, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed by hand (3c)
   - { id: houbihu, name: "Houbihu", town: "Hengchun", lat: 21.9431, lon: 120.7484, offshore_direction: 326, swell_window: [81, 211], break_type: reef, offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed by hand (3c)
+
+  # ==== SEEDED 2026-11-19 - candidates batch 2, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/cand2-china-taiwan/). North to south.
+  - { id: double-lions, name: "Double Lions", town: "Toucheng", lat: 24.8890, lon: 121.8510, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, break_type: beach, <<: *tw }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.7)

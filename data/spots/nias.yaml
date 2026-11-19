@@ -32,3 +32,9 @@ spots:
   - { id: hilisataro, name: "Hilisataro", town: "Hilisataro Nadisa", lat: 0.6127, lon: 97.8884, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *nia }  # sat-verified 2026-10-29 (websearch-seeded)
   - { id: lagundri-the-point, name: "Lagundri - The Point", town: "Lagundri", lat: 0.5649, lon: 97.7302, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *nia }  # sat-verified 2026-10-29 (websearch-seeded)  [normal set by hand from the tile, seaward 200]
   - { id: lagundri-indicators, name: "Lagundri - Indicators", town: "Lagundri", lat: 0.5636, lon: 97.7242, offshore_direction: 13, swell_window: [128, 258], offshore_km: 5.0, <<: *nia }  # sat-verified 2026-10-29 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-19 - candidates batch 2, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/cand2-sumatra/). North to south.
+  - { id: the-machine, name: "The Machine", town: "Lagundri", lat: 0.5698, lon: 97.7441, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: reef, <<: *nia }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.65)

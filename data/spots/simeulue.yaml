@@ -33,3 +33,9 @@ spots:
   # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
   # coordinator on contact sheets; tools/spot-seed/work/gap2-sea/). North to south.
   - { id: treasure-island-banyak, name: "Treasure Island", town: "Bangkaru", lat: 2.0045, lon: 97.1163, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, break_type: point, <<: *smu }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+
+  # ==== SEEDED 2026-11-19 - candidates batch 2, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/cand2-sumatra/). North to south.
+  - { id: the-peak-simeulue, name: "The Peak", town: "Nancala", lat: 2.4503, lon: 96.2231, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: reef, <<: *smu }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.65)

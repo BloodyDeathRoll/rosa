@@ -33,3 +33,10 @@ spots:
   - { id: hawa-beach, name: "Hawa Beach", town: "Kovalam", lat: 8.3887, lon: 76.9760, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *kl }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed by hand to seaward 230 (3c gate)
   - { id: kovalam-lighthouse-beach, name: "Kovalam Lighthouse Beach", town: "Kovalam", lat: 8.3853, lon: 76.9791, offshore_direction: 347, swell_window: [102, 232], offshore_km: 5.0, <<: *kl }  # sat-verified 2026-10-29 (websearch-seeded)
   - { id: poovar, name: "Poovar", town: "Pozhiyoor", lat: 8.3063, lon: 77.0798, offshore_direction: 29, swell_window: [144, 274], offshore_km: 5.0, <<: *kl }  # sat-verified 2026-10-29 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-19 - candidates batch 2, 2 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/cand2-coord/). North to south.
+  - { id: beypore, name: "Beypore", town: "Beypore", lat: 11.1646, lon: 75.8020, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: beach, <<: *kl }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.65)
+  - { id: black-beach-varkala, name: "Black Beach", town: "Varkala", lat: 8.7434, lon: 76.6980, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, break_type: beach, <<: *kl }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.7)

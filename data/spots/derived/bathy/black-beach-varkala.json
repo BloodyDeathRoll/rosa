@@ -1,0 +1,72 @@
+{
+  "spot": "black-beach-varkala",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    8.7434,
+    76.698
+  ],
+  "bearing_seaward_deg": 240.0,
+  "nearshore_depth_m": -17.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 3.77,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 8.74228,
+      "lon": 76.69603,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 8.74115,
+      "lon": 76.69406,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 8.7389,
+      "lon": 76.69012,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 8.73441,
+      "lon": 76.68224,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 8.72991,
+      "lon": 76.67436,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 8.72091,
+      "lon": 76.6586,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 8.70742,
+      "lon": 76.63497,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 8.68943,
+      "lon": 76.60345,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 8.66243,
+      "lon": 76.55619,
+      "depth_m": 50.0
+    }
+  ]
+}

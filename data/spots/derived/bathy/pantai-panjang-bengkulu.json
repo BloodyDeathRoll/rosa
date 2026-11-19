@@ -1,0 +1,72 @@
+{
+  "spot": "pantai-panjang-bengkulu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -3.804,
+    102.2568
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 2.76,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.80559,
+      "lon": 102.25521,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.80718,
+      "lon": 102.25361,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.81036,
+      "lon": 102.25043,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.81672,
+      "lon": 102.24405,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.82308,
+      "lon": 102.23768,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.8358,
+      "lon": 102.22493,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.85487,
+      "lon": 102.20581,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.88031,
+      "lon": 102.18031,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.91846,
+      "lon": 102.14207,
+      "depth_m": 44.0
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+# Rosa spot database - Bengkulu (seeded 2026-11-19). Bengkulu city's Pantai Panjang, a long
+# SW-facing beach on Sumatra's west coast between the Mentawai chain and Krui: the same SW Indian
+# Ocean groundswell, biggest Apr-Oct, offshore on the NE land breeze.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+country: "Indonesia"
+
+defaults: &bkl
+  timezone: Asia/Jakarta
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [160, 290]
+  ideal:
+    wind_dir: [0, 90]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-19 - candidates batch 2, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/cand2-sumatra/). North to south.
+  - { id: pantai-panjang-bengkulu, name: "Pantai Panjang", town: "Bengkulu", lat: -3.8040, lon: 102.2568, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *bkl }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.7)

@@ -1,0 +1,72 @@
+{
+  "spot": "the-peak-simeulue",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    2.4503,
+    96.2231
+  ],
+  "bearing_seaward_deg": 250.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 263.0,
+  "mean_slope_m_per_km": 14.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 2.44953,
+      "lon": 96.22099,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 2.44876,
+      "lon": 96.21887,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 2.44722,
+      "lon": 96.21464,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 2.44415,
+      "lon": 96.20618,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 2.44107,
+      "lon": 96.19772,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 2.43492,
+      "lon": 96.18081,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 2.42569,
+      "lon": 96.15543,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 2.41339,
+      "lon": 96.1216,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 2.39493,
+      "lon": 96.07085,
+      "depth_m": 263.0
+    }
+  ]
+}

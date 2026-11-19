@@ -206,6 +206,8 @@ REGIONS = {
     "simeulue": (1.95, 95.70, 3.00, 97.55),
     "nias": (0.45, 97.00, 1.55, 98.00),
     "krui": (-6.00, 103.70, -4.85, 104.80),
+    # Bengkulu city's Pantai Panjang (2026-11-19), between the Mentawai box and Krui
+    "bengkulu": (-4.00, 102.10, -3.60, 102.40),
     # Japan's southern islands, north half: Tanegashima and Yakushima (just south of the
     # japan box's 30.0 edge), Amami Oshima, Tokunoshima and Okinoerabu
     "tanegashima-amami": (27.0, 128.3, 30.9, 131.2),

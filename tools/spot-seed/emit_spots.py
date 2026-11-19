@@ -160,6 +160,7 @@ CFG = {
     "simeulue": ("smu", True, None, 5.0),
     "nias": ("nia", True, None, 5.0),
     "krui": ("kru", True, None, 5.0),
+    "bengkulu": ("bkl", True, None, 5.0),
     "reunion": ("re", True, None, 5.0),
     "liberia": ("lr", True, None, 5.0),
     "catalonia": ("cat", True, None, 5.0),

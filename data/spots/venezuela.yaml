@@ -63,3 +63,9 @@ spots:
   - { id: la-bocaina, name: "La Bocaina", town: "Puerto Cabello", lat: 10.4650, lon: -67.9312, offshore_direction: 230, swell_window: [345, 115], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
   - { id: patanemo, name: "Patanemo", town: "Patanemo", lat: 10.4543, lon: -67.9221, offshore_direction: 191, swell_window: [306, 76], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
   - { id: unare, name: "Unare", town: "Boca de Unare", lat: 10.1305, lon: -65.3856, offshore_direction: 191, swell_window: [306, 76], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-19 - candidates batch 2, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/cand2-latam/). North to south.
+  - { id: puerto-cruz-margarita, name: "Puerto Cruz", town: "Pedro González", lat: 11.1275, lon: -63.9230, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, break_type: point, <<: *ve }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.7)

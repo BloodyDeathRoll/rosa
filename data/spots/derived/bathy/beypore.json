@@ -1,0 +1,72 @@
+{
+  "spot": "beypore",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.1646,
+    75.802
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.16402,
+      "lon": 75.79979,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.16344,
+      "lon": 75.79757,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.16227,
+      "lon": 75.79315,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.15994,
+      "lon": 75.78429,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.15762,
+      "lon": 75.77544,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.15296,
+      "lon": 75.75773,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.14597,
+      "lon": 75.73117,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.13665,
+      "lon": 75.69576,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.12266,
+      "lon": 75.64264,
+      "depth_m": 28.0
+    }
+  ]
+}

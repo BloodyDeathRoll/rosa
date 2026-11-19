@@ -222,7 +222,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-11-19, DB = 5053 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-19, DB = 5062 spots, ALL sat-verified)
 
 **Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
 was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
@@ -526,6 +526,27 @@ cand-china / cand-americas), brief `tools/spot-seed/work/BRIEF-2026-11-19.md`, 2
   locatable position), La Caleta (Chacala), the Punta de Mita breaks, the Casablanca and Rabat names, Plage Blanche.
 - Agents flagged existing pins, not moved: `green-point` (south-africa-east) sits on Umzumbe beach - Green Point
   proper is in Clansthal, 47 km NE.
+
+**Candidates batch 2: second pass on the 2026-10-09 / 2026-10-29 gap queues - 5053 -> 5062 (2026-11-19).** Four
+subagents (cand2-sumatra / cand2-china-taiwan / cand2-korea-india / cand2-latam), same brief, 69 WebSearch calls.
+Most queue names came from competitor indexes in their first pass (surf-forecast, wannasurf, surfnerd) and still
+have no other source, so they stay out.
+- Added: krui 2 (Way Jambu; The Slab, hand `shore_normal` 275 - the 330 ray ended on GEBCO land at 12-18 km off
+  Pulau Pisang, 275 is wet end to end), simeulue 1 (The Peak, off Nancala), nias 1 (The Machine, Lagundri Bay's
+  east reef), new region `bengkulu` 1 (Pantai Panjang; joins the `indonesia` basin, extract symlink
+  bengkulu.osm.pbf -> sumatra), taiwan 1 (Double Lions, the Xiao'ao cove north of Wai'ao), venezuela 1 (Puerto
+  Cruz, Margarita), kerala 2 (Black Beach at Varkala and Beypore - off-list finds from Kerala Tourism's official
+  surf-site list, added by the coordinator after a z16 read).
+- Coordinator drops: Air Manis (Padang - sheltered, no surf on the tile), Siete Olas (Tayrona - no source calls it a
+  surf break).
+- Still out: Simeulue's Dylan's (several reefs off Matanurung, 0.55) and Thailand; Shark Hole; Krui's The Peak;
+  Aceh's A-Frame and Calang; all of Sumba's and Rote's queue names (Racetrack = DB `kalala`); West Timor;
+  Hainan's Kame Rock / Xintan / Sanya Bay, Pinghai Point, Jieshi Bay, Clubhouse Point, Fung Bay, Hac Sa,
+  Gwen's Mouth, Laoshan; Taiwan's Gongs, Mimi's Reef, The Barracks, Green Island, Xiaoyugang; every Korean
+  name (Gwangalli is a calm SUP bay); India's Boar Rice, Akkarai, Repos, Bhatkal, Shipwreck (Vizag's wreck is
+  92 m from DB `tenneti-park`) and the Vizag points; the Galapagos (Tongo Reef sourced but unplaced, 0.55;
+  naval-base access closed since 2023), Colombia (Colpipe sourced but unplaced; El Bolsillo = DB pradomar) and
+  Venezuela's other names. Kerala Tourism's list also names Golden Beach (Varkala, 0.6).
 
 **Gap queue (whole areas with zero spots, by box count 2026-11-12):** New Zealand is thin (17). Still
 empty: west Africa (Ivory Coast, Togo / Benin / Nigeria, Gabon, Sao Tome, Mauritania), Queensland north
