@@ -3073,6 +3073,36 @@ a.rank-card:hover {
   pointer-events: none;
 }
 
+/* Charts: the tapped point's band range, a pill above a dot on the point itself */
+.chart-probe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  pointer-events: none;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--tabbar-bg);
+  border: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
+  box-shadow: var(--tabbar-shadow);
+  color: var(--foreground);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.chart-probe::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -13px;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  border-radius: 50%;
+  background: var(--foreground);
+  box-shadow: 0 0 0 2px var(--tabbar-bg);
+}
+
 /* Charts instrument deck: a card floating just above the nav pill, in the pill's
    own chrome (same width, fill, border, shadow) - the controls used to lie
    straight on the chart under a gradient scrim and got lost against a busy
@@ -3296,13 +3326,45 @@ a.rank-card:hover {
   border-radius: 6px;
 }
 
-/* Colormap ramp stretches between the tag and the clock; the clock is
-   right-aligned and never wraps or spills past the edge */
-.deck-legend {
+/* Colour key under the head: one block per band, numbers on the band edges,
+   the unit at the end. Each number is a zero-width box so it centres on its edge. */
+.deck-scale {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 4px 2px;
+}
+.deck-scale-bar {
   flex: 1;
   min-width: 0;
-  height: 4px;
+}
+.deck-legend {
+  display: block;
+  height: 8px;
   border-radius: 2px;
+}
+.deck-nums {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 4px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+.deck-nums i {
+  width: 0;
+  display: flex;
+  justify-content: center;
+  font-style: normal;
+  white-space: nowrap;
+}
+.deck-unit {
+  flex: none;
+  margin-top: -3px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--muted-foreground);
 }
 .deck-clock {
   flex: none;

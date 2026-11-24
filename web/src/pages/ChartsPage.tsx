@@ -17,6 +17,8 @@ import { ShareButton } from "../components/parts";
 import { MapSearch } from "./MapPage";
 import type { IndexEntry } from "../types";
 import { signalReady } from "../splash";
+import { BAND_COLORS, BAND_PIXELS, bandLabels, bandOf, bandRange, bandScale } from "../lib/chartBands";
+import { useUnits } from "../units";
 
 /** Charts tab: animated basin wave fields (SwellMap v0.2), Surfline-style - a
     full-bleed map with a colormapped field, a chart-type selector, and a timeline.
@@ -24,9 +26,10 @@ import { signalReady } from "../splash";
 
     All three chart types render from the same published frames: height and peak
     period are stored; energy is derived here (P ~ 0.49 * H^2 * Te kW/m, Te = 0.9*Tp -
-    the same convention as the hourly kJ column). Colour: single-hue sequential per
-    variable, monotonic lightness, themed ramps - never a rainbow (dataviz method;
-    also keeps us visually distinct from all-rights-reserved chart imagery). */
+    the same convention as the hourly kJ column). Colour: 20 flat bands on a fixed
+    scale, cold to hot, the same in both themes (`lib/chartBands.ts`) - a colour
+    reads back to a value. Until 2026-11-24 this was a smooth single-hue ramp
+    stretched to each run, which showed shape but not value. */
 
 // OpenFreeMap vector basemaps - same source + attribution terms as the Map tab.
 const STYLE_URLS = {
@@ -37,36 +40,28 @@ const ATTRIBUTION = "OpenFreeMap © OpenMapTiles Data from OpenStreetMap";
 
 type Variable = "hs" | "per" | "energy" | "wind";
 
-const VARIABLES: { key: Variable; label: string; unit: string }[] = [
-  { key: "hs", label: "Height", unit: "m" },
-  { key: "per", label: "Period", unit: "s" },
-  { key: "energy", label: "Energy", unit: "kW/m" },
-  { key: "wind", label: "Wind", unit: "kt" },
+const VARIABLES: { key: Variable; label: string }[] = [
+  { key: "hs", label: "Height" },
+  { key: "per", label: "Period" },
+  { key: "energy", label: "Energy" },
+  { key: "wind", label: "Wind" },
 ];
 
-// One hue per variable (teal / violet / amber), six steps, monotonic lightness.
-// Both themes deepen with magnitude (light mode leads): pale = calm, deep = big,
-// so the field reads the same either theme; dark just uses brighter endpoints.
-const RAMPS: Record<Variable, { light: string[]; dark: string[] }> = {
-  hs: {
-    light: ["#dfeef4", "#b3d9e6", "#7cbcd2", "#4295b4", "#1d6f8c", "#0d4459"],
-    dark: ["#a8e4f2", "#6cc3d8", "#3b9cb4", "#20758c", "#155163", "#0d3340"],
-  },
-  per: {
-    light: ["#ece9f7", "#cdc5ee", "#a99add", "#8471c9", "#5e4aa8", "#3b2d75"],
-    dark: ["#cfc7f2", "#a396dd", "#7b68cc", "#5443ab", "#3a2f7c", "#241d4e"],
-  },
-  energy: {
-    light: ["#fdeedd", "#f8d3ab", "#f0b077", "#e08a4c", "#b96426", "#84440f"],
-    dark: ["#f9cf9b", "#eda45c", "#cc7c30", "#9c5a1c", "#6b3d10", "#3d2408"],
-  },
-  wind: {
-    light: ["#e6f3e9", "#c0e0c8", "#90c79e", "#5da672", "#38804d", "#1c5430"],
-    dark: ["#a9e0b6", "#6fbc82", "#43955a", "#2c6f40", "#1e4d2c", "#14301c"],
-  },
-};
+// Legend: one hard-edged block per band, in map order.
+const LEGEND_BG = `linear-gradient(90deg, ${BAND_COLORS.map(
+  (c, i) => `${c} ${(i * 100) / BAND_COLORS.length}% ${((i + 1) * 100) / BAND_COLORS.length}%`,
+).join(",")})`;
+
+// The basemap's sea: lakes are left out (the shore reach would paint ones near a coast).
+const OCEAN = ["==", ["get", "class"], "ocean"] as ["==", ["get", string], string];
 
 const OVERLAY_ALPHA = 0.72;
+// shortcut: above this many pixels the field is painted smaller and scaled up
+// (band edges soften a little on big screens), raise it if desktops show blur
+const FIELD_MAX_PX = 1_000_000;
+// How far the model's sea values are carried past its own coarse land mask
+// (grid cells, ~50 km each on the world layer) before the basemap coast clips them.
+const SHORE_REACH_CELLS = 2;
 const ARROW_TARGET = 11;
 const PLAY_MS = 450;
 
@@ -151,31 +146,6 @@ async function loadWorldFrame(meta: WorldMeta, png: string): Promise<void> {
   }
 }
 
-/* ---- Colormap: 256-step LUT lerped across the ramp stops (matches the legend
-   gradient) - the renderer paints per-cell pixels, not per-cell rects. */
-const lutCache = new Map<string, Uint8ClampedArray>();
-
-function rampLUT(variable: Variable, theme: "light" | "dark"): Uint8ClampedArray {
-  const key = `${variable}|${theme}`;
-  const hit = lutCache.get(key);
-  if (hit) return hit;
-  const stops = RAMPS[variable][theme].map((hex) => [
-    parseInt(hex.slice(1, 3), 16),
-    parseInt(hex.slice(3, 5), 16),
-    parseInt(hex.slice(5, 7), 16),
-  ]);
-  const lut = new Uint8ClampedArray(256 * 3);
-  for (let i = 0; i < 256; i++) {
-    const t = (i / 255) * (stops.length - 1);
-    const a = Math.min(stops.length - 1, Math.floor(t));
-    const b = Math.min(stops.length - 1, a + 1);
-    const f = t - a;
-    for (let c = 0; c < 3; c++) lut[i * 3 + c] = stops[a]![c]! * (1 - f) + stops[b]![c]! * f;
-  }
-  lutCache.set(key, lut);
-  return lut;
-}
-
 /* ---- Layer: one drawable grid (a basin frame, or the world planes) ---------- */
 
 interface Layer {
@@ -239,9 +209,37 @@ function worldLayer(meta: WorldMeta, planes: Uint8ClampedArray, variable: Variab
   };
 }
 
-/* Ramp-scale caps: the world's absolute max is a single typhoon cell - a linear
-   ramp to it would flatten every ordinary coast. Saturate above these instead. */
-const WORLD_SCALE_CAP: Record<Variable, number> = { hs: 8, per: 20, energy: 200, wind: 50 };
+/** The drawn value at a point: the same bilinear read the field paints with. */
+function sampleLayer(layer: Layer, vals: Float32Array, lon: number, lat: number): number | null {
+  const { nx, ny } = layer;
+  const turn = 360 / layer.dLon;
+  let gx = (lon - layer.lon0) / layer.dLon;
+  gx -= turn * Math.floor((gx + 0.5) / turn);
+  const gy = (lat - layer.lat0) / layer.dLat;
+  const wraps = Math.abs(turn - nx) < 1e-6;
+  if (gy < -0.5 || gy > ny - 0.5 || (!wraps && gx > nx - 0.5)) return null;
+  if (wraps && gx < 0) gx += nx;
+  else if (!wraps) gx = Math.max(0, Math.min(nx - 1, gx));
+  const y = Math.max(0, Math.min(ny - 1, gy));
+  const a = Math.min(nx - 1, Math.floor(gx));
+  const j = Math.floor(y);
+  const b = wraps ? (a + 1) % nx : Math.min(nx - 1, a + 1);
+  const fx = gx - a;
+  const fy = y - j;
+  const r1 = Math.min(ny - 1, j + 1) * nx;
+  let w = 0;
+  let sum = 0;
+  for (const [i, k] of [
+    [j * nx + a, (1 - fx) * (1 - fy)],
+    [j * nx + b, fx * (1 - fy)],
+    [r1 + a, (1 - fx) * fy],
+    [r1 + b, fx * fy],
+  ] as const) {
+    const v = vals[i]!;
+    if (v === v) ((w += k), (sum += k * v));
+  }
+  return w < 0.5 ? null : sum / w;
+}
 
 function cellValue(b: SwellBasin, f: SwellBasin["frames"][number], i: number, v: Variable): number | null {
   if (v === "wind") {
@@ -283,6 +281,9 @@ function rulerMarks(timeline: string[]): { label: string; dayStart: boolean }[] 
 export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  // Tapped point: its band's range is printed there until the next tap.
+  const probeRef = useRef<{ lng: number; lat: number } | null>(null);
+  const probeElRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MLMap | null>(null);
   const [index, setIndex] = useState<SwellIndex | null>(null);
   const [world, setWorld] = useState<WorldMeta | null>(null);
@@ -294,6 +295,8 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
   const [playing, setPlaying] = useState(false);
   const [tick, setTick] = useState(0); // bumped when an async world frame lands
   const [error, setError] = useState<string | null>(null);
+  const units = useUnits();
+  const scale = bandScale(variable, units.height === "ft");
   const [bearing, setBearing] = useState(0);
   const [pos, setPos] = useState<LatLon | null>(null);
   const [spots, setSpots] = useState<[string, IndexEntry][] | null>(null);
@@ -346,6 +349,12 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
         m.on("resize", () => m.setMinZoom(minZoomFor(m.getContainer().clientHeight)));
         // the north fab counter-rotates with the map and resets it on tap
         m.on("rotate", () => setBearing(m.getBearing()));
+        // a tap on the sea reads the band there; a tap on land clears it
+        m.on("click", (e) => {
+          const onSea = !m.getLayer("water") || m.queryRenderedFeatures(e.point, { layers: ["water"], filter: OCEAN }).length > 0;
+          probeRef.current = onSea ? e.lngLat : null;
+          setTick((n) => n + 1);
+        });
         mapRef.current = m;
         setBasinName(WORLD);
       } catch {
@@ -424,23 +433,6 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
         [],
       );
 
-  // One fixed scale across every frame, so scrubbing compares honestly. World:
-  // the pipeline precomputed the run's max (capped - see WORLD_SCALE_CAP).
-  const maxVal = (() => {
-    if (isWorld) {
-      return Math.max(1, Math.ceil(Math.min(world?.max[variable] ?? 1, WORLD_SCALE_CAP[variable])));
-    }
-    let mx = 0;
-    for (const b of basins) {
-      for (const f of b.frames) {
-        for (let i = 0; i < f.hs.length; i++) {
-          const v = cellValue(b, f, i, variable);
-          if (v !== null && v > mx) mx = v;
-        }
-      }
-    }
-    return Math.max(1, Math.ceil(mx));
-  })();
 
   // World frames load on demand: the shown frame first, then a short prefetch
   // run ahead so playback stays smooth once the first loop has warmed the cache.
@@ -456,50 +448,55 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
   }, [isWorld, world, frame]);
 
   // Draw the current frame; redraw on every map move so the field tracks the
-  // basemap. Each layer is colormapped once into an offscreen grid canvas, then
-  // blitted one latitude row at a time (mercator rows aren't evenly spaced) with
-  // image smoothing on - bilinear interpolation instead of hard cell squares.
+  // basemap. Every screen pixel is sampled from the grid itself (bilinear in
+  // lon/lat, mercator-exact) and THEN cut into its colour band, so band edges
+  // are smooth contours on a fixed scale: the same colour is the same value on
+  // every frame, run and sea. Colouring the cells first and letting the canvas
+  // smooth them (the pre-2026-11-24 renderer) blurs the edges instead.
   useEffect(() => {
     const m = mapRef.current;
     const canvas = canvasRef.current;
     const t = timeline[frame];
     if (!m || !canvas || !t || (isWorld ? !world : !basins.length)) return;
-    const lut = rampLUT(variable, theme);
-    const gridCanvases = new Map<string, HTMLCanvasElement>();
 
-    // Vertical oversampling: strips blit from a K-times-taller pre-upscaled
-    // canvas, so the field is bilinear in BOTH axes (a 1-px source strip alone
-    // interpolates horizontally only - basin zoom showed venetian-blind rows).
-    const K = 8;
-
-    const buildGrid = (layer: Layer): HTMLCanvasElement => {
-      const cnv = document.createElement("canvas");
-      cnv.width = layer.nx;
-      cnv.height = layer.ny;
-      const cx = cnv.getContext("2d")!;
-      const img = cx.createImageData(layer.nx, layer.ny);
-      const px = img.data;
-      const n = layer.nx * layer.ny;
-      // fully opaque pixels: strips may overlap while blitting, and translucent
-      // overlaps would stack into visible seam lines - the whole field is
-      // composited onto the map at OVERLAY_ALPHA in one pass instead
-      for (let i = 0; i < n; i++) {
-        const v = layer.val(i);
-        if (v === null) continue; // land/missing stays transparent
-        const q = Math.max(0, Math.min(255, Math.round((v / maxVal) * 255)));
-        px[i * 4] = lut[q * 3]!;
-        px[i * 4 + 1] = lut[q * 3 + 1]!;
-        px[i * 4 + 2] = lut[q * 3 + 2]!;
-        px[i * 4 + 3] = 255;
+    const step = scale.step;
+    // physical values once per layer (NaN = land/missing), not once per pixel
+    const valueGrids = new Map<string, Float32Array>();
+    const valuesOf = (layer: Layer): Float32Array => {
+      let vals = valueGrids.get(layer.id);
+      if (!vals) {
+        const { nx, ny } = layer;
+        vals = new Float32Array(nx * ny);
+        for (let i = 0; i < vals.length; i++) vals[i] = layer.val(i) ?? NaN;
+        // The model's land mask is ~50 km blocks, so its sea stops short of the
+        // real shore. Carry the nearest sea values a few cells inland; draw()
+        // then clips the field to the basemap's own coastline.
+        const wraps = Math.abs(layer.dLon * nx - 360) < 1e-6;
+        for (let pass = 0; pass < SHORE_REACH_CELLS; pass++) {
+          const prev = vals.slice();
+          for (let j = 0; j < ny; j++) {
+            for (let i = 0; i < nx; i++) {
+              if (prev[j * nx + i] === prev[j * nx + i]) continue;
+              let sum = 0;
+              let cnt = 0;
+              for (let dj = -1; dj <= 1; dj++) {
+                const jj = j + dj;
+                if (jj < 0 || jj >= ny) continue;
+                for (let di = -1; di <= 1; di++) {
+                  let ii = i + di;
+                  if (wraps) ii = (ii + nx) % nx;
+                  else if (ii < 0 || ii >= nx) continue;
+                  const v = prev[jj * nx + ii]!;
+                  if (v === v) ((sum += v), cnt++);
+                }
+              }
+              if (cnt) vals[j * nx + i] = sum / cnt;
+            }
+          }
+        }
+        valueGrids.set(layer.id, vals);
       }
-      cx.putImageData(img, 0, 0);
-      const tall = document.createElement("canvas");
-      tall.width = layer.nx;
-      tall.height = layer.ny * K;
-      const tx = tall.getContext("2d")!;
-      tx.imageSmoothingEnabled = true;
-      tx.drawImage(cnv, 0, 0, layer.nx, layer.ny * K);
-      return tall;
+      return vals;
     };
 
     // World: draw the nearest loaded frame so scrubbing never flashes empty
@@ -525,7 +522,8 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
     };
     const layers = currentLayers();
 
-    const field = document.createElement("canvas"); // opaque strip target, reused per draw
+    const field = document.createElement("canvas"); // opaque banded field, reused per draw
+    const sea = document.createElement("canvas"); // the field clipped to the basemap's sea
 
     const draw = () => {
       const wrap = canvas.parentElement;
@@ -539,18 +537,11 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
         canvas.style.width = `${W}px`;
         canvas.style.height = `${H}px`;
       }
-      if (field.width !== W * dpr) {
-        field.width = W * dpr;
-        field.height = H * dpr;
-      }
       const ctx = canvas.getContext("2d");
       const fctx = field.getContext("2d");
-      if (!ctx || !fctx) return;
+      if (!ctx || !fctx || !W || !H) return;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, W, H);
-      fctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      fctx.clearRect(0, 0, W, H);
-      fctx.imageSmoothingEnabled = true;
 
       // Draw in an unrotated (north-up) mercator plane and spin the whole canvas
       // by the map bearing around the screen centre, so the field and arrows
@@ -559,9 +550,6 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
       const center = m.getCenter();
       const sc = m.project(center);
       const angle = (-m.getBearing() * Math.PI) / 180; // maplibre: angle = -bearing
-      fctx.translate(sc.x, sc.y);
-      fctx.rotate(angle);
-      fctx.translate(-sc.x, -sc.y);
       ctx.translate(sc.x, sc.y);
       ctx.rotate(angle);
       ctx.translate(-sc.x, -sc.y);
@@ -583,55 +571,142 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
       const yOfLat = (lat: number) =>
         sc.y + (mercY(Math.max(-DATA_LAT_N, Math.min(DATA_LAT_N, lat))) - cMercY) * worldW;
 
-      for (const layer of layers) {
-        let grid = gridCanvases.get(layer.id);
-        if (!grid) {
-          grid = buildGrid(layer);
-          gridCanvases.set(layer.id, grid);
-        }
-        const xL = xOfLon(layer.lon0 - layer.dLon / 2);
-        const spanW = ((layer.dLon * layer.nx) / 360) * worldW;
+      // The field is painted in the unrotated plane: the screen itself, or the
+      // box that holds it once the map is turned. Pixel count is capped - the
+      // loop runs on every move - and the composite scales the result back up.
+      const turned = angle !== 0;
+      const bx0 = turned ? xMin : 0;
+      const by0 = turned ? yMin : 0;
+      const bw = turned ? 2 * R : W;
+      const bh = turned ? 2 * R : H;
+      const fs = Math.min(1, Math.sqrt(FIELD_MAX_PX / (bw * bh)));
+      const fw = Math.max(1, Math.round(bw * fs));
+      const fh = Math.max(1, Math.round(bh * fs));
+      if (field.width !== fw || field.height !== fh) {
+        field.width = fw;
+        field.height = fh;
+      }
+      const img = fctx.createImageData(fw, fh);
+      const out = new Uint32Array(img.data.buffer);
+      const colA = new Int32Array(fw); // left cell of each pixel column, -1 = outside the grid
+      const colB = new Int32Array(fw);
+      const colF = new Float32Array(fw);
 
-        for (let j = 0; j < layer.ny; j++) {
-          const latA = layer.lat0 + (j - 0.5) * layer.dLat;
-          const latB = layer.lat0 + (j + 0.5) * layer.dLat;
-          // draw everything mercator can show - the model carries data past the
-          // pole, so an earlier 79 deg trim was leaving a blank band of real
-          // field across the top of the world view
-          if (Math.max(Math.abs(latA), Math.abs(latB)) > DATA_LAT_N) continue;
-          const ya = yOfLat(latA);
-          const yb = yOfLat(latB);
-          const top = Math.min(ya, yb);
-          const rowH = Math.abs(yb - ya);
-          if (top > yMax || top + rowH < yMin) continue;
-          // subdivide tall rows so mercator row placement stays exact while the
-          // pre-upscaled source supplies the vertical interpolation
-          const S = Math.min(K, Math.max(1, Math.ceil(rowH / 3)));
-          for (let s = 0; s < S; s++) {
-            const fa = (j - 0.5 + s / S) * layer.dLat + layer.lat0;
-            const fb = (j - 0.5 + (s + 1) / S) * layer.dLat + layer.lat0;
-            const yfa = yOfLat(fa);
-            const yfb = yOfLat(fb);
-            const sy = Math.min(yfa, yfb);
-            const sh = Math.abs(yfb - yfa);
-            const srcY = j * K + (s * K) / S;
-            for (let k = -1; k <= 1; k++) {
-              const dx = k * worldW;
-              if (xL + dx > xMax || xL + spanW + dx < xMin) continue;
-              // slight overlap so adjacent strips can't leave hairline seams -
-              // harmless because the strips are opaque
-              fctx.drawImage(grid, 0, srcY, layer.nx, K / S, xL + dx, sy, spanW, sh + 0.6);
-            }
+      for (const layer of layers) {
+        const vals = valuesOf(layer);
+        const { nx, ny, dLon, dLat } = layer;
+        const wraps = Math.abs(dLon * nx - 360) < 1e-6; // the world grid closes on itself
+        for (let px = 0; px < fw; px++) {
+          const lon = center.lng + ((bx0 + ((px + 0.5) * bw) / fw - sc.x) / worldW) * 360;
+          // column position within the copy of the world this pixel falls on
+          let gx = (lon - layer.lon0) / dLon;
+          const turn = 360 / dLon;
+          gx -= turn * Math.floor((gx + 0.5) / turn);
+          if (wraps) {
+            const g = gx < 0 ? gx + nx : gx;
+            const a = Math.min(nx - 1, Math.floor(g));
+            colA[px] = a;
+            colB[px] = (a + 1) % nx;
+            colF[px] = g - a;
+          } else if (gx > nx - 0.5) {
+            colA[px] = -1;
+          } else {
+            const g = Math.max(0, Math.min(nx - 1, gx));
+            const a = Math.floor(g);
+            colA[px] = a;
+            colB[px] = Math.min(nx - 1, a + 1);
+            colF[px] = g - a;
+          }
+        }
+        for (let py = 0; py < fh; py++) {
+          const my = cMercY + (by0 + ((py + 0.5) * bh) / fh - sc.y) / worldW;
+          const lat = ((2 * Math.atan(Math.exp(Math.PI * (1 - 2 * my))) - Math.PI / 2) * 180) / Math.PI;
+          if (Math.abs(lat) > DATA_LAT_N) continue;
+          const gy = (lat - layer.lat0) / dLat;
+          if (gy < -0.5 || gy > ny - 0.5) continue;
+          const g = Math.max(0, Math.min(ny - 1, gy));
+          const j = Math.floor(g);
+          const fy = g - j;
+          const r0 = j * nx;
+          const r1 = Math.min(ny - 1, j + 1) * nx;
+          const o = py * fw;
+          for (let px = 0; px < fw; px++) {
+            const a = colA[px]!;
+            if (a < 0) continue;
+            const b = colB[px]!;
+            const fx = colF[px]!;
+            // bilinear over the cells that hold a value, as far as they carry
+            // half the weight (the real coast is cut by the sea clip below)
+            let w = 0;
+            let sum = 0;
+            let v = vals[r0 + a]!;
+            if (v === v) ((w += (1 - fx) * (1 - fy)), (sum += (1 - fx) * (1 - fy) * v));
+            v = vals[r0 + b]!;
+            if (v === v) ((w += fx * (1 - fy)), (sum += fx * (1 - fy) * v));
+            v = vals[r1 + a]!;
+            if (v === v) ((w += (1 - fx) * fy), (sum += (1 - fx) * fy * v));
+            v = vals[r1 + b]!;
+            if (v === v) ((w += fx * fy), (sum += fx * fy * v));
+            if (w < 0.5) continue;
+            out[o + px] = BAND_PIXELS[bandOf(sum / w, step)]!;
           }
         }
       }
+      fctx.putImageData(img, 0, 0);
+
+      // Clip to the sea the basemap itself draws, so the field ends on the
+      // coastline the user sees. Each polygon is filled on its own: tiles
+      // overlap at their edges, and one shared path would fill islands there.
+      // Lakes are left out - the reach above would paint ones near a coast.
+      // Before the tiles land there is no sea to clip to: draw unclipped.
+      const water = m.getLayer("water")
+        ? m.queryRenderedFeatures({ layers: ["water"], filter: OCEAN })
+        : [];
+      let src: HTMLCanvasElement = field;
+      const sctx = water.length ? sea.getContext("2d") : null;
+      if (sctx) {
+        if (sea.width !== canvas.width || sea.height !== canvas.height) {
+          sea.width = canvas.width;
+          sea.height = canvas.height;
+        }
+        sctx.globalCompositeOperation = "source-over";
+        sctx.setTransform(1, 0, 0, 1, 0, 0);
+        sctx.clearRect(0, 0, sea.width, sea.height);
+        sctx.setTransform(ctx.getTransform());
+        for (const f of water) {
+          const g = f.geometry;
+          const polys = g.type === "Polygon" ? [g.coordinates] : g.type === "MultiPolygon" ? g.coordinates : [];
+          for (const poly of polys) {
+            sctx.beginPath();
+            for (let k = -1; k <= 1; k++) {
+              for (const ring of poly) {
+                for (let i = 0; i < ring.length; i++) {
+                  const x = xOfLon(ring[i]![0]!) + k * worldW;
+                  const y = sc.y + (mercY(ring[i]![1]!) - cMercY) * worldW;
+                  if (i) sctx.lineTo(x, y);
+                  else sctx.moveTo(x, y);
+                }
+                sctx.closePath();
+              }
+            }
+            sctx.fill("evenodd");
+          }
+        }
+        sctx.globalCompositeOperation = "source-in";
+        sctx.drawImage(field, bx0, by0, bw, bh);
+        src = sea;
+      }
 
       // one composite pass: the whole field fades over the basemap uniformly
-      // (the field canvas is already in screen space - composite unrotated)
       ctx.save();
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.globalAlpha = OVERLAY_ALPHA;
-      ctx.drawImage(field, 0, 0, W, H);
+      if (src === sea) {
+        ctx.setTransform(1, 0, 0, 1, 0, 0); // already in screen pixels
+        ctx.drawImage(sea, 0, 0);
+      } else {
+        // ctx carries the map's rotation; the field is in the unrotated plane
+        ctx.drawImage(field, bx0, by0, bw, bh);
+      }
       ctx.restore();
 
       for (const layer of layers) {
@@ -674,16 +749,37 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
         }
         ctx.globalAlpha = 1;
       }
+
+      // the tapped point's label rides the map and re-reads on every frame
+      const probe = probeRef.current;
+      const label = probeElRef.current;
+      if (label) {
+        let text = "";
+        if (probe) {
+          for (const layer of layers) {
+            const v = sampleLayer(layer, valuesOf(layer), probe.lng, probe.lat);
+            if (v !== null) text = bandRange(v, scale);
+          }
+        }
+        label.hidden = !text;
+        if (probe && text) {
+          const at = m.project(probe);
+          label.textContent = text;
+          label.style.transform = `translate(${at.x}px, ${at.y}px) translate(-50%, calc(-100% - 9px))`;
+        }
+      }
     };
 
     draw();
     m.on("move", draw);
+    m.on("idle", draw); // the sea clip follows the tiles as they load
     return () => {
       m.off("move", draw);
+      m.off("idle", draw);
       canvas.getContext("2d")?.clearRect(0, 0, canvas.width, canvas.height);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [basins, world, isWorld, frame, variable, theme, maxVal, tick]);
+  }, [basins, world, isWorld, frame, variable, theme, scale.step, tick]);
 
   useEffect(() => {
     if (!playing || !timeline.length) return;
@@ -725,13 +821,13 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
   };
 
   const t = timeline[frame];
-  const ramp = RAMPS[variable][theme];
 
   return (
     <main class="page map-page">
       <div class="map-screen">
         <div class="map-canvas" ref={wrapRef} />
         <canvas class="swell-canvas" ref={canvasRef} aria-hidden="true" />
+        <div class="chart-probe tabular" ref={probeElRef} hidden />
 
         {error && <p class="swell-note">{error}</p>}
 
@@ -803,11 +899,22 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
                   </span>
                 </div>
               )}
-              <span class="deck-legend" style={`background:linear-gradient(90deg, ${ramp.join(",")})`} />
               <span class="deck-clock tabular">
                 <small>{new Date(t.replace("Z", ":00Z")).toLocaleDateString(undefined, { weekday: "short" })}</small>
                 {new Date(t.replace("Z", ":00Z")).toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" })}
               </span>
+            </div>
+            {/* The key: one block per band, the value at every second edge under it. */}
+            <div class="deck-scale">
+              <div class="deck-scale-bar">
+                <span class="deck-legend" style={`background:${LEGEND_BG}`} />
+                <span class="deck-nums tabular" aria-hidden="true">
+                  {bandLabels(scale.shown).map((n, i, all) => (
+                    <i key={n}>{i === all.length - 1 ? `${n}+` : n}</i>
+                  ))}
+                </span>
+              </div>
+              <span class="deck-unit">{scale.unit}</span>
             </div>
             <div class="deck-timeline">
               <button
