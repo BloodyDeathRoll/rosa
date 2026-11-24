@@ -1,41 +1,41 @@
-# Session Handoff - 2026-11-19
+# Session Handoff - 2026-11-24
 
 ## Goal
-Seed leftover spot candidates from earlier gap passes into the Rosa spot DB (playbook: `docs/spot-db-scraping-playbook.md`), two batches, each committed straight to main.
+Change the Charts tab's swell map from a smooth gradient to a stepped colour map (like a classic surf chart) so a colour can be read back to a value at any moment in time.
 
 ## Current State
-- DB is 5062 spots (was 4988). Two commits on main: `a975031b` (+65, 4988 -> 5053) and `1f2c8d2b` (+9, 5053 -> 5062).
-- 718/718 tests pass locally. Rosa GitHub checks passed after the repo went public.
-- NOT verified live: new spot pages on the CDN after a VM publish cycle (memory rule: verify from CDN after a VM cycle).
-- Worktree is clean.
+- Done, committed and pushed to main as `dcbff87a`, web deployed with `npm run deploy` (project `rosa`). rosa.surf's live CSS contains `.chart-probe`, so the new build is live.
+- Charts draws 20 flat rainbow bands on a fixed scale for all four layers (height, period, energy, wind), clipped to the basemap's coastline, with a numbered key in the deck card and a tap-to-read label.
+- Checked in Firefox then Chrome (headless Playwright): phone 420px, desktop 1400/1600px, rotated map, Height and Wind, tap label. `npx tsc --noEmit` clean, `npx vitest run` 53/53.
+- NOT checked: Safari / a real iPhone; the "All basins" and single-basin views (only the world layer was looked at); light vs dark theme side by side (palette is the same in both); real-device pan performance (headless: 30 drag moves in about 1 s at 1400px).
+- Worktree `charts-view-assignment-36633f42` is clean except this file. Branch is ahead of nothing: the commit went to `origin main` via `git push origin HEAD:main`.
 
 ## Active Files
-- `data/spots/*.yaml` - new rows in peru, mexico, south-africa-east/west, mozambique, morocco, cantabria, galicia, cadiz, krui, simeulue, nias, taiwan, venezuela, kerala; new `bengkulu.yaml` (indonesia basin).
-- `data/spots/derived/` - bathy + tide cut for every new spot.
-- `CLAUDE.md`, `docs/SPOT-DB.md`, `pipeline/tests/test_geo_seam.py` - counts updated.
-- `pipeline/src/rosa_pipeline/swellmap.py` - region list for bengkulu.
-- `tools/spot-seed/emit_spots.py`, `seed.py`, `towns.py` - emit helpers for these batches.
-- `docs/spot-db-scraping-playbook.md`, `docs/SESSIONS.md` - batch logs.
-- Agent work dirs (untracked scratch): `tools/spot-seed/work/cand-*/`, `cand2-*/` with `final.json`, `dropped.json` (dropped rows keep located pins).
+- `web/src/lib/chartBands.ts` - new. Palette (`BAND_COLORS`, 20), `bandScale(variable, imperial)`, `bandOf`, `bandLabels`, `bandRange`, `BAND_PIXELS`.
+- `web/src/lib/chartBands.test.ts` - new. Band edges, legend numbers, tap range text, pixel byte order.
+- `web/src/pages/ChartsPage.tsx` - renderer rewritten; legend row; tap probe.
+- `web/src/styles.css` - `.deck-scale`, `.deck-scale-bar`, `.deck-legend`, `.deck-nums`, `.deck-unit`, `.chart-probe`.
+- `docs/UI.md` (Charts line), `docs/SESSIONS.md` (2026-11-24 entry).
 
 ## Changes Made This Session
-1. Batch 1: 6 agents (KZN, Cape/Namibia/Mozambique, Morocco, Spain north+Huelva, China, Americas). Kept 65 after coordinator tile review. Dropped `la-curva` (pin in flat water).
-2. `achakar` auto-assigned to cadiz by nearest pin; moved to morocco. Huelva spots put in `cadiz` (Atlantic).
-3. Mexico timezones: Monuments + 14 earlier Baja/Nayarit rows fixed from the Mexico_City fallback to `America/Mazatlan`/correct zone.
-4. `isla-de-santa-marina` ray crossed land; set `shore_normal: 335`.
-5. Batch 2: 4 agents (Sumatra+NTT, China/HK/Taiwan, Korea+India, Galapagos/Colombia/Venezuela). Kept 9. Dropped `air-manis` (sheltered, no surf on tile) and `siete-olas` (no source calls it a surf break). Added 2 off-list Kerala Tourism beaches (Black Beach Varkala, Beypore). New region `bengkulu`. `the-slab` ray hit land; set `shore_normal: 275`.
-6. GitHub Actions failures diagnosed: Free plan private-repo minutes exhausted (~2,000/30 days; Oct 1,887 min, 1-18 Nov 924). User made rosa public; its checks now run free. Other private repos stay blocked until reset.
+1. Operator's answers (2026-11-24, history only): palette = rainbow like the reference; scale = fixed; layers = all. The "extras" question got no answer at first; numbers on the legend and value on tap were asked for later in the session, contour lines between bands never were.
+2. Replaced the smooth single-hue per-run ramp with 20 flat bands. The old header comment said "never a rainbow"; it was rewritten because the operator chose rainbow. Hex values are our own, not sampled from the reference image.
+3. Renderer: every screen pixel is sampled from the value grid (bilinear in lon/lat, mercator-exact) and THEN banded, written through `ImageData` as Uint32. The field is painted in the unrotated plane and composited with the map's rotation; pixel count capped at `FIELD_MAX_PX` (1,000,000), upscaled above that. The strip blit, the 8x pre-upscaled canvas, `rampLUT`, `RAMPS`, `WORLD_SCALE_CAP` and the per-run `maxVal` are gone. `world.json`'s `max` is still published but no longer read.
+4. Coast fix (operator saw grey gaps at sea and colour on the Nile delta): the model's land mask is 0.5 deg blocks. Sea values are now carried `SHORE_REACH_CELLS` = 2 cells past it (neighbour mean, per pass), and the field is clipped to the basemap's ocean polygons: `queryRenderedFeatures({layers:["water"], filter: class == ocean})`, each polygon filled on its own with evenodd, then `source-in`. Redraws on map `idle` so the clip follows tile loads; draws unclipped when no water features are loaded yet. Lakes excluded on purpose.
+5. Legend: own row in `.deck-card` between head and timeline, one block per band, a number under every second edge, last with "+", unit at the end.
+6. Bands moved to round numbers in the reader's units (my call, reported to the operator): height 0.25 m to 5 m or 1 ft to 20 ft; wind 5 km/h to 100 or 2.5 kt to 50; period 1 s to 20; energy 10 kW/m to 200. Wind data is in knots internally, so the metric step is 5/1.852 kt.
+7. Tap: `m.on("click")` stores the point if it is on ocean; `draw()` re-reads it with `sampleLayer` and positions `.chart-probe` ("0.75 - 1 m"). A tap on land clears it.
 
 ## Failed Attempts
-- China leads (both batches): no non-competitor second source for any name. Do not retry without a new source type.
-- Korea/India list leads: all competitor-only or no source. Gwangalli is a calm bay.
-- Galapagos: Tongo Reef has sources but no map feature; candidate pin -0.9055,-89.6293 at 0.55 in `cand2-latam/dropped.json`.
-- Still one source short after 2 tries: Cave Rock, Port Edward, Donkin Bay, Lajao, Larache, Plage Blanche, Wreck (Swakopmund).
-- GitHub actions timing API returns 0 billable for every run; measure minutes from job start/end instead. Billing endpoint needs `gh auth refresh -s user`.
-- Sequential per-job API scan timed out at 15 min; parallelize.
+- Banding by colouring cells first, letting the canvas smooth them, then mapping pixels through a stepped table with `getImageData`: bands were flat but edges came out as 3 px stair-steps, because the row strips only interpolate horizontally. Replaced by the per-pixel sampler.
+- Legend numbers in a class named `.deck-ticks`: that class already exists for the timeline ruler (absolutely positioned, full width), so the numbers vanished and the layer button stopped taking clicks. Renamed to `.deck-nums`.
+- Tap label colours `var(--foreground)` on `var(--background)`: light theme's `--background` is translucent white (`#ffffff1b`). Uses `--tabbar-bg` / `--foreground` now.
+- Test harness, not product: headless Playwright Firefox has no WebGL unless launched with `firefoxUserPrefs` `webgl.force-enabled: true`, `gfx.webrender.software: true`; Charts waits on `getPosition()`, so the context needs geolocation granted; `vite` in dev reads no `VITE_DATA_BASE`, so start it with `VITE_DATA_BASE=https://rosa-data-opal.vercel.app npx vite`. Without these the page shows "Charts aren't published yet".
+- `git push` from this shell failed the pre-push hook with `uv: command not found`; fixed by `PATH="$HOME/.local/bin:$PATH" git push origin HEAD:main`, hook then passed.
+- `pkill -f "vite --port 5199"` in the same command line as other work kills its own shell (exit 144); run it alone.
 
 ## Next Step
-1. After the next VM cycle, fetch a few new spot JSONs from the CDN (e.g. `bengkulu` spot, `the-slab`, `isla-de-santa-marina`) and confirm they publish with waves.
-2. Check DB spot `green-point` (south-africa-east): KZN agent says its pin sits on Umzumbe beach; real Green Point is in Clansthal, 47 km NE. Not changed.
-3. Remaining never-retried leads: Philippines/Japan/Okinawa 10, Azores/Madeira 7, North Europe 8, Algeria west 2; barely searched countries St Vincent, Cayman, Croatia, Albania, Montenegro, Libya, Syria.
-4. Optional: Yeongildae (Pohang) 0.4 and Golden Beach Varkala 0.6 in `cand2-korea-india/dropped.json` need a second source.
+1. Open https://rosa.surf/charts on a real iPhone (Safari) and check: bands draw, coast clip lines up, panning is smooth, tap label appears. Safari was never tested.
+2. Check the "All basins" and a single-basin selection in `ChartsPage.tsx` (non-wrapping grids take the `else` branch in the column setup and in `sampleLayer`).
+3. Open decisions for the operator, none approved: contour lines between bands; whether `energy`'s linear 10 kW/m bands are useful (a 1 m / 10 s day is 4.4 kW/m, so small days sit in one band); whether to stop publishing `max` in `world.json` (`pipeline/src/rosa_pipeline/swellmap.py`), now unread.
+4. `web/.vercel/project.json` was copied into this worktree from `~/Projects/rosa/web/.vercel/` for the deploy; it is untracked and can stay.
