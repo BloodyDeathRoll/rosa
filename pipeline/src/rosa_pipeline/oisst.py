@@ -27,8 +27,9 @@ from .geo import dlon180
 BASE_URL = (
     "https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr"
 )
-# yesterday's preliminary file usually lands during the day; walk back this many days
-MAX_LAG_DAYS = 4
+# yesterday's preliminary file usually lands during the day, but NOAA can stall for a
+# week (2026-11: newest file 7 days old, 4 days left every spot blank); walk back this far
+MAX_LAG_DAYS = 14
 NEAREST_MAX_DEG = 1.0  # OISST is a smooth field; a coastal cell one degree out is fine
 FILL = -999
 

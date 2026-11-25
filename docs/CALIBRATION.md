@@ -1784,7 +1784,7 @@ against buoys and feedback, not something to reconcile by hand. Repo suite 421 g
 
 **C2 - SST from NOAA OISST.** `oisst.py`: one 0.25-deg global daily netCDF (~1.5 MB,
 public domain, `*_preliminary` until the final lands ~2 weeks later; fetcher tries
-final-then-preliminary back to 4 days). Blend arm only: the daily value fills the SST
+final-then-preliminary back to 4 days; 14 since 2026-11-25, when NOAA stalled 7 days). Blend arm only: the daily value fills the SST
 column (intra-day drift ~0.1 C, below model error), the OM light value stays as the
 per-hour fallback and the guard path - an NCEI outage cannot sink a run. Sanity-checked
 live at 5 spots across 5 basins (Med 29.2, Portugal 20.4, Hawaii 27.2, CR 30.2,
