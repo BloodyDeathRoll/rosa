@@ -25,3 +25,10 @@ spots:
   - { id: novotel-beach-cotonou, name: "Novotel Beach", town: "Cotonou", lat: 6.3423, lon: 2.4012, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: beach, <<: *bj }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)
   - { id: ouidah-plage, name: "Ouidah-Plage", town: "Ouidah", lat: 6.3220, lon: 2.0887, offshore_direction: 335, swell_window: [90, 220], offshore_km: 5.0, break_type: beach, <<: *bj }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)
   - { id: bouches-du-roy, name: "Bouches du Roy", town: "Avlo", lat: 6.2943, lon: 1.9254, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, break_type: beach, <<: *bj }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)
+
+  # ==== SEEDED 2026-11-26 - candidates batch 4, 1 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c4-africa/).
+  # North to south.
+  - { id: eldorado-beach, name: "Eldorado Beach", town: "Cotonou", lat: 6.3586, lon: 2.4651, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, break_type: beach, <<: *bj }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)

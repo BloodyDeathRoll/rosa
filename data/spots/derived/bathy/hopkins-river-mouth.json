@@ -1,0 +1,72 @@
+{
+  "spot": "hopkins-river-mouth",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.4035,
+    142.51
+  ],
+  "bearing_seaward_deg": 204.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 2.59,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.40555,
+      "lon": 142.50883,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.40761,
+      "lon": 142.50767,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.41172,
+      "lon": 142.50533,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.41993,
+      "lon": 142.50066,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.42815,
+      "lon": 142.49599,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.44458,
+      "lon": 142.48665,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.46922,
+      "lon": 142.47262,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.50208,
+      "lon": 142.45391,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.55135,
+      "lon": 142.42581,
+      "depth_m": 52.0
+    }
+  ]
+}

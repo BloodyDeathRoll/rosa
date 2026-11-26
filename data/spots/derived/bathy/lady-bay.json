@@ -1,0 +1,72 @@
+{
+  "spot": "lady-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.3959,
+    142.4784
+  ],
+  "bearing_seaward_deg": 169.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 2.76,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.39811,
+      "lon": 142.47895,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.40031,
+      "lon": 142.47949,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.40473,
+      "lon": 142.48059,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.41356,
+      "lon": 142.48278,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.42238,
+      "lon": 142.48497,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.44004,
+      "lon": 142.48935,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.46652,
+      "lon": 142.49593,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.50183,
+      "lon": 142.50471,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.5548,
+      "lon": 142.5179,
+      "depth_m": 50.0
+    }
+  ]
+}

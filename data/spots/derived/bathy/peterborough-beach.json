@@ -1,0 +1,72 @@
+{
+  "spot": "peterborough-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.6098,
+    142.8909
+  ],
+  "bearing_seaward_deg": 196.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 62.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.61196,
+      "lon": 142.89011,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.61412,
+      "lon": 142.88931,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.61844,
+      "lon": 142.88773,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.62709,
+      "lon": 142.88455,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.63573,
+      "lon": 142.88138,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.65302,
+      "lon": 142.87503,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.67896,
+      "lon": 142.8655,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.71353,
+      "lon": 142.85278,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.76539,
+      "lon": 142.83367,
+      "depth_m": 62.0
+    }
+  ]
+}

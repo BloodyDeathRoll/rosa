@@ -70,3 +70,10 @@ spots:
   # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c3-osm/).
   # North to south.
   - { id: termeil-beach, name: "Termeil Beach", town: "Tabourie Lake", lat: -35.4630, lon: 150.3947, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *nsc }  # sat-verified 2026-11-26 (osm-seeded, conf 0.75)
+
+  # ==== SEEDED 2026-11-26 - candidates batch 4, 1 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c4-australia/).
+  # North to south.
+  - { id: surf-beach-batemans-bay, name: "Surf Beach", town: "Batemans Bay", lat: -35.7591, lon: 150.2119, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, break_type: beach, <<: *nsc }  # sat-verified 2026-11-26 (osm-seeded, conf 0.75)

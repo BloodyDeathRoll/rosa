@@ -1,0 +1,72 @@
+{
+  "spot": "kunizaki",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.3429,
+    136.8799
+  ],
+  "bearing_seaward_deg": 107.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 299.0,
+  "mean_slope_m_per_km": 16.85,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.34224,
+      "lon": 136.8825,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.34159,
+      "lon": 136.88511,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.34027,
+      "lon": 136.89032,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.33764,
+      "lon": 136.90073,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.33501,
+      "lon": 136.91115,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.32974,
+      "lon": 136.93197,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.32184,
+      "lon": 136.96321,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.31128,
+      "lon": 137.00484,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.29543,
+      "lon": 137.06728,
+      "depth_m": 299.0
+    }
+  ]
+}

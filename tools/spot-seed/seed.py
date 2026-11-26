@@ -646,6 +646,8 @@ REGIONS = {
     "togo": (6.12, 1.49, 6.32, 1.69),
     "benin": (6.19, 1.83, 6.47, 2.80),
     "cameroon": (3.96, 8.95, 4.16, 9.15),
+    # Gabon: Cap Lopez (Port-Gentil) and Mayumba
+    "gabon": (-3.56, 8.60, -0.54, 10.77),
     # ---- the south-west Atlantic. Uruguay and Argentina face E-SE into the same swell
     # Uruguay: Montevideo east through Punta del Este, La Paloma and Punta del Diablo
     "uruguay": (-35.10, -56.60, -33.60, -53.10),

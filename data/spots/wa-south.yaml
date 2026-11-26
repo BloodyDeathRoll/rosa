@@ -36,3 +36,11 @@ spots:
   - { id: mutton-bird, name: "Mutton Bird", town: "Albany", lat: -35.0480, lon: 117.6936, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *was }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: sand-patch, name: "Sand Patch", town: "Albany", lat: -35.0695, lon: 117.7978, offshore_direction: 342, swell_window: [97, 227], offshore_km: 5.0, <<: *was }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: salmon-holes, name: "Salmon Holes", town: "Albany", lat: -35.1021, lon: 117.9685, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *was }  # sat-verified 2026-09-03 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-26 - candidates batch 4, 2 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c4-australia/).
+  # North to south.
+  - { id: surfers-cove, name: "Surfers Cove", town: "Lake Jasper", lat: -34.4164, lon: 115.5594, offshore_direction: 13, swell_window: [128, 258], offshore_km: 5.0, break_type: beach, <<: *was }  # sat-verified 2026-11-26 (osm-seeded, conf 0.65)
+  - { id: black-point-wa, name: "Black Point", town: "Lake Jasper", lat: -34.4168, lon: 115.5418, offshore_direction: 107, swell_window: [222, 352], offshore_km: 5.0, break_type: reef, <<: *was }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)

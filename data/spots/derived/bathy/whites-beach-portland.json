@@ -1,0 +1,72 @@
+{
+  "spot": "whites-beach-portland",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.3448,
+    141.3903
+  ],
+  "bearing_seaward_deg": 271.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 92.0,
+  "mean_slope_m_per_km": 4.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.34476,
+      "lon": 141.38743,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.34472,
+      "lon": 141.38457,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.34464,
+      "lon": 141.37884,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.34448,
+      "lon": 141.36737,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.34432,
+      "lon": 141.35591,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.344,
+      "lon": 141.33298,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.34351,
+      "lon": 141.29858,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.34284,
+      "lon": 141.25272,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.34179,
+      "lon": 141.18394,
+      "depth_m": 92.0
+    }
+  ]
+}

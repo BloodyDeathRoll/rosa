@@ -110,3 +110,10 @@ spots:
   # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
   # coordinator on contact sheets; tools/spot-seed/work/gap2-sea/). North to south.
   - { id: bacnotan, name: "Bacnotan (Cement Factory)", town: "Bacnotan", lat: 16.7603, lon: 120.3366, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, break_type: beach, <<: *phw }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+
+  # ==== SEEDED 2026-11-26 - candidates batch 4, 1 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c4-asia/).
+  # North to south.
+  - { id: german-sunset, name: "German Sunset", town: "San Juan", lat: 16.6812, lon: 120.3362, offshore_direction: 109, swell_window: [224, 354], offshore_km: 5.0, break_type: beach, <<: *phw }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)

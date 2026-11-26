@@ -1,0 +1,72 @@
+{
+  "spot": "andrew-molera",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.2804,
+    -121.8596
+  ],
+  "bearing_seaward_deg": 218.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 1047.0,
+  "mean_slope_m_per_km": 58.42,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.27863,
+      "lon": -121.86132,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.27686,
+      "lon": -121.86303,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.27331,
+      "lon": -121.86647,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.26623,
+      "lon": -121.87333,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.25914,
+      "lon": -121.8802,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.24496,
+      "lon": -121.89393,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.22369,
+      "lon": -121.91451,
+      "depth_m": 510.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.19533,
+      "lon": -121.94193,
+      "depth_m": 652.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.15278,
+      "lon": -121.98303,
+      "depth_m": 1047.0
+    }
+  ]
+}

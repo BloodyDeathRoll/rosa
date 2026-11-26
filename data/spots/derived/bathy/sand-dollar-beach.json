@@ -1,0 +1,72 @@
+{
+  "spot": "sand-dollar-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.9237,
+    -121.47
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 743.0,
+  "mean_slope_m_per_km": 42.59,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.9237,
+      "lon": -121.47278,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.9237,
+      "lon": -121.47555,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.9237,
+      "lon": -121.48111,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.9237,
+      "lon": -121.49221,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.9237,
+      "lon": -121.50332,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.92369,
+      "lon": -121.52553,
+      "depth_m": 301.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.92367,
+      "lon": -121.55884,
+      "depth_m": 491.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.92363,
+      "lon": -121.60327,
+      "depth_m": 538.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.92353,
+      "lon": -121.6699,
+      "depth_m": 743.0
+    }
+  ]
+}

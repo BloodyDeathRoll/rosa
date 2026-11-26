@@ -1,0 +1,72 @@
+{
+  "spot": "levys-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.3774,
+    142.4315
+  ],
+  "bearing_seaward_deg": 197.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.37955,
+      "lon": 142.43066,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.3817,
+      "lon": 142.42982,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.386,
+      "lon": 142.42815,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.3946,
+      "lon": 142.42479,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.4032,
+      "lon": 142.42143,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.4204,
+      "lon": 142.41472,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.4462,
+      "lon": 142.40464,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.4806,
+      "lon": 142.39119,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.53219,
+      "lon": 142.371,
+      "depth_m": 50.0
+    }
+  ]
+}

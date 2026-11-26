@@ -1,0 +1,72 @@
+{
+  "spot": "hawai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.5051,
+    133.8666
+  ],
+  "bearing_seaward_deg": 350.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 83.0,
+  "mean_slope_m_per_km": 4.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.50731,
+      "lon": 133.86612,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.50953,
+      "lon": 133.86564,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.51396,
+      "lon": 133.86468,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.52281,
+      "lon": 133.86276,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.53167,
+      "lon": 133.86084,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.54938,
+      "lon": 133.857,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.57595,
+      "lon": 133.85124,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.61138,
+      "lon": 133.84355,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.66451,
+      "lon": 133.832,
+      "depth_m": 83.0
+    }
+  ]
+}

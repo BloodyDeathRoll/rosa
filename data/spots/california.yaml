@@ -183,3 +183,12 @@ spots:
   - { id: sacate, name: "Sacate", town: "Hollister Ranch", lat: 34.4704, lon: -120.2940, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, <<: *ca }  # user-verified 2026-11-04 (operator-supplied pin, sat-checked; lat given as 4.464542, read as 34.464542; pin sits ~600 m out over the kelp)
   - { id: drakes, name: "Drakes", town: "Hollister Ranch", lat: 34.4663, lon: -120.3064, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, <<: *ca }  # user-verified 2026-11-04 (operator-supplied pin, sat-checked)
   - { id: san-augustine, name: "San Augustine", town: "Hollister Ranch", lat: 34.4563, lon: -120.3580, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, <<: *ca }  # user-verified 2026-11-04 (operator-supplied pin, sat-checked)
+
+  # ==== SEEDED 2026-11-26 - candidates batch 4, 3 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c4-namerica/).
+  # North to south.
+  - { id: andrew-molera, name: "Andrew Molera", town: "Big Sur Village", lat: 36.2804, lon: -121.8596, offshore_direction: 38, swell_window: [153, 283], offshore_km: 5.0, break_type: point, <<: *ca }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)
+  - { id: sand-dollar-beach, name: "Sand Dollar Beach", town: "Plaskett", lat: 35.9237, lon: -121.4700, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: beach, <<: *ca }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.8)
+  - { id: willow-creek, name: "Willow Creek", town: "Gorda", lat: 35.8933, lon: -121.4623, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: point, <<: *ca }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.75)

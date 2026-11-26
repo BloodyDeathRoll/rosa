@@ -41,3 +41,10 @@ spots:
   - { id: white-point, name: "White Point Beach", town: "White Point", lat: 43.9619, lon: -64.7374, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
   - { id: summerville-beach, name: "Summerville Beach", town: "Summerville Centre", lat: 43.9502, lon: -64.8175, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
   - { id: mavillette-beach, name: "Mavillette Beach", town: "Mavillette", lat: 44.0836, lon: -66.1873, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-26 - candidates batch 4, 1 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c4-namerica/).
+  # North to south.
+  - { id: crescent-beach-lockeport, name: "Crescent Beach (Lockeport)", town: "Lockeport", lat: 43.6945, lon: -65.1208, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)

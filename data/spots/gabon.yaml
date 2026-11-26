@@ -1,0 +1,24 @@
+# Rosa spot database - Gabon (seeded 2026-11-26). Cap Lopez's Atlantic beach by Port-Gentil and Mayumba in the south: SW South Atlantic swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Gabon"
+
+defaults: &ga
+  timezone: Africa/Libreville
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [175, 305]
+  ideal:
+    wind_dir: [15, 105]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-26 - candidates batch 4, 2 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c4-africa/).
+  # North to south.
+  - { id: cap-lopez, name: "Cap Lopez", town: "Port-Gentil", lat: -0.6350, lon: 8.7007, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, break_type: beach, <<: *ga }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.65)
+  - { id: mayumba, name: "Mayumba", town: "Mayumba", lat: -3.4588, lon: 10.6704, offshore_direction: 25, swell_window: [140, 270], offshore_km: 5.0, break_type: beach, <<: *ga }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.65)

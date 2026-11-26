@@ -135,6 +135,7 @@ CFG = {
     "togo": ("tg", True, None, 5.0),
     "benin": ("bj", True, None, 5.0),
     "cameroon": ("cm", True, None, 5.0),
+    "gabon": ("ga", True, None, 5.0),
     "trinidad": ("tt", True, None, 5.0),
     "turkey-black-sea": ("trb", True, None, 5.0),
     "turkey-med": ("trm", True, None, 5.0),

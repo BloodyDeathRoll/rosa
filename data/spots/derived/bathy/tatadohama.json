@@ -1,0 +1,72 @@
+{
+  "spot": "tatadohama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.6603,
+    138.9328
+  ],
+  "bearing_seaward_deg": 156.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 507.0,
+  "mean_slope_m_per_km": 28.0,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.65825,
+      "lon": 138.93391,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.65619,
+      "lon": 138.93502,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.65208,
+      "lon": 138.93725,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.64387,
+      "lon": 138.94169,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.63565,
+      "lon": 138.94614,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.61922,
+      "lon": 138.95502,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.59457,
+      "lon": 138.96835,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.5617,
+      "lon": 138.9861,
+      "depth_m": 374.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.51239,
+      "lon": 139.0127,
+      "depth_m": 507.0
+    }
+  ]
+}

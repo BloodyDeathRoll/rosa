@@ -222,7 +222,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-11-26, DB = 5123 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-26, DB = 5162 spots, ALL sat-verified)
 
 **Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
 was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
@@ -590,6 +590,33 @@ conf >= 0.65 (63 of 108), then dropped 2 more and re-read every kept pin on z16 
   West Timor, Georgia (skipped: Black Sea, OPEN-ITEMS 45). Leads left: Beran / Ailinglaplap's named reefs
   (Amnesia, The Bowl), Tabuaeran's Cables / Whalers, Eldorado Beach (Cotonou), Oea Village (Tripoli), Shipping
   Bay (St Vincent), Pierce Point (Haiti).
+
+**Candidates batch 4: famous-coast box count + OSM surf names - 5123 -> 5162 (2026-11-26, cont.).** A second
+OSM sweep (every non-business feature with "surf" / サーフ / 冲浪 in its name, 636 features) and a box count over
+~60 famous surf coasts found West Victoria at 0 spots west of Apollo Bay, Shizuoka 3, Mie / Wakayama 1,
+Tottori / Shimane 0, Big Sur 1, Santiago (Cape Verde) 0. Six subagents (c4-australia / c4-japan / c4-namerica /
+c4-asia / c4-africa / c4-retry), same brief.
+- Added: victoria 16 (Gibson Steps, Port Campbell, Peterborough, Logans Beach, Hopkins River Mouth, Lady Bay,
+  Shelly Beach, Levys Beach, East Beach Port Fairy, Narrawong, Blacknose Point, Yellow Rock, Murrells,
+  Bridgewater Bay, Shelly Beach Cape Bridgewater, Whites Beach), japan 10 (Ishiwaki, Hawai, Kunizaki, Ago no
+  Matsubara, Ichigo, Tatadohama, Iritahama, Kisami Ohama, Fukude, Nakatajima), california 3 (Sand Dollar,
+  Andrew Molera, Willow Creek), wa-south 2 (Surfers Cove, Black Point), cape-verde 2 (Tarrafal on Santiago,
+  Sandy Beach on Sao Vicente), new region gabon 2 (Cap Lopez, Mayumba; basin `angola`), and singles in
+  nsw-south-coast (Surf Beach, Batemans Bay), nova-scotia (Crescent Beach, Lockeport), philippines (German
+  Sunset, La Union), kerala (Surf Beach, Paravur) and benin (Eldorado Beach, found in the local extract).
+- **Tenkura (Japan Weather Association's leisure forecast site) is treated as a competitor listing**: it
+  publishes surf forecasts per point. 63 of the 73 Japan pins (Izu, Numazu, Makinohara to Kosai, Wakayama,
+  Tottori, Shimane) had no other source naming them as surf breaks and stay out until one is found. The same
+  rule removed `ikurahama` (Miyazaki, batch 3: Tenkura + an OSM beach name only).
+- Coordinator drops: `crescent-bay` (Strait of Juan de Fuca - no GFS-Wave wet node within 0.6 deg; the strait
+  is not resolved by the 0p25 grid), everything below 0.65 (Discovery Bay, Twin Rivers, Elwha, The Hawk,
+  Darigayos, Pistons in Jacmel, Shipping Bay).
+- GEBCO land to 0.5 km, deep water beyond: willow-creek, eldorado-beach, mayumba.
+- Nothing sourced or located: Taiji Bay (Zhejiang - OSM name only, a murky cove), Baler beyond the DB,
+  Fehmarn's Surfstrand (windsurf only), SW Madagascar's reefs, the Marshalls' Beran reefs (distances from the
+  lodge only), Tabuaeran's channels, Oea Village. Agents flagged, not moved: `libanona` sits on OSM Plage
+  Ankoba (Plage Libanona is 1.3 km E); `charlies-point` may belong at the creek mouth 280 m away. Not
+  seeded: Aichi's Atsumi peninsula (Akabane, Irago) has 0 spots.
 
 **Gap queue (whole areas with zero spots, by box count 2026-11-26):** New Zealand is thin (17). Still
 empty: Mauritania, Gabon, Palau, Yap, the Marshall Islands, Tuvalu, St Vincent, Cambodia, Sulawesi, West

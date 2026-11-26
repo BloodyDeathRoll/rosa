@@ -204,6 +204,7 @@ REGION_PBF = {
     "Togo": "togo-latest",
     "Benin": "benin-latest",
     "Cameroon": "cameroon-latest",
+    "Gabon": "gabon-latest",
     "Long Island": "long-island",
     "New Jersey": "new-jersey",
     "Outer Banks": "outer-banks",

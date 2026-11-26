@@ -40,3 +40,10 @@ spots:
   # coordinator on contact sheets; tools/spot-seed/work/cand2-coord/). North to south.
   - { id: beypore, name: "Beypore", town: "Beypore", lat: 11.1646, lon: 75.8020, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: beach, <<: *kl }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.65)
   - { id: black-beach-varkala, name: "Black Beach", town: "Varkala", lat: 8.7434, lon: 76.6980, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, break_type: beach, <<: *kl }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.7)
+
+  # ==== SEEDED 2026-11-26 - candidates batch 4, 1 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c4-asia/).
+  # North to south.
+  - { id: surf-beach-paravur, name: "Surf Beach", town: "Paravur", lat: 8.7912, lon: 76.6649, offshore_direction: 56, swell_window: [171, 301], offshore_km: 5.0, break_type: beach, <<: *kl }  # sat-verified 2026-11-26 (osm-seeded, conf 0.65)

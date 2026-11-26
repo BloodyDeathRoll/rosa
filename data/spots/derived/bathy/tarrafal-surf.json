@@ -1,0 +1,72 @@
+{
+  "spot": "tarrafal-surf",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    15.2725,
+    -23.7587
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 2451.0,
+  "mean_slope_m_per_km": 138.31,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.27192,
+      "lon": -23.76095,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.27134,
+      "lon": -23.7632,
+      "depth_m": 294.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.27017,
+      "lon": -23.7677,
+      "depth_m": 434.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 15.26784,
+      "lon": -23.77671,
+      "depth_m": 618.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 15.26552,
+      "lon": -23.78571,
+      "depth_m": 797.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 15.26086,
+      "lon": -23.80372,
+      "depth_m": 1162.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 15.25387,
+      "lon": -23.83073,
+      "depth_m": 1711.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 15.24454,
+      "lon": -23.86674,
+      "depth_m": 2168.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 15.23054,
+      "lon": -23.92075,
+      "depth_m": 2451.0
+    }
+  ]
+}

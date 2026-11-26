@@ -279,7 +279,7 @@ BASINS: dict[str, tuple[str, ...]] = {
     # Alabama and Louisiana (Gulf Coast, seeded 2026-11-12) fill the gap between them
     "gulf-of-mexico": ("Florida Panhandle", "Florida Gulf", "Texas", "Gulf Coast"),
     # Pointe-Noire and Sao Tome (seeded 2026-11-12) take the same SW swell further up the coast
-    "angola": ("Angola", "Congo", "Sao Tome", "Cameroon"),
+    "angola": ("Angola", "Congo", "Sao Tome", "Cameroon", "Gabon"),
     # the south-east Atlantic: Southern Ocean SW groundswell up the Cape and Namibian
     # coasts, Cape Agulhas round to the Kunene, between Angola's frame and east-africa's
     "southwest-africa": ("South Africa West", "Namibia"),

@@ -1,0 +1,72 @@
+{
+  "spot": "crescent-beach-lockeport",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.6945,
+    -65.1208
+  ],
+  "bearing_seaward_deg": 160.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 68.0,
+  "mean_slope_m_per_km": 3.94,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.69239,
+      "lon": -65.11974,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.69027,
+      "lon": -65.11867,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.68605,
+      "lon": -65.11655,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.6776,
+      "lon": -65.11229,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.66915,
+      "lon": -65.10804,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.65224,
+      "lon": -65.09954,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.62689,
+      "lon": -65.08681,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.59308,
+      "lon": -65.06984,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.54236,
+      "lon": -65.04442,
+      "depth_m": 68.0
+    }
+  ]
+}
