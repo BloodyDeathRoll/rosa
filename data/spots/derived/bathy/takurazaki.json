@@ -1,0 +1,72 @@
+{
+  "spot": "takurazaki",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.2629,
+    135.0622
+  ],
+  "bearing_seaward_deg": 212.0,
+  "nearshore_depth_m": 17.0,
+  "offshore_depth_m": 63.0,
+  "mean_slope_m_per_km": 2.59,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.26099,
+      "lon": 135.06076,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.25909,
+      "lon": 135.05932,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.25527,
+      "lon": 135.05643,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.24765,
+      "lon": 135.05067,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.24002,
+      "lon": 135.04491,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.22476,
+      "lon": 135.03338,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.20188,
+      "lon": 135.0161,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.17136,
+      "lon": 134.99308,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.12558,
+      "lon": 134.95857,
+      "depth_m": 63.0
+    }
+  ]
+}

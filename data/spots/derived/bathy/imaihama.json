@@ -1,0 +1,72 @@
+{
+  "spot": "imaihama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.7522,
+    139.0054
+  ],
+  "bearing_seaward_deg": 146.0,
+  "nearshore_depth_m": -26.0,
+  "offshore_depth_m": 426.0,
+  "mean_slope_m_per_km": 25.46,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.75034,
+      "lon": 139.00693,
+      "depth_m": -26.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.74847,
+      "lon": 139.00846,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.74474,
+      "lon": 139.01152,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.73729,
+      "lon": 139.01764,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.72983,
+      "lon": 139.02376,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.71492,
+      "lon": 139.03599,
+      "depth_m": 220.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.69254,
+      "lon": 139.05433,
+      "depth_m": 327.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.66271,
+      "lon": 139.07877,
+      "depth_m": 379.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.61795,
+      "lon": 139.11539,
+      "depth_m": 426.0
+    }
+  ]
+}

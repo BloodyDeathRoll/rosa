@@ -1,0 +1,72 @@
+{
+  "spot": "kotogahama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.1309,
+    132.3888
+  ],
+  "bearing_seaward_deg": 296.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 138.0,
+  "mean_slope_m_per_km": 7.49,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.13189,
+      "lon": 132.38633,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.13287,
+      "lon": 132.38386,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.13484,
+      "lon": 132.37892,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.13878,
+      "lon": 132.36903,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.14272,
+      "lon": 132.35915,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.1506,
+      "lon": 132.33937,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.16241,
+      "lon": 132.3097,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.17815,
+      "lon": 132.27013,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.20173,
+      "lon": 132.21074,
+      "depth_m": 138.0
+    }
+  ]
+}

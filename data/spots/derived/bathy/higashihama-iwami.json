@@ -1,0 +1,72 @@
+{
+  "spot": "higashihama-iwami",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.6011,
+    134.3625
+  ],
+  "bearing_seaward_deg": 342.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 230.0,
+  "mean_slope_m_per_km": 13.69,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.60324,
+      "lon": 134.36165,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.60538,
+      "lon": 134.36079,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.60965,
+      "lon": 134.35908,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.61821,
+      "lon": 134.35566,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.62676,
+      "lon": 134.35224,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.64386,
+      "lon": 134.3454,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.66952,
+      "lon": 134.33513,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.70373,
+      "lon": 134.32143,
+      "depth_m": 156.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.75504,
+      "lon": 134.30086,
+      "depth_m": 230.0
+    }
+  ]
+}

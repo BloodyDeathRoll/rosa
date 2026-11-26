@@ -1,0 +1,72 @@
+{
+  "spot": "asari",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.0396,
+    132.2701
+  ],
+  "bearing_seaward_deg": 342.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 137.0,
+  "mean_slope_m_per_km": 7.32,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.04174,
+      "lon": 132.26925,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.04388,
+      "lon": 132.2684,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.04815,
+      "lon": 132.26671,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.05671,
+      "lon": 132.26331,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.06526,
+      "lon": 132.25991,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.08236,
+      "lon": 132.25312,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.10802,
+      "lon": 132.24292,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.14223,
+      "lon": 132.22932,
+      "depth_m": 115.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.19354,
+      "lon": 132.20889,
+      "depth_m": 137.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "komaba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.6482,
+    137.8111
+  ],
+  "bearing_seaward_deg": 170.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 523.0,
+  "mean_slope_m_per_km": 29.58,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.64599,
+      "lon": 137.81157,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.64377,
+      "lon": 137.81205,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.63934,
+      "lon": 137.813,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.63049,
+      "lon": 137.8149,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.62163,
+      "lon": 137.81679,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.60392,
+      "lon": 137.82059,
+      "depth_m": 180.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.57735,
+      "lon": 137.82627,
+      "depth_m": 199.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.54192,
+      "lon": 137.83385,
+      "depth_m": 309.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.48878,
+      "lon": 137.8452,
+      "depth_m": 523.0
+    }
+  ]
+}

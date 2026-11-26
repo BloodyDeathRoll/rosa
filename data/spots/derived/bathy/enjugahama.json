@@ -1,0 +1,72 @@
+{
+  "spot": "enjugahama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.8922,
+    135.1199
+  ],
+  "bearing_seaward_deg": 198.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 103.0,
+  "mean_slope_m_per_km": 5.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.89006,
+      "lon": 135.11906,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.88792,
+      "lon": 135.11823,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.88365,
+      "lon": 135.11655,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.87509,
+      "lon": 135.11321,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.86654,
+      "lon": 135.10986,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.84943,
+      "lon": 135.10317,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.82377,
+      "lon": 135.09314,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.78956,
+      "lon": 135.07977,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.73823,
+      "lon": 135.05975,
+      "depth_m": 103.0
+    }
+  ]
+}

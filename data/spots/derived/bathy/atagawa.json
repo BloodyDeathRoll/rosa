@@ -1,0 +1,72 @@
+{
+  "spot": "atagawa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.8141,
+    139.0716
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": -33.0,
+  "offshore_depth_m": 468.0,
+  "mean_slope_m_per_km": 28.23,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.81298,
+      "lon": 139.07397,
+      "depth_m": -33.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.81185,
+      "lon": 139.07634,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.8096,
+      "lon": 139.08109,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.80511,
+      "lon": 139.09057,
+      "depth_m": 146.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.80061,
+      "lon": 139.10005,
+      "depth_m": 359.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.79161,
+      "lon": 139.11902,
+      "depth_m": 590.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.7781,
+      "lon": 139.14746,
+      "depth_m": 604.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.76009,
+      "lon": 139.18536,
+      "depth_m": 275.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.73304,
+      "lon": 139.24219,
+      "depth_m": 468.0
+    }
+  ]
+}

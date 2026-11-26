@@ -1,0 +1,72 @@
+{
+  "spot": "samejima",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.658,
+    137.8482
+  ],
+  "bearing_seaward_deg": 167.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 723.0,
+  "mean_slope_m_per_km": 40.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.65581,
+      "lon": 137.84881,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.65362,
+      "lon": 137.84943,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.64924,
+      "lon": 137.85066,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.64047,
+      "lon": 137.85312,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.63171,
+      "lon": 137.85558,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.61419,
+      "lon": 137.86049,
+      "depth_m": 173.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.5879,
+      "lon": 137.86786,
+      "depth_m": 301.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.55284,
+      "lon": 137.87768,
+      "depth_m": 607.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.50026,
+      "lon": 137.89239,
+      "depth_m": 723.0
+    }
+  ]
+}

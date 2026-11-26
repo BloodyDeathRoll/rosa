@@ -1,0 +1,72 @@
+{
+  "spot": "hamaoka",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.6279,
+    138.1215
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 449.0,
+  "mean_slope_m_per_km": 25.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.62579,
+      "lon": 138.12057,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.62367,
+      "lon": 138.11963,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.61945,
+      "lon": 138.11776,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.611,
+      "lon": 138.11403,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.60255,
+      "lon": 138.11029,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.58564,
+      "lon": 138.10282,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.56029,
+      "lon": 138.09162,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.52648,
+      "lon": 138.0767,
+      "depth_m": 305.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.47577,
+      "lon": 138.05434,
+      "depth_m": 449.0
+    }
+  ]
+}

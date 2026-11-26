@@ -1,0 +1,72 @@
+{
+  "spot": "maisaka",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.6759,
+    137.6128
+  ],
+  "bearing_seaward_deg": 183.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 267.0,
+  "mean_slope_m_per_km": 14.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.67365,
+      "lon": 137.61266,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.67141,
+      "lon": 137.61251,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.66692,
+      "lon": 137.61223,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.65794,
+      "lon": 137.61166,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.64896,
+      "lon": 137.61108,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.631,
+      "lon": 137.60994,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.60405,
+      "lon": 137.60823,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.56813,
+      "lon": 137.60594,
+      "depth_m": 127.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.51424,
+      "lon": 137.60252,
+      "depth_m": 267.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "ida-kiho",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.7647,
+    136.0276
+  ],
+  "bearing_seaward_deg": 111.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 1641.0,
+  "mean_slope_m_per_km": 92.06,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.76389,
+      "lon": 136.03012,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.76309,
+      "lon": 136.03265,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.76148,
+      "lon": 136.0377,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.75825,
+      "lon": 136.0478,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.75503,
+      "lon": 136.05789,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.74858,
+      "lon": 136.07809,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.73889,
+      "lon": 136.10837,
+      "depth_m": 194.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.72597,
+      "lon": 136.14874,
+      "depth_m": 753.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.70656,
+      "lon": 136.20927,
+      "depth_m": 1641.0
+    }
+  ]
+}

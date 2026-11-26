@@ -1,0 +1,72 @@
+{
+  "spot": "kuromatsu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.0576,
+    132.3109
+  ],
+  "bearing_seaward_deg": 309.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 129.0,
+  "mean_slope_m_per_km": 7.15,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.05901,
+      "lon": 132.30877,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.06043,
+      "lon": 132.30663,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.06326,
+      "lon": 132.30236,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.06892,
+      "lon": 132.29382,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.07458,
+      "lon": 132.28528,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.08589,
+      "lon": 132.26819,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.10286,
+      "lon": 132.24256,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.12547,
+      "lon": 132.20836,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.15938,
+      "lon": 132.15702,
+      "depth_m": 129.0
+    }
+  ]
+}

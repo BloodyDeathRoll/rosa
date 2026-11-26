@@ -1,0 +1,72 @@
+{
+  "spot": "shirasuka",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.676,
+    137.5054
+  ],
+  "bearing_seaward_deg": 177.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 186.0,
+  "mean_slope_m_per_km": 10.37,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.67375,
+      "lon": 137.50554,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.67151,
+      "lon": 137.50569,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.66702,
+      "lon": 137.50597,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.65804,
+      "lon": 137.50654,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.64906,
+      "lon": 137.50712,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.6311,
+      "lon": 137.50826,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.60415,
+      "lon": 137.50997,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.56823,
+      "lon": 137.51226,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.51434,
+      "lon": 137.51568,
+      "depth_m": 186.0
+    }
+  ]
+}

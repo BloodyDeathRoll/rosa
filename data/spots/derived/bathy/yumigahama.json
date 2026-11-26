@@ -1,0 +1,72 @@
+{
+  "spot": "yumigahama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.4771,
+    133.2966
+  ],
+  "bearing_seaward_deg": 27.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 2.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.4791,
+      "lon": 133.29785,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.48111,
+      "lon": 133.29911,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.48511,
+      "lon": 133.30161,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.49313,
+      "lon": 133.30663,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.50114,
+      "lon": 133.31165,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.51716,
+      "lon": 133.32168,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.5412,
+      "lon": 133.33674,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.57324,
+      "lon": 133.35684,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.6213,
+      "lon": 133.38701,
+      "depth_m": 54.0
+    }
+  ]
+}

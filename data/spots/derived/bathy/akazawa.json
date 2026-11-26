@@ -1,0 +1,72 @@
+{
+  "spot": "akazawa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.8583,
+    139.0869
+  ],
+  "bearing_seaward_deg": 128.0,
+  "nearshore_depth_m": 45.0,
+  "offshore_depth_m": 419.0,
+  "mean_slope_m_per_km": 21.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.85692,
+      "lon": 139.08906,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.85553,
+      "lon": 139.09122,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.85276,
+      "lon": 139.09554,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.84723,
+      "lon": 139.10417,
+      "depth_m": 254.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.84169,
+      "lon": 139.1128,
+      "depth_m": 458.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.83061,
+      "lon": 139.13007,
+      "depth_m": 817.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.81399,
+      "lon": 139.15595,
+      "depth_m": 822.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.79181,
+      "lon": 139.19045,
+      "depth_m": 554.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.75854,
+      "lon": 139.24217,
+      "depth_m": 419.0
+    }
+  ]
+}

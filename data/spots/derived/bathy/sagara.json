@@ -1,0 +1,72 @@
+{
+  "spot": "sagara",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.6841,
+    138.2059
+  ],
+  "bearing_seaward_deg": 107.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 367.0,
+  "mean_slope_m_per_km": 20.51,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.68344,
+      "lon": 138.20851,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.68279,
+      "lon": 138.21113,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.68147,
+      "lon": 138.21636,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.67884,
+      "lon": 138.22682,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.67621,
+      "lon": 138.23727,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.67094,
+      "lon": 138.25819,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.66304,
+      "lon": 138.28955,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.65248,
+      "lon": 138.33136,
+      "depth_m": 347.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.63663,
+      "lon": 138.39405,
+      "depth_m": 367.0
+    }
+  ]
+}

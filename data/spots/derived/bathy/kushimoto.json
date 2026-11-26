@@ -1,0 +1,72 @@
+{
+  "spot": "kushimoto",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.4641,
+    135.7763
+  ],
+  "bearing_seaward_deg": 260.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 552.0,
+  "mean_slope_m_per_km": 30.93,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.46371,
+      "lon": 135.77365,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.46332,
+      "lon": 135.77099,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.46254,
+      "lon": 135.76568,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.46097,
+      "lon": 135.75507,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.45941,
+      "lon": 135.74445,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.45628,
+      "lon": 135.72322,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.45158,
+      "lon": 135.69138,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.4453,
+      "lon": 135.64893,
+      "depth_m": 186.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.43584,
+      "lon": 135.58527,
+      "depth_m": 552.0
+    }
+  ]
+}

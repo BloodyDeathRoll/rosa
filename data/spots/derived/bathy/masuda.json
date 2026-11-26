@@ -1,0 +1,72 @@
+{
+  "spot": "masuda",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.6994,
+    131.8274
+  ],
+  "bearing_seaward_deg": 327.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 100.0,
+  "mean_slope_m_per_km": 5.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.70129,
+      "lon": 131.82591,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.70317,
+      "lon": 131.82442,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.70694,
+      "lon": 131.82144,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.71448,
+      "lon": 131.81548,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.72203,
+      "lon": 131.80952,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.73711,
+      "lon": 131.7976,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.75973,
+      "lon": 131.7797,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.78989,
+      "lon": 131.75583,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.83511,
+      "lon": 131.71999,
+      "depth_m": 100.0
+    }
+  ]
+}

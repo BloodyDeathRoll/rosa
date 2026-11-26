@@ -1,0 +1,72 @@
+{
+  "spot": "iwado",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.562,
+    134.2727
+  ],
+  "bearing_seaward_deg": 314.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 115.0,
+  "mean_slope_m_per_km": 6.08,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.56356,
+      "lon": 134.27071,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.56512,
+      "lon": 134.26872,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.56825,
+      "lon": 134.26475,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.57449,
+      "lon": 134.25679,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.58074,
+      "lon": 134.24884,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.59323,
+      "lon": 134.23292,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.61196,
+      "lon": 134.20904,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.63693,
+      "lon": 134.17718,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.67436,
+      "lon": 134.12936,
+      "depth_m": 115.0
+    }
+  ]
+}

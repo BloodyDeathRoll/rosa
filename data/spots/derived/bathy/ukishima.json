@@ -1,0 +1,72 @@
+{
+  "spot": "ukishima",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.794,
+    138.758
+  ],
+  "bearing_seaward_deg": 272.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 990.0,
+  "mean_slope_m_per_km": 54.76,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.79408,
+      "lon": 138.75526,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.79416,
+      "lon": 138.75253,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.79431,
+      "lon": 138.74706,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.79463,
+      "lon": 138.73611,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.79494,
+      "lon": 138.72517,
+      "depth_m": 139.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.79556,
+      "lon": 138.70328,
+      "depth_m": 391.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.79648,
+      "lon": 138.67044,
+      "depth_m": 718.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.7977,
+      "lon": 138.62666,
+      "depth_m": 1696.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.79949,
+      "lon": 138.56099,
+      "depth_m": 990.0
+    }
+  ]
+}

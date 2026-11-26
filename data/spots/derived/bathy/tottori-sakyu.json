@@ -1,0 +1,72 @@
+{
+  "spot": "tottori-sakyu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.5521,
+    134.2491
+  ],
+  "bearing_seaward_deg": 334.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 171.0,
+  "mean_slope_m_per_km": 10.25,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.55412,
+      "lon": 134.24789,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.55614,
+      "lon": 134.24668,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.56018,
+      "lon": 134.24425,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.56827,
+      "lon": 134.23941,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.57635,
+      "lon": 134.23456,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.59251,
+      "lon": 134.22486,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.61676,
+      "lon": 134.2103,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.64908,
+      "lon": 134.19088,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.69756,
+      "lon": 134.16172,
+      "depth_m": 171.0
+    }
+  ]
+}

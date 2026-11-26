@@ -1,0 +1,72 @@
+{
+  "spot": "kitaura-shimane",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.5602,
+    133.1529
+  ],
+  "bearing_seaward_deg": 356.0,
+  "nearshore_depth_m": -20.0,
+  "offshore_depth_m": 72.0,
+  "mean_slope_m_per_km": 5.18,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.56244,
+      "lon": 133.15271,
+      "depth_m": -20.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.56469,
+      "lon": 133.15251,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.56917,
+      "lon": 133.15213,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.57814,
+      "lon": 133.15136,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.58711,
+      "lon": 133.15059,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.60506,
+      "lon": 133.14904,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.63197,
+      "lon": 133.14673,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.66786,
+      "lon": 133.14363,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.72168,
+      "lon": 133.13899,
+      "depth_m": 72.0
+    }
+  ]
+}

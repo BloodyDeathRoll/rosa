@@ -1,0 +1,72 @@
+{
+  "spot": "toji",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.6403,
+    138.9137
+  ],
+  "bearing_seaward_deg": 141.0,
+  "nearshore_depth_m": -22.0,
+  "offshore_depth_m": 509.0,
+  "mean_slope_m_per_km": 29.92,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.63855,
+      "lon": 138.91542,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.63681,
+      "lon": 138.91714,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.63331,
+      "lon": 138.92058,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.62632,
+      "lon": 138.92746,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.61933,
+      "lon": 138.93433,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.60535,
+      "lon": 138.94808,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.58438,
+      "lon": 138.96869,
+      "depth_m": 120.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.5564,
+      "lon": 138.99616,
+      "depth_m": 338.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.51444,
+      "lon": 139.03733,
+      "depth_m": 509.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "hamatoume",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.8779,
+    138.3342
+  ],
+  "bearing_seaward_deg": 118.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 962.0,
+  "mean_slope_m_per_km": 53.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.87684,
+      "lon": 138.33662,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.87579,
+      "lon": 138.33904,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.87368,
+      "lon": 138.34388,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.86945,
+      "lon": 138.35356,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.86523,
+      "lon": 138.36323,
+      "depth_m": 354.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.85678,
+      "lon": 138.38258,
+      "depth_m": 613.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.8441,
+      "lon": 138.4116,
+      "depth_m": 795.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.82718,
+      "lon": 138.45028,
+      "depth_m": 899.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.80178,
+      "lon": 138.50826,
+      "depth_m": 962.0
+    }
+  ]
+}

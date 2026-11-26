@@ -1,0 +1,72 @@
+{
+  "spot": "shionomisaki",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.4373,
+    135.7544
+  ],
+  "bearing_seaward_deg": 192.0,
+  "nearshore_depth_m": 37.0,
+  "offshore_depth_m": 1894.0,
+  "mean_slope_m_per_km": 104.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.4351,
+      "lon": 135.75384,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.4329,
+      "lon": 135.75328,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.4285,
+      "lon": 135.75216,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.41971,
+      "lon": 135.74992,
+      "depth_m": 151.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.41091,
+      "lon": 135.74768,
+      "depth_m": 296.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.39332,
+      "lon": 135.7432,
+      "depth_m": 474.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.36693,
+      "lon": 135.73649,
+      "depth_m": 1068.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.33174,
+      "lon": 135.72754,
+      "depth_m": 1572.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.27895,
+      "lon": 135.71414,
+      "depth_m": 1894.0
+    }
+  ]
+}

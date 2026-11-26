@@ -1,0 +1,72 @@
+{
+  "spot": "mikuriya",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.5167,
+    133.5055
+  ],
+  "bearing_seaward_deg": 356.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 69.0,
+  "mean_slope_m_per_km": 3.44,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.51894,
+      "lon": 133.50531,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.52119,
+      "lon": 133.50511,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.52567,
+      "lon": 133.50473,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.53464,
+      "lon": 133.50396,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.54361,
+      "lon": 133.50319,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.56156,
+      "lon": 133.50164,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.58847,
+      "lon": 133.49933,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.62436,
+      "lon": 133.49624,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.67818,
+      "lon": 133.4916,
+      "depth_m": 69.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "hinogawa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.457,
+    133.3755
+  ],
+  "bearing_seaward_deg": 7.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 53.0,
+  "mean_slope_m_per_km": 2.59,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.45923,
+      "lon": 133.37584,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.46146,
+      "lon": 133.37617,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.46593,
+      "lon": 133.37685,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.47485,
+      "lon": 133.37819,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.48378,
+      "lon": 133.37954,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.50163,
+      "lon": 133.38223,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.52841,
+      "lon": 133.38627,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.56411,
+      "lon": 133.39167,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.61767,
+      "lon": 133.39977,
+      "depth_m": 53.0
+    }
+  ]
+}

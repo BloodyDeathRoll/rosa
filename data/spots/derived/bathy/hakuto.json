@@ -1,0 +1,72 @@
+{
+  "spot": "hakuto",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.5263,
+    134.1168
+  ],
+  "bearing_seaward_deg": 347.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 121.0,
+  "mean_slope_m_per_km": 6.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.52849,
+      "lon": 134.11618,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.53068,
+      "lon": 134.11556,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.53506,
+      "lon": 134.11431,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.54383,
+      "lon": 134.11183,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.55259,
+      "lon": 134.10934,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.57011,
+      "lon": 134.10436,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.5964,
+      "lon": 134.0969,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.63145,
+      "lon": 134.08693,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.68402,
+      "lon": 134.07197,
+      "depth_m": 121.0
+    }
+  ]
+}

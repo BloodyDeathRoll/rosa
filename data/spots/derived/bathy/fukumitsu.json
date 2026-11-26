@@ -1,0 +1,72 @@
+{
+  "spot": "fukumitsu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.0768,
+    132.3271
+  ],
+  "bearing_seaward_deg": 295.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 128.0,
+  "mean_slope_m_per_km": 7.77,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.07775,
+      "lon": 132.32461,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.0787,
+      "lon": 132.32212,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.0806,
+      "lon": 132.31714,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.0844,
+      "lon": 132.30718,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.0882,
+      "lon": 132.29722,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.09579,
+      "lon": 132.27729,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.10718,
+      "lon": 132.24739,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.12235,
+      "lon": 132.20752,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.14508,
+      "lon": 132.14768,
+      "depth_m": 128.0
+    }
+  ]
+}
