@@ -1,0 +1,72 @@
+{
+  "spot": "kojima",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    31.4536,
+    131.3677
+  ],
+  "bearing_seaward_deg": 44.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 87.0,
+  "mean_slope_m_per_km": 4.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 31.45522,
+      "lon": 131.36953,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 31.45683,
+      "lon": 131.37136,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 31.46007,
+      "lon": 131.37502,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 31.46654,
+      "lon": 131.38235,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 31.47301,
+      "lon": 131.38967,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 31.48594,
+      "lon": 131.40433,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 31.50534,
+      "lon": 131.42632,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 31.5312,
+      "lon": 131.45565,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 31.56998,
+      "lon": 131.49968,
+      "depth_m": 87.0
+    }
+  ]
+}

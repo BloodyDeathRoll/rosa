@@ -1,0 +1,72 @@
+{
+  "spot": "urirana",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    12.5915,
+    -70.0163
+  ],
+  "bearing_seaward_deg": 60.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 1032.0,
+  "mean_slope_m_per_km": 58.31,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 12.59262,
+      "lon": -70.0143,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 12.59375,
+      "lon": -70.01231,
+      "depth_m": 105.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 12.596,
+      "lon": -70.00832,
+      "depth_m": 134.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 12.60049,
+      "lon": -70.00034,
+      "depth_m": 223.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 12.60499,
+      "lon": -69.99236,
+      "depth_m": 343.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 12.61398,
+      "lon": -69.9764,
+      "depth_m": 501.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.62747,
+      "lon": -69.95245,
+      "depth_m": 690.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.64544,
+      "lon": -69.92052,
+      "depth_m": 842.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.6724,
+      "lon": -69.87261,
+      "depth_m": 1032.0
+    }
+  ]
+}

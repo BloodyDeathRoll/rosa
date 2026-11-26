@@ -120,3 +120,10 @@ spots:
   - { id: monte-clerigo, name: "Monte Clérigo", town: "Monte Clérigo", lat: 37.3420, lon: -8.8539, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, break_type: beach, <<: *pt }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
   - { id: vale-figueiras, name: "Vale Figueiras", town: "Bordeira", lat: 37.2472, lon: -8.8697, offshore_direction: 105, swell_window: [220, 350], offshore_km: 5.0, break_type: beach, <<: *pt }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
   - { id: beliche, name: "Beliche", town: "Sagres", lat: 37.0255, lon: -8.9645, offshore_direction: 25, swell_window: [140, 270], offshore_km: 5.0, break_type: beach, <<: *pt }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.8)
+
+  # ==== SEEDED 2026-11-26 - candidates batch 3, 1 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c3-osm/).
+  # North to south.
+  - { id: cordoama, name: "Cordoama", town: "Vila do Bispo", lat: 37.1089, lon: -8.9401, offshore_direction: 122, swell_window: [237, 7], offshore_km: 5.0, break_type: beach, <<: *pt }  # sat-verified 2026-11-26 (osm-seeded, conf 0.85)

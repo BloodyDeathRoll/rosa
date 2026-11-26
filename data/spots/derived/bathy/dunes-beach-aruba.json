@@ -1,0 +1,72 @@
+{
+  "spot": "dunes-beach-aruba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    12.6207,
+    -70.049
+  ],
+  "bearing_seaward_deg": 30.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 944.0,
+  "mean_slope_m_per_km": 53.3,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 12.62265,
+      "lon": -70.04785,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 12.62459,
+      "lon": -70.0467,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 12.62849,
+      "lon": -70.04439,
+      "depth_m": 129.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 12.63628,
+      "lon": -70.03978,
+      "depth_m": 169.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 12.64406,
+      "lon": -70.03517,
+      "depth_m": 268.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 12.65964,
+      "lon": -70.02596,
+      "depth_m": 429.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.683,
+      "lon": -70.01213,
+      "depth_m": 589.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.71415,
+      "lon": -69.99368,
+      "depth_m": 853.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.76088,
+      "lon": -69.96601,
+      "depth_m": 944.0
+    }
+  ]
+}

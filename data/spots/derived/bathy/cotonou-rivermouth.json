@@ -1,0 +1,72 @@
+{
+  "spot": "cotonou-rivermouth",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    6.3524,
+    2.4461
+  ],
+  "bearing_seaward_deg": 152.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.35041,
+      "lon": 2.44716,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.34843,
+      "lon": 2.44822,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.34446,
+      "lon": 2.45035,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 6.33652,
+      "lon": 2.4546,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 6.32858,
+      "lon": 2.45884,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.3127,
+      "lon": 2.46734,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 6.28887,
+      "lon": 2.48008,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 6.25711,
+      "lon": 2.49707,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 6.20946,
+      "lon": 2.52255,
+      "depth_m": 34.0
+    }
+  ]
+}

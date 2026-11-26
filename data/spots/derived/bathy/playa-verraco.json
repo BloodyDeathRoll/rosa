@@ -1,0 +1,72 @@
+{
+  "spot": "playa-verraco",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.8928,
+    -75.5782
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 2494.0,
+  "mean_slope_m_per_km": 139.77,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.89055,
+      "lon": -75.5782,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.8883,
+      "lon": -75.5782,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.88381,
+      "lon": -75.5782,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.87481,
+      "lon": -75.5782,
+      "depth_m": 343.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.86582,
+      "lon": -75.5782,
+      "depth_m": 696.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.84783,
+      "lon": -75.5782,
+      "depth_m": 1471.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.82085,
+      "lon": -75.5782,
+      "depth_m": 2365.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.78488,
+      "lon": -75.5782,
+      "depth_m": 2401.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.73092,
+      "lon": -75.5782,
+      "depth_m": 2494.0
+    }
+  ]
+}

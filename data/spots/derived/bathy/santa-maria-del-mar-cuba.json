@@ -1,0 +1,72 @@
+{
+  "spot": "santa-maria-del-mar-cuba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    23.177,
+    -82.1867
+  ],
+  "bearing_seaward_deg": 5.0,
+  "nearshore_depth_m": 81.0,
+  "offshore_depth_m": 1597.0,
+  "mean_slope_m_per_km": 85.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 23.17924,
+      "lon": -82.18649,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 23.18148,
+      "lon": -82.18627,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 23.18596,
+      "lon": -82.18585,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 23.19492,
+      "lon": -82.18499,
+      "depth_m": 182.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 23.20388,
+      "lon": -82.18414,
+      "depth_m": 381.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 23.22179,
+      "lon": -82.18244,
+      "depth_m": 829.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 23.24867,
+      "lon": -82.17988,
+      "depth_m": 1217.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 23.28451,
+      "lon": -82.17646,
+      "depth_m": 1500.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 23.33826,
+      "lon": -82.17133,
+      "depth_m": 1597.0
+    }
+  ]
+}

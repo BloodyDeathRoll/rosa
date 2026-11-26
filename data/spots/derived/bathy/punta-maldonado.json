@@ -1,0 +1,72 @@
+{
+  "spot": "punta-maldonado",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.3264,
+    -98.5712
+  ],
+  "bearing_seaward_deg": 238.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 67.0,
+  "mean_slope_m_per_km": 4.56,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.32521,
+      "lon": -98.57319,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.32402,
+      "lon": -98.57517,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.32163,
+      "lon": -98.57915,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.31687,
+      "lon": -98.58709,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.3121,
+      "lon": -98.59504,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.30257,
+      "lon": -98.61093,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.28827,
+      "lon": -98.63476,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.26919,
+      "lon": -98.66654,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.24057,
+      "lon": -98.71419,
+      "depth_m": 67.0
+    }
+  ]
+}

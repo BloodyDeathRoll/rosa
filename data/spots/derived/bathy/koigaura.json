@@ -1,0 +1,72 @@
+{
+  "spot": "koigaura",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    31.4065,
+    131.3425
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 196.0,
+  "mean_slope_m_per_km": 11.38,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 31.40611,
+      "lon": 131.34509,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 31.40572,
+      "lon": 131.34769,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 31.40494,
+      "lon": 131.35288,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 31.40338,
+      "lon": 131.36325,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 31.40181,
+      "lon": 131.37363,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 31.39868,
+      "lon": 131.39438,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 31.39398,
+      "lon": 131.4255,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 31.3877,
+      "lon": 131.467,
+      "depth_m": 149.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 31.37825,
+      "lon": 131.52923,
+      "depth_m": 196.0
+    }
+  ]
+}

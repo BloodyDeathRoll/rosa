@@ -1,0 +1,27 @@
+# Rosa spot database - Aruba (seeded 2026-11-26). The windward north-east coast, Boca Grandi to the California Lighthouse: NE trade windswell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Aruba"
+
+defaults: &aw
+  timezone: America/Aruba
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [335, 105]
+  ideal:
+    wind_dir: [175, 265]
+    size_m: [0.6, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-26 - candidates batch 3, 5 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c3-caribbean/).
+  # North to south.
+  - { id: dunes-beach-aruba, name: "Lighthouse / Dunes Beach", town: "Malmok", lat: 12.6207, lon: -70.0490, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, break_type: beach, <<: *aw }  # sat-verified 2026-11-26 (osm-seeded, conf 0.65)
+  - { id: urirana, name: "Urirana", town: "Malmok", lat: 12.5915, lon: -70.0163, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: beach, <<: *aw }  # sat-verified 2026-11-26 (osm-seeded, conf 0.65)
+  - { id: andicuri, name: "Andicuri", town: "Santa Cruz", lat: 12.5380, lon: -69.9559, offshore_direction: 192, swell_window: [307, 77], offshore_km: 5.0, break_type: beach, <<: *aw }  # sat-verified 2026-11-26 (osm-seeded, conf 0.65)
+  - { id: dos-playa, name: "Dos Playa", town: "Santa Cruz", lat: 12.5060, lon: -69.9178, offshore_direction: 220, swell_window: [335, 105], offshore_km: 5.0, break_type: beach, <<: *aw }  # sat-verified 2026-11-26 (osm-seeded, conf 0.7)
+  - { id: boca-grandi, name: "Boca Grandi", town: "San Nicolas", lat: 12.4419, lon: -69.8715, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, break_type: reef, <<: *aw }  # sat-verified 2026-11-26 (osm-seeded, conf 0.65)

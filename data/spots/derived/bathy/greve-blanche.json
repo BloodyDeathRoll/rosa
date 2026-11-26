@@ -1,0 +1,72 @@
+{
+  "spot": "greve-blanche",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    48.6309,
+    -4.5296
+  ],
+  "bearing_seaward_deg": 12.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 92.0,
+  "mean_slope_m_per_km": 5.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 48.6331,
+      "lon": -4.52889,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 48.6353,
+      "lon": -4.52819,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 48.6397,
+      "lon": -4.52677,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 48.64849,
+      "lon": -4.52394,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 48.65729,
+      "lon": -4.52111,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 48.67488,
+      "lon": -4.51544,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 48.70127,
+      "lon": -4.50694,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 48.73646,
+      "lon": -4.49558,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 48.78923,
+      "lon": -4.47852,
+      "depth_m": 92.0
+    }
+  ]
+}

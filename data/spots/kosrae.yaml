@@ -1,0 +1,24 @@
+# Rosa spot database - Kosrae, Micronesia (seeded 2026-11-26). Fringing-reef breaks at Malem and Walung (Yela, Mwot): N-NE North Pacific winter swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Micronesia"
+
+defaults: &ksa
+  timezone: Pacific/Kosrae
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [265, 35]
+  ideal:
+    wind_dir: [105, 195]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-26 - candidates batch 3, 2 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c3-micronesia/).
+  # North to south.
+  - { id: yela, name: "Yela", town: "Walung", lat: 5.3276, lon: 162.9384, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, break_type: reef, <<: *ksa }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.65)
+  - { id: mwot, name: "Wot", town: "Walung", lat: 5.3191, lon: 162.9239, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, break_type: reef, <<: *ksa }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.65)

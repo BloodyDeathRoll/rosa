@@ -27,7 +27,7 @@ spots:
   - { id: moulin-de-la-rive, name: "Moulin de la Rive", town: "Locquirec", lat: 48.6867, lon: -3.6779, offshore_direction: 159, swell_window: [274, 44], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (osm-seeded)
   - { id: le-vougot, name: "Le Vougot", town: "Guisseny", lat: 48.6298, lon: -4.4595, offshore_direction: 121, swell_window: [236, 6], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: les-blancs-sablons, name: "Les Blancs Sablons", town: "Le Conquet", lat: 48.3668, lon: -4.7675, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
-  - { id: le-petit-minou, name: "Le Petit Minou", town: "Plouzane", lat: 48.3559, lon: -4.6784, offshore_direction: 33, swell_window: [148, 278], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: le-petit-minou, name: "Le Petit Minou", town: "Plouzane", lat: 48.3385, lon: -4.6163, offshore_direction: 33, swell_window: [148, 278], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded); moved 2026-11-26 5 km E onto the cove by the Petit Minou lighthouse (OSM sport=surfing)
   - { id: pen-hat, name: "Pen Hat", town: "Camaret-sur-Mer", lat: 48.2734, lon: -4.6161, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (osm-seeded) normal re-aimed 2026-09-17 to seaward 245 (far end of the old ray sat on a reef/another coast - OPEN-ITEMS 15)
   - { id: goulien, name: "Goulien", town: "Crozon", lat: 48.2465, lon: -4.5454, offshore_direction: 78, swell_window: [193, 323], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: lostmarc-h, name: "Lostmarc'H", town: "Crozon", lat: 48.2099, lon: -4.5537, offshore_direction: 96, swell_window: [211, 341], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
@@ -45,3 +45,11 @@ spots:
   - { id: grande-plage-quiberon, name: "Grande Plage (Quiberon)", town: "Quiberon", lat: 47.5860, lon: -3.1447, offshore_direction: 66, swell_window: [181, 311], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (osm-seeded)
   - { id: port-blanc, name: "Port Blanc", town: "Quiberon", lat: 47.5211, lon: -3.1541, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: port-bara, name: "Port Bara", town: "Quiberon", lat: 47.5141, lon: -3.1513, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-26 - candidates batch 3, 2 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c3-osm/).
+  # North to south.
+  - { id: trestel, name: "Trestel", town: "Trévou-Tréguignec", lat: 48.8233, lon: -3.3556, offshore_direction: 154, swell_window: [269, 39], offshore_km: 5.0, break_type: beach, <<: *bre }  # sat-verified 2026-11-26 (osm-seeded, conf 0.8)
+  - { id: greve-blanche, name: "Grève Blanche", town: "Plouguerneau", lat: 48.6309, lon: -4.5296, offshore_direction: 192, swell_window: [307, 77], offshore_km: 5.0, break_type: beach, <<: *bre }  # sat-verified 2026-11-26 (osm-seeded, conf 0.8)

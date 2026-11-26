@@ -1,0 +1,72 @@
+{
+  "spot": "paris-kiritimati",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    1.9335,
+    -157.4971
+  ],
+  "bearing_seaward_deg": 295.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 1964.0,
+  "mean_slope_m_per_km": 110.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 1.93445,
+      "lon": -157.49914,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 1.9354,
+      "lon": -157.50118,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 1.9373,
+      "lon": -157.50526,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 1.9411,
+      "lon": -157.51341,
+      "depth_m": 621.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 1.9449,
+      "lon": -157.52157,
+      "depth_m": 902.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 1.9525,
+      "lon": -157.53788,
+      "depth_m": 1268.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 1.9639,
+      "lon": -157.56234,
+      "depth_m": 1480.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 1.97911,
+      "lon": -157.59497,
+      "depth_m": 1773.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 2.00191,
+      "lon": -157.6439,
+      "depth_m": 1964.0
+    }
+  ]
+}

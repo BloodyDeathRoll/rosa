@@ -1,0 +1,23 @@
+# Rosa spot database - Kiribati, Gilbert Islands (seeded 2026-11-26). North Tarawa's reef at Naa: N Pacific winter swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Kiribati"
+
+defaults: &ki
+  timezone: Pacific/Tarawa
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [310, 80]
+  ideal:
+    wind_dir: [150, 240]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-26 - candidates batch 3, 1 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c3-micronesia/).
+  # North to south.
+  - { id: naa, name: "Naa", town: "Buariki", lat: 1.6418, lon: 172.9560, offshore_direction: 195, swell_window: [310, 80], offshore_km: 5.0, break_type: reef, <<: *ki }  # sat-verified 2026-11-26 (osm-seeded, conf 0.75)

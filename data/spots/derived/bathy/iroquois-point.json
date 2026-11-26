@@ -1,0 +1,72 @@
+{
+  "spot": "iroquois-point",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    21.311,
+    -158.0004
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 541.0,
+  "mean_slope_m_per_km": 30.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.30875,
+      "lon": -158.0004,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.3065,
+      "lon": -158.0004,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.30201,
+      "lon": -158.0004,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.29301,
+      "lon": -158.0004,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.28402,
+      "lon": -158.0004,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.26603,
+      "lon": -158.0004,
+      "depth_m": 328.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.23905,
+      "lon": -158.0004,
+      "depth_m": 396.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.20308,
+      "lon": -158.0004,
+      "depth_m": 513.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.14912,
+      "lon": -158.0004,
+      "depth_m": 541.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "boca-grandi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    12.4419,
+    -69.8715
+  ],
+  "bearing_seaward_deg": 85.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 865.0,
+  "mean_slope_m_per_km": 48.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 12.4421,
+      "lon": -69.86921,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 12.44229,
+      "lon": -69.86691,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 12.44268,
+      "lon": -69.86233,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 12.44347,
+      "lon": -69.85315,
+      "depth_m": 116.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 12.44425,
+      "lon": -69.84398,
+      "depth_m": 239.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 12.44582,
+      "lon": -69.82563,
+      "depth_m": 380.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.44816,
+      "lon": -69.7981,
+      "depth_m": 540.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.45128,
+      "lon": -69.7614,
+      "depth_m": 680.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.45596,
+      "lon": -69.70635,
+      "depth_m": 865.0
+    }
+  ]
+}

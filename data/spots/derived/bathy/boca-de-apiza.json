@@ -1,0 +1,72 @@
+{
+  "spot": "boca-de-apiza",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.6841,
+    -103.738
+  ],
+  "bearing_seaward_deg": 234.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 659.0,
+  "mean_slope_m_per_km": 37.3,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.68278,
+      "lon": -103.73992,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.68146,
+      "lon": -103.74184,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.67881,
+      "lon": -103.74568,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.67353,
+      "lon": -103.75336,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.66824,
+      "lon": -103.76104,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.65767,
+      "lon": -103.7764,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.6418,
+      "lon": -103.79943,
+      "depth_m": 234.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.62064,
+      "lon": -103.83013,
+      "depth_m": 155.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.5889,
+      "lon": -103.87617,
+      "depth_m": 659.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "anibare-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -0.5332,
+    166.9523
+  ],
+  "bearing_seaward_deg": 105.0,
+  "nearshore_depth_m": 83.0,
+  "offshore_depth_m": 3798.0,
+  "mean_slope_m_per_km": 209.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -0.53378,
+      "lon": 166.95447,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -0.53436,
+      "lon": 166.95664,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -0.53553,
+      "lon": 166.96099,
+      "depth_m": 135.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -0.53786,
+      "lon": 166.96967,
+      "depth_m": 348.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -0.54018,
+      "lon": 166.97836,
+      "depth_m": 601.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -0.54484,
+      "lon": 166.99574,
+      "depth_m": 1299.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -0.55182,
+      "lon": 167.0218,
+      "depth_m": 2552.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -0.56113,
+      "lon": 167.05655,
+      "depth_m": 3321.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -0.57509,
+      "lon": 167.10867,
+      "depth_m": 3798.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "kaguchihama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.1198,
+    131.5357
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 240.0,
+  "mean_slope_m_per_km": 13.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.1198,
+      "lon": 131.53835,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.1198,
+      "lon": 131.54101,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.1198,
+      "lon": 131.54632,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.1198,
+      "lon": 131.55694,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.1198,
+      "lon": 131.56756,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.11979,
+      "lon": 131.58879,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.11977,
+      "lon": 131.62065,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.11974,
+      "lon": 131.66312,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.11966,
+      "lon": 131.72683,
+      "depth_m": 240.0
+    }
+  ]
+}

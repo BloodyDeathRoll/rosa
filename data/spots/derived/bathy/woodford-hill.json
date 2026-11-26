@@ -1,0 +1,72 @@
+{
+  "spot": "woodford-hill",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    15.5873,
+    -61.3214
+  ],
+  "bearing_seaward_deg": 14.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 661.0,
+  "mean_slope_m_per_km": 36.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.58948,
+      "lon": -61.32084,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.59166,
+      "lon": -61.32027,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.59603,
+      "lon": -61.31914,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 15.60475,
+      "lon": -61.31688,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 15.61348,
+      "lon": -61.31462,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 15.63093,
+      "lon": -61.3101,
+      "depth_m": 291.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 15.65711,
+      "lon": -61.30332,
+      "depth_m": 506.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 15.69201,
+      "lon": -61.29428,
+      "depth_m": 691.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 15.74437,
+      "lon": -61.28071,
+      "depth_m": 661.0
+    }
+  ]
+}

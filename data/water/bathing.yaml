@@ -110,6 +110,16 @@ andrin:
   season: 2025
   site_id: ES120M036514
   src: eea
+angourie-back-beach:
+  km: 1.24
+  name: Spooky Beach
+  site_id: 0aa3263a-6e2e-43b8-ba2f-2ebdd1ebe216
+  src: nsw
+angourie-point:
+  km: 0.75
+  name: Spooky Beach
+  site_id: 0aa3263a-6e2e-43b8-ba2f-2ebdd1ebe216
+  src: nsw
 anjos:
   km: 0.39
   name: ANJOS
@@ -278,6 +288,11 @@ atxabiribil:
   season: 2025
   site_id: ES213M085621
   src: eea
+austinmer:
+  km: 0.08
+  name: Austinmer Beach
+  site_id: 3271b4a4-73e7-4e4d-a34b-4863064de6a9
+  src: nsw
 avalon:
   km: 0.1
   name: Avalon Beach
@@ -297,6 +312,11 @@ aver-o-mar:
   season: 2025
   site_id: PTCW3Q
   src: eea
+avoca-beach:
+  km: 0.3
+  name: Avoca Lagoon (Bulbararing)
+  site_id: dba60ca2-9e3e-49f7-8cb7-087e734ad7b9
+  src: nsw
 azurara:
   km: 0.76
   name: ÁRVORE
@@ -353,6 +373,11 @@ balneario:
   season: 2025
   site_id: ES612M0351414
   src: eea
+bar-beach:
+  km: 0.06
+  name: Bar Beach (Newcastle)
+  site_id: c2d5eaf3-173d-4aa4-8fbc-7bfce5c637eb
+  src: nsw
 barbate:
   km: 0.49
   name: PLAYA EL CARMEN PM1
@@ -409,6 +434,11 @@ baubigny:
   season: 2025
   site_id: FRD1250033M050240
   src: eea
+bawley-point:
+  km: 0.85
+  name: Bawley Point Beach
+  site_id: 4c81ba22-1a1f-43c0-9e7a-e97f5a88df6e
+  src: nsw
 bayas:
   km: 1.08
   name: PLAYA DEL SABL?N DE BAYAS PM1
@@ -442,6 +472,11 @@ bilgola-beach:
   name: Bilgola Beach
   site_id: 2d4c2558-f2de-43e4-8590-8682bc5aaf52
   src: nsw
+birdie-beach:
+  km: 0.03
+  name: Birdie Beach
+  site_id: f449678e-8a56-415b-a140-37b2f2895b35
+  src: nsw
 biscarrosse:
   km: 0.14
   name: PLAGE CENTRE
@@ -449,6 +484,11 @@ biscarrosse:
   season: 2025
   site_id: FRI1340046M040010
   src: eea
+blacksmiths-beach:
+  km: 0.76
+  name: Blacksmiths Beach
+  site_id: 14c273e9-b456-4828-b430-47c654f671b7
+  src: nsw
 bogatell:
   km: 0.0
   name: PLAYA DEL BOGATELL PM1
@@ -463,6 +503,11 @@ bolonia:
   season: 2025
   site_id: ES612M0351418
   src: eea
+bombo:
+  km: 0.27
+  name: Bombo Beach
+  site_id: d6a99e7e-ebda-48df-8adb-37aa610adf54
+  src: nsw
 bondi-beach:
   km: 0.02
   name: Bondi Beach
@@ -503,6 +548,11 @@ boucan:
   season: 2025
   site_id: FRY4097415M974005
   src: eea
+box-beach:
+  km: 0.05
+  name: Box Beach
+  site_id: 897f43e5-7a78-43c2-84b9-ba418501c06b
+  src: nsw
 brandenburger-strand:
   km: 0.88
   name: NORDS SYLT WESTERLAND
@@ -522,6 +572,11 @@ bronte-beach:
   name: Bronte Beach
   site_id: e34aa8b8-142f-438d-ab18-bedce361e324
   src: nsw
+brooms-head:
+  km: 0.99
+  name: Main Beach (Brooms Head)
+  site_id: 87dbfcec-c9d6-49a8-86e1-24e996169b19
+  src: nsw
 buhne-16:
   km: 1.02
   name: NORDS SYLT KAMPEN
@@ -529,6 +584,11 @@ buhne-16:
   season: 2025
   site_id: DESH_PR_0071
   src: eea
+bulli-beach:
+  km: 0.2
+  name: Bulli Beach
+  site_id: 4688b205-c2e6-4e39-937b-2cdf76a044c8
+  src: nsw
 bungan-beach:
   km: 0.2
   name: Bungan Beach
@@ -758,6 +818,11 @@ castricum-aan-zee:
   season: 2025
   site_id: NLBW95_CASTCAZBSD
   src: eea
+caves-beach:
+  km: 0.07
+  name: Caves Beach
+  site_id: 20f9b957-2a52-4047-9a63-2fcbc425ef3c
+  src: nsw
 cefalu:
   km: 0.17
   name: 50 M OVEST INIZIO LUNGOMARE PIAZZA COLOM
@@ -776,6 +841,11 @@ collaroy-beach:
   km: 0.39
   name: Collaroy Beach
   site_id: 9aac94a6-0188-44c5-92ab-60068862371d
+  src: nsw
+collers-beach:
+  km: 0.87
+  name: Mollymook Beach
+  site_id: 5786ed35-a5b8-40b5-ba3a-b81bf4dc8585
   src: nsw
 collignon:
   km: 0.17
@@ -816,6 +886,11 @@ coogee-beach:
   km: 0.03
   name: Coogee Beach
   site_id: ca53919d-8e26-40b0-b8cc-edf80ec303d9
+  src: nsw
+copacabana-central-coast:
+  km: 0.01
+  name: Copacabana Beach
+  site_id: 1cca5d42-6426-4ac9-afdf-8c0c1dfcd6dc
   src: nsw
 cornino:
   km: 0.08
@@ -958,6 +1033,11 @@ desembocadura-del-tordera:
   season: 2025
   site_id: ES511M1102272
   src: eea
+dixon-park:
+  km: 0.48
+  name: Merewether Beach
+  site_id: 8d14d393-3cf7-43bd-86d4-a03190b323d1
+  src: nsw
 domburg:
   km: 0.06
   name: DOMBURG BADSTRAND
@@ -993,6 +1073,11 @@ dourveil:
   season: 2025
   site_id: FRH0229153M029914
   src: eea
+dudley-beach:
+  km: 0.28
+  name: Dudley Beach
+  site_id: ead2c228-836e-40b5-9495-0485c25561da
+  src: nsw
 duindamseslag:
   km: 0.48
   name: NOORDWIJK AAN ZEE
@@ -1000,6 +1085,11 @@ duindamseslag:
   season: 2025
   site_id: NLBW95_NOORDWKHBSD
   src: eea
+easts-beach:
+  km: 0.03
+  name: Easts Beach
+  site_id: 5f483844-6c32-48c0-abe1-cd3a83defec0
+  src: nsw
 el-arenal:
   km: 0.07
   name: PLAYA DE L' ARENAL PM1
@@ -1222,6 +1312,11 @@ etretat:
   season: 2025
   site_id: FRD2276254M076383
   src: eea
+evans-head:
+  km: 0.02
+  name: Main Beach (Evans Head)
+  site_id: 5e12c83e-5f0b-44f5-8581-8f33181816da
+  src: nsw
 faial:
   km: 0.23
   name: RIBEIRA DO FAIAL
@@ -1332,6 +1427,11 @@ fontane-bianche:
   season: 2025
   site_id: IT019089017016
   src: eea
+forresters-beach:
+  km: 0.3
+  name: Forrester's Beach
+  site_id: 6b98f579-4248-4df3-8a2c-c84a66d5812e
+  src: nsw
 foxos:
   km: 0.38
   name: PLAYA FOXOS PM1
@@ -1346,6 +1446,11 @@ foz-do-lizandro:
   season: 2025
   site_id: PTCF7H
   src: eea
+frazer-beach:
+  km: 0.08
+  name: Frazer Beach
+  site_id: 2627d398-5bbf-4a11-856e-194bebbd7308
+  src: nsw
 freshwater-beach:
   km: 0.01
   name: Freshwater Beach
@@ -1596,6 +1701,11 @@ jardim-do-mar:
   season: 2025
   site_id: PTMH8F
   src: eea
+jenny-dixon:
+  km: 0.1
+  name: Jenny Dixon Beach
+  site_id: c6ced0d7-b3f4-4d4b-aefe-6cb3a132b886
+  src: nsw
 kaos:
   km: 0.05
   name: CAOS
@@ -1652,6 +1762,11 @@ kijkduin:
   season: 2025
   site_id: NLBW95_KIJKDBSD
   src: eea
+killcare:
+  km: 0.02
+  name: Killcare Beach
+  site_id: 934e455d-0497-41f0-94f1-64bbf9884491
+  src: nsw
 kings-rock:
   km: 1.76
   name: CARREÇO
@@ -1974,6 +2089,11 @@ laida:
   season: 2025
   site_id: ES213M048608
   src: eea
+lakes-beach:
+  km: 0.03
+  name: Lakes Beach
+  site_id: 6b17bd98-1b4f-46d2-a6cd-e4287ff11c7b
+  src: nsw
 landa-beach:
   km: 0.03
   name: LANDA
@@ -2114,6 +2234,11 @@ le-vougot:
   season: 2025
   site_id: FRH0229077M029275
   src: eea
+leggy-point:
+  km: 0.48
+  name: Glenrock Lagoon Beach
+  site_id: a4c7f46a-3bf4-4c2c-a141-7d49a0ba1484
+  src: nsw
 les-blancs-sablons:
   km: 0.43
   name: BLANCS SABLONS
@@ -2294,6 +2419,11 @@ machico:
   season: 2025
   site_id: PTMU2P
   src: eea
+macmasters-beach:
+  km: 0.11
+  name: MacMasters Beach
+  site_id: 1757939f-2645-4e10-9bb6-9047585096a0
+  src: nsw
 madalena-do-mar:
   km: 0.84
   name: MADALENA DO MAR
@@ -2327,6 +2457,11 @@ malpas:
   season: 2025
   site_id: ES532M0031087
   src: eea
+malua-bay:
+  km: 0.13
+  name: Malua Bay Beach
+  site_id: ffd1025f-5f3a-4f9a-9e70-1645ab267014
+  src: nsw
 malva-rosa:
   km: 0.28
   name: PLAYA DE LA MALVA-ROSA PM1
@@ -2414,6 +2549,11 @@ menakoz:
   season: 2025
   site_id: ES213M085621
   src: eea
+merewether:
+  km: 0.1
+  name: Merewether Beach
+  site_id: 8d14d393-3cf7-43bd-86d4-a03190b323d1
+  src: nsw
 meron:
   km: 0.69
   name: PLAYA TOSTADERO PM1
@@ -2421,6 +2561,11 @@ meron:
   season: 2025
   site_id: ES130M080566
   src: eea
+merry-beach:
+  km: 0.06
+  name: Merry Beach
+  site_id: 14692f30-4f18-4789-bce7-cbf28742ee69
+  src: nsw
 miami-platja:
   km: 1.11
   name: PLAYA CALA VIENESOS-PLATJA DELS ESPENYALS PM1
@@ -2456,6 +2601,11 @@ mindelo:
   season: 2025
   site_id: PTCV2N
   src: eea
+minnie-water:
+  km: 0.23
+  name: Minnie Water Beach
+  site_id: dc0e16aa-3055-4d8c-88a3-e6552e5a1380
+  src: nsw
 mogueric:
   km: 0.78
   name: PORT MOGUERIEC
@@ -2498,6 +2648,11 @@ molle:
   season: 2025
   site_id: SE0441284000000495
   src: eea
+mollymook:
+  km: 0.71
+  name: Mollymook Beach
+  site_id: 5786ed35-a5b8-40b5-ba3a-b81bf4dc8585
+  src: nsw
 mona-vale-beach:
   km: 0.29
   name: Mona Vale Beach
@@ -2545,6 +2700,11 @@ morghella:
   season: 2025
   site_id: IT019089014005
   src: eea
+moruya-heads:
+  km: 1.39
+  name: Shelley Beach (Moruya Heads)
+  site_id: e06a80ee-20aa-422b-94db-019695ed9003
+  src: nsw
 mosteiros:
   km: 0.03
   name: MOSTEIROS
@@ -2566,6 +2726,21 @@ mundaka:
   season: 2025
   site_id: ES213M068614
   src: eea
+mystics:
+  km: 0.86
+  name: Minnamurra River Estuary Entrance
+  site_id: de74ec0d-aefc-4a29-a364-ac91dff3113f
+  src: nsw
+narooma-bar:
+  km: 0.3
+  name: Wagonga Inlet
+  site_id: c303262f-132e-4b7d-814c-18cc1acb915f
+  src: nsw
+narooma-surf-beach:
+  km: 0.04
+  name: Narooma Main Beach
+  site_id: 5992ad43-94aa-4105-b414-56e0767b7e8e
+  src: nsw
 navia:
   km: 0.09
   name: PLAYA NAVIA PM2
@@ -2594,10 +2769,20 @@ neuhaus-dierhagen:
   season: 2025
   site_id: DEMV_PR_1_0224
   src: eea
+newcastle-beach:
+  km: 0.06
+  name: Newcastle Beach
+  site_id: 43bbc43b-812e-464a-8fd7-57743e712279
+  src: nsw
 newport-beach:
   km: 0.11
   name: Newport Beach
   site_id: f81d4377-2a8e-4f39-9988-f94d9c95d9be
+  src: nsw
+nobbys-beach:
+  km: 0.2
+  name: Nobbys Beach
+  site_id: da7262a6-484e-4b8c-97cc-66b900a9ae43
   src: nsw
 noordwijk:
   km: 0.78
@@ -2606,6 +2791,11 @@ noordwijk:
   season: 2025
   site_id: NLBW95_NOORDWBSD
   src: eea
+norah-head:
+  km: 0.04
+  name: Gravelly Beach
+  site_id: d1aaf32a-1e10-4f67-8b96-25f5e3525073
+  src: nsw
 norderney-nordstrand:
   km: 0.2
   name: NORDSEESTRAND NORDBAD NORDERNEY
@@ -2613,6 +2803,16 @@ norderney-nordstrand:
   season: 2025
   site_id: DENI_PR_TK25_2209_02
   src: eea
+north-avoca:
+  km: 0.27
+  name: North Avoca Beach
+  site_id: 443f8062-d8b3-41ee-b3cf-78be24ab5b5c
+  src: nsw
+north-broulee:
+  km: 0.63
+  name: Broulee Beach
+  site_id: be3f6a10-c470-4136-a9c5-6c9bdf82a933
+  src: nsw
 north-cronulla:
   km: 0.04
   name: North Cronulla Beach
@@ -2623,6 +2823,11 @@ north-curl-curl:
   name: North Curl Curl Beach
   site_id: 7f188718-1e97-404e-81cf-1bd72927015d
   src: nsw
+north-entrance:
+  km: 1.09
+  name: Magenta Beach
+  site_id: c9c00ce4-5580-4a66-81b4-b45e5b1e3485
+  src: nsw
 north-narrabeen:
   km: 0.13
   name: North Narrabeen Beach
@@ -2632,6 +2837,11 @@ north-wall:
   km: 0.47
   name: Shaws Bay East Arm
   site_id: affb6525-87ba-4165-b06b-f511cfe31af2
+  src: nsw
+north-wollongong:
+  km: 0.27
+  name: North Wollongong Beach
+  site_id: 51a141aa-f0ba-433b-83d8-3ebba1e56c85
   src: nsw
 nova-mar-bella:
   km: 0.03
@@ -2689,6 +2899,11 @@ olofsbo:
   season: 2025
   site_id: SE0A11382000000541
   src: eea
+one-mile-beach-anna-bay:
+  km: 0.76
+  name: One Mile Beach
+  site_id: 1c31d57b-d6bd-40a7-90ba-005a452061d6
+  src: nsw
 orrua:
   km: 0.44
   name: PLAYA DE SANTIAGO PM1
@@ -2771,6 +2986,11 @@ paul-do-mar:
   season: 2025
   site_id: PTMK9W
   src: eea
+pearl-beach:
+  km: 0.36
+  name: Pearl Beach
+  site_id: a04458a2-3e39-4005-b4a9-f8822fb66781
+  src: nsw
 peizas:
   km: 0.09
   name: PLAYA PEIZ?S PM1
@@ -2827,6 +3047,11 @@ pico-madrid:
   season: 2025
   site_id: ES521M076912
   src: eea
+pippi-beach:
+  km: 0.01
+  name: Pippi Beach
+  site_id: 3cba5481-0fb7-467b-a6d8-aa98c452c210
+  src: nsw
 pissouri-bay:
   km: 0.33
   name: PISSOURI BAY
@@ -3394,6 +3619,11 @@ praiola:
   season: 2025
   site_id: IT019082031001
   src: eea
+pretty-beach:
+  km: 1.15
+  name: Merry Beach
+  site_id: 14692f30-4f18-4789-bce7-cbf28742ee69
+  src: nsw
 prora:
   km: 1.67
   name: OSTSEE BINZ PRORA
@@ -3492,6 +3722,11 @@ punta-xarraca:
   season: 2025
   site_id: ES531M0501221
   src: eea
+putty-beach:
+  km: 0.7
+  name: Killcare Beach
+  site_id: 934e455d-0497-41f0-94f1-64bbf9884491
+  src: nsw
 puzziteddu:
   km: 0.57
   name: C/DA LA LEPA (PROSP. VILLA ATHENA)
@@ -3518,6 +3753,11 @@ quintanilla:
   season: 2025
   site_id: ES705M0062429
   src: eea
+racecourse-beach:
+  km: 0.06
+  name: Racecourse Beach
+  site_id: 1e5dfdbe-a250-4284-8867-7fb373f744c0
+  src: nsw
 rageleje:
   km: 0.2
   name: RÅGELEJE STRAND
@@ -3532,6 +3772,11 @@ razo:
   season: 2025
   site_id: ES111M0192487
   src: eea
+redhead-beach:
+  km: 0.01
+  name: Redhead Beach
+  site_id: aa48b082-3fb2-4915-a3e0-ddc83739f294
+  src: nsw
 riazor:
   km: 0.06
   name: PLAYA RIAZOR PM3
@@ -3693,6 +3938,11 @@ sampieri:
   season: 2025
   site_id: IT019088011010
   src: eea
+samurai-beach:
+  km: 1.71
+  name: One Mile Beach
+  site_id: 1c31d57b-d6bd-40a7-90ba-005a452061d6
+  src: nsw
 san-antolin:
   km: 0.34
   name: PLAYA SAN ANTOL?N PM1
@@ -3770,6 +4020,11 @@ sandhamn-halmstad:
   season: 2025
   site_id: SE0A11380000001292
   src: eea
+sandon-point:
+  km: 1.18
+  name: Bulli Beach
+  site_id: 4688b205-c2e6-4e39-937b-2cdf76a044c8
+  src: nsw
 sandshoes-reef:
   km: 0.16
   name: Shelly Beach (Sutherland)
@@ -3939,6 +4194,11 @@ shelly-beach:
   name: Shelly Beach (Ballina)
   site_id: 3edce205-4954-4df5-b0f8-a7b56a826677
   src: nsw
+shelly-beach-central-coast:
+  km: 0.28
+  name: Shelly Beach (Central Coast)
+  site_id: 0e28b4f0-a09a-465f-8468-958bb130b7cf
+  src: nsw
 siouville:
   km: 0.4
   name: FACE AU POSTE SDIS
@@ -3974,6 +4234,11 @@ soesto:
   season: 2025
   site_id: ES111M04096
   src: eea
+soldiers-beach:
+  km: 0.51
+  name: Soldiers Beach
+  site_id: f0f35527-e3a5-4ccd-a94b-499c7983560a
+  src: nsw
 somo:
   km: 0.43
   name: PLAYA LOREDO PM1
@@ -4013,6 +4278,11 @@ south-wall:
   km: 0.81
   name: Shaws Bay East Arm
   site_id: affb6525-87ba-4165-b06b-f511cfe31af2
+  src: nsw
+spooky-beach:
+  km: 0.07
+  name: Spooky Beach
+  site_id: 0aa3263a-6e2e-43b8-ba2f-2ebdd1ebe216
   src: nsw
 st-peter-ording:
   km: 0.16
@@ -4070,6 +4340,11 @@ surtainville:
   season: 2025
   site_id: FRD1250585M050235
   src: eea
+swansea-heads:
+  km: 0.71
+  name: Swansea Heads Little Beach
+  site_id: e76d87f3-90d9-47aa-b71f-90cda6b6374b
+  src: nsw
 tamarama-beach:
   km: 0.05
   name: Tamarama Beach
@@ -4096,6 +4371,16 @@ ter-heijde:
   season: 2025
   site_id: NLBW95_TERHDBSD
   src: eea
+terrigal-beach:
+  km: 0.25
+  name: Terrigal Lagoon
+  site_id: 840a7220-029b-4ba8-8718-8bde9f8f0a24
+  src: nsw
+terrigal-haven:
+  km: 0.44
+  name: Terrigal Beach
+  site_id: c8fc3c50-4d0f-48c8-939a-ee100892dee8
+  src: nsw
 terschelling:
   km: 0.38
   name: BADSTRAND WEST AAN ZEE,TERSCHELLING
@@ -4117,6 +4402,11 @@ texel-paal-17:
   season: 2025
   site_id: NLBW95_BLEEKBSD
   src: eea
+thirroul:
+  km: 0.16
+  name: Thirroul Beach
+  site_id: 1e7d7228-ef9b-4e3d-9236-9cabe23e1ea4
+  src: nsw
 timmendorfer-strand:
   km: 0.08
   name: OSTS TIMMENDORFER STRAND
@@ -4152,6 +4442,11 @@ tonel:
   season: 2025
   site_id: PTCH8M
   src: eea
+toowoon-bay:
+  km: 0.27
+  name: Toowoon Bay
+  site_id: 799a3d44-7fa3-4e89-bf3d-697714c64944
+  src: nsw
 torimbia:
   km: 0.14
   name: PLAYA TORIMBIA PM1
@@ -4234,6 +4529,16 @@ turimetta-beach:
   name: Turimetta Beach
   site_id: 811e1dd7-4a4b-4146-a1c6-c05c67a24d03
   src: nsw
+turners-beach:
+  km: 0.14
+  name: Turners Beach
+  site_id: 23d7fe1d-8966-4e9a-86a4-b991364bd835
+  src: nsw
+tuross-head:
+  km: 0.32
+  name: Tuross Main Beach
+  site_id: 80150aa0-d7a0-4466-9419-dc1ba52d91ad
+  src: nsw
 tylosand:
   km: 0.04
   name: TYLÖSAND
@@ -4248,6 +4553,11 @@ ugglarp:
   season: 2025
   site_id: SE0A11382000003933
   src: eea
+umina-ocean-beach:
+  km: 0.12
+  name: Ocean Beach
+  site_id: 0fd921b9-1d2a-4a90-b722-72ce0426d3a5
+  src: nsw
 vagabundos:
   km: 0.02
   name: PLAYA SAN FELIPE PM1
@@ -4414,6 +4724,11 @@ vorupor-south-side:
   season: 2025
   site_id: DKBW1623
   src: eea
+wamberal:
+  km: 0.14
+  name: Wamberal Beach
+  site_id: 32102496-a175-44df-ba83-044eafd627bc
+  src: nsw
 wanda-beach:
   km: 0.15
   name: Wanda Beach
@@ -4459,6 +4774,11 @@ wenningstedt:
   season: 2025
   site_id: DESH_PR_0072
   src: eea
+werri-beach:
+  km: 0.7
+  name: Werri Beach
+  site_id: 90c4d8ac-0a58-485b-b7e9-d09db9cabf9d
+  src: nsw
 westkapelle:
   km: 0.97
   name: WESTKAPELLE ERIKA BADSTRAND
@@ -4492,6 +4812,11 @@ xago:
   season: 2025
   site_id: ES120M025497
   src: eea
+yamba-main-beach:
+  km: 0.04
+  name: Main Beach (Yamba)
+  site_id: dfab6bde-24d6-437d-8419-da74fc4f732d
+  src: nsw
 yerbabuena:
   km: 0.25
   name: PLAYA HIERBABUENA PM1
@@ -4541,6 +4866,11 @@ zavial:
   season: 2025
   site_id: PTCN2M
   src: eea
+zenith-beach:
+  km: 0.09
+  name: Zenith Beach
+  site_id: b7a9bea4-ad04-4f2a-9673-16f0def95626
+  src: nsw
 zingst:
   km: 0.06
   name: OSTSEE ZINGST KURHAUS

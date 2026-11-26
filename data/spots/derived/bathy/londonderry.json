@@ -1,0 +1,72 @@
+{
+  "spot": "londonderry",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    15.5534,
+    -61.2955
+  ],
+  "bearing_seaward_deg": 55.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 639.0,
+  "mean_slope_m_per_km": 35.61,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.55469,
+      "lon": -61.29359,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.55598,
+      "lon": -61.29168,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.55856,
+      "lon": -61.28785,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 15.56372,
+      "lon": -61.28021,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 15.56887,
+      "lon": -61.27256,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 15.57919,
+      "lon": -61.25726,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 15.59466,
+      "lon": -61.23431,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 15.61528,
+      "lon": -61.20371,
+      "depth_m": 531.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 15.64621,
+      "lon": -61.1578,
+      "depth_m": 639.0
+    }
+  ]
+}

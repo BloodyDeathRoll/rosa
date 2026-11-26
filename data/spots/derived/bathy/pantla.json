@@ -1,0 +1,72 @@
+{
+  "spot": "pantla",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    17.7255,
+    -101.6613
+  ],
+  "bearing_seaward_deg": 254.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 795.0,
+  "mean_slope_m_per_km": 45.41,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 17.72488,
+      "lon": -101.66357,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 17.72426,
+      "lon": -101.66584,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 17.72302,
+      "lon": -101.67038,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 17.72054,
+      "lon": -101.67945,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 17.71806,
+      "lon": -101.68853,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 17.7131,
+      "lon": -101.70668,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 17.70566,
+      "lon": -101.7339,
+      "depth_m": 162.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.69572,
+      "lon": -101.77019,
+      "depth_m": 419.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.68081,
+      "lon": -101.82462,
+      "depth_m": 795.0
+    }
+  ]
+}

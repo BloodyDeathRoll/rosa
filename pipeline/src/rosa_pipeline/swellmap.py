@@ -61,7 +61,7 @@ BASINS: dict[str, tuple[str, ...]] = {
     # Sicily sits between the Tyrrhenian (north coast, NW mistral swell), the Strait of
     # Sicily (south coast, SW-S) and the Ionian (east coast, SE-E): its own frame
     # Malta, 90 km south of Sicily, rides in the same frame
-    "sicily": ("Sicily", "Malta"),
+    "sicily": ("Sicily", "Malta", "Libya"),
     # mainland Italy's Tyrrhenian / Ligurian coast and Sardinia: one western-Mediterranean frame
     # on the same mistral (NW) and libeccio (SW) wind swell; Sicily keeps its own
     # Provence and Corsica (seeded 2026-11-12) continue it west and across the Ligurian Sea
@@ -228,6 +228,9 @@ BASINS: dict[str, tuple[str, ...]] = {
         "Sierra Leone",
         "Ivory Coast",
         "Nigeria",
+        # Togo and Benin (seeded 2026-11-26) between Ghana and Lagos
+        "Togo",
+        "Benin",
     ),
     # the south-west Indian Ocean: Southern Ocean groundswell up the South African
     # coast into Mozambique, and the monsoon swell on the equatorial reefs; Reunion sits
@@ -276,7 +279,7 @@ BASINS: dict[str, tuple[str, ...]] = {
     # Alabama and Louisiana (Gulf Coast, seeded 2026-11-12) fill the gap between them
     "gulf-of-mexico": ("Florida Panhandle", "Florida Gulf", "Texas", "Gulf Coast"),
     # Pointe-Noire and Sao Tome (seeded 2026-11-12) take the same SW swell further up the coast
-    "angola": ("Angola", "Congo", "Sao Tome"),
+    "angola": ("Angola", "Congo", "Sao Tome", "Cameroon"),
     # the south-east Atlantic: Southern Ocean SW groundswell up the Cape and Namibian
     # coasts, Cape Agulhas round to the Kunene, between Angola's frame and east-africa's
     "southwest-africa": ("South Africa West", "Namibia"),
@@ -301,6 +304,10 @@ BASINS: dict[str, tuple[str, ...]] = {
         # Saint Lucia and Dominica either side of Martinique (seeded 2026-11-12)
         "Saint Lucia",
         "Dominica",
+        # Grenada, Aruba and San Andres (seeded 2026-11-26) on the same trade windswell
+        "Grenada",
+        "Aruba",
+        "San Andres",
     ),
     # the northern Caribbean: Hispaniola's north coast faces the open North Atlantic winter
     # swell, its south coast the Caribbean - a frame of its own; Puerto Rico's Rincon and
@@ -321,6 +328,8 @@ BASINS: dict[str, tuple[str, ...]] = {
         # Haiti and Cuba share Hispaniola's sea and winter N swell (seeded 2026-11-12)
         "Haiti",
         "Cuba",
+        # Grand Cayman (seeded 2026-11-26), between Jamaica and Cuba
+        "Cayman Islands",
     ),
     # Bermuda, 1,000 km off Cape Hatteras: its own small frame
     "bermuda": ("Bermuda",),
@@ -332,8 +341,11 @@ BASINS: dict[str, tuple[str, ...]] = {
     "galapagos": ("Galapagos",),
     # Easter Island, 3,500 km off Chile: its own small frame
     "easter-island": ("Easter Island",),
+    # Kiritimati (seeded 2026-11-26), 3,000 km east of Tarawa across the antimeridian:
+    # its own small frame
+    "line-islands": ("Line Islands",),
     # Micronesia: Guam and Pohnpei on the same N-NE North Pacific winter swell
-    "micronesia": ("Guam", "Pohnpei"),
+    "micronesia": ("Guam", "Pohnpei", "Kosrae", "Nauru", "Kiribati"),
     # Chile in two frames: the desert north (Arica to Antofagasta) takes the same S-SW
     # Southern Ocean groundswell arriving from much further away than it does in the
     # south, and one box over 24 deg of latitude would drown the detail in sea room

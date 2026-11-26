@@ -1,0 +1,23 @@
+# Rosa spot database - Kiribati, Line Islands (seeded 2026-11-26). Kiritimati's lagoon-mouth reefs (Paris): N and S Pacific swell. UTC+14, hence its own region.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Kiribati"
+
+defaults: &lni
+  timezone: Pacific/Kiritimati
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [230, 0]
+  ideal:
+    wind_dir: [70, 160]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-26 - candidates batch 3, 1 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c3-micronesia/).
+  # North to south.
+  - { id: paris-kiritimati, name: "Paris", town: "London", lat: 1.9335, lon: -157.4971, offshore_direction: 115, swell_window: [230, 0], offshore_km: 5.0, break_type: reef, <<: *lni }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)

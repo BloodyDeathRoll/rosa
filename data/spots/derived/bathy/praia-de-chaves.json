@@ -1,0 +1,72 @@
+{
+  "spot": "praia-de-chaves",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.1174,
+    -22.911
+  ],
+  "bearing_seaward_deg": 320.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 85.0,
+  "mean_slope_m_per_km": 4.96,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.11912,
+      "lon": -22.9125,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.12084,
+      "lon": -22.91401,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.12429,
+      "lon": -22.91702,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.13118,
+      "lon": -22.92304,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.13807,
+      "lon": -22.92905,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.15184,
+      "lon": -22.94109,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.17251,
+      "lon": -22.95915,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.20006,
+      "lon": -22.98324,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.24138,
+      "lon": -23.01938,
+      "depth_m": 85.0
+    }
+  ]
+}

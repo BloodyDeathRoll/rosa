@@ -21,3 +21,11 @@ spots:
   - { id: pagua-bay, name: "Pagua Bay", town: "Marigot", lat: 15.5189, lon: -61.2733, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, break_type: beach, <<: *dm }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: rosalie-dominica, name: "Rosalie River Mouth", town: "Rosalie", lat: 15.3738, lon: -61.2513, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *dm }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: scotts-head-dominica, name: "Scotts Head", town: "Scotts Head", lat: 15.2115, lon: -61.3681, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: reef, <<: *dm }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-26 - candidates batch 3, 2 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c3-caribbean/).
+  # North to south.
+  - { id: woodford-hill, name: "Woodford Hill", town: "Woodford Hill", lat: 15.5873, lon: -61.3214, offshore_direction: 194, swell_window: [309, 79], offshore_km: 5.0, break_type: reef, <<: *dm }  # sat-verified 2026-11-26 (osm-seeded, conf 0.65)
+  - { id: londonderry, name: "Londonderry Beach", town: "Wesley", lat: 15.5534, lon: -61.2955, offshore_direction: 235, swell_window: [350, 120], offshore_km: 5.0, break_type: beach, <<: *dm }  # sat-verified 2026-11-26 (osm-seeded, conf 0.65)

@@ -1,0 +1,72 @@
+{
+  "spot": "mitirapa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -17.7657,
+    -149.3317
+  ],
+  "bearing_seaward_deg": 206.0,
+  "nearshore_depth_m": 180.0,
+  "offshore_depth_m": 1657.0,
+  "mean_slope_m_per_km": 83.21,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -17.76772,
+      "lon": -149.33273,
+      "depth_m": 180.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -17.76974,
+      "lon": -149.33377,
+      "depth_m": 306.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -17.77378,
+      "lon": -149.33584,
+      "depth_m": 432.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -17.78187,
+      "lon": -149.33998,
+      "depth_m": 599.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -17.78995,
+      "lon": -149.34412,
+      "depth_m": 774.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -17.80611,
+      "lon": -149.3524,
+      "depth_m": 955.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -17.83036,
+      "lon": -149.36483,
+      "depth_m": 948.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -17.86269,
+      "lon": -149.3814,
+      "depth_m": 1347.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -17.91118,
+      "lon": -149.40628,
+      "depth_m": 1657.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "termeil-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.463,
+    150.3947
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 119.0,
+  "mean_slope_m_per_km": 7.1,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.463,
+      "lon": 150.39746,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.463,
+      "lon": 150.40022,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.463,
+      "lon": 150.40574,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.463,
+      "lon": 150.41678,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.463,
+      "lon": 150.42782,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.46299,
+      "lon": 150.44991,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.46297,
+      "lon": 150.48303,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.46293,
+      "lon": 150.5272,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.46284,
+      "lon": 150.59345,
+      "depth_m": 119.0
+    }
+  ]
+}

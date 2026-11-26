@@ -1,0 +1,72 @@
+{
+  "spot": "juluchuca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    17.4429,
+    -101.2358
+  ],
+  "bearing_seaward_deg": 184.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 536.0,
+  "mean_slope_m_per_km": 30.99,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 17.44066,
+      "lon": -101.23596,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 17.43841,
+      "lon": -101.23613,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 17.43393,
+      "lon": -101.23646,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 17.42496,
+      "lon": -101.23712,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 17.41599,
+      "lon": -101.23777,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 17.39804,
+      "lon": -101.23909,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 17.37113,
+      "lon": -101.24106,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.33524,
+      "lon": -101.24369,
+      "depth_m": 136.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.28142,
+      "lon": -101.24763,
+      "depth_m": 536.0
+    }
+  ]
+}

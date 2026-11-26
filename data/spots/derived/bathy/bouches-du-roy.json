@@ -1,0 +1,72 @@
+{
+  "spot": "bouches-du-roy",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    6.2943,
+    1.9254
+  ],
+  "bearing_seaward_deg": 170.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 2.93,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.29209,
+      "lon": 1.92579,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.28987,
+      "lon": 1.92619,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.28544,
+      "lon": 1.92697,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 6.27659,
+      "lon": 1.92854,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 6.26773,
+      "lon": 1.93011,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.25002,
+      "lon": 1.93325,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 6.22345,
+      "lon": 1.93797,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 6.18802,
+      "lon": 1.94425,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 6.13488,
+      "lon": 1.95367,
+      "depth_m": 57.0
+    }
+  ]
+}

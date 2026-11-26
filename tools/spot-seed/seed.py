@@ -632,6 +632,20 @@ REGIONS = {
     "guam": (13.24, 144.61, 13.66, 144.96),
     # Pohnpei: the barrier-reef passes
     "pohnpei": (6.72, 158.08, 7.06, 158.40),
+    # ---- candidates batch 3 (2026-11-26): zero-spot coasts and OSM sport=surfing leads
+    "kosrae": (5.19, 162.82, 5.43, 163.13),
+    "nauru": (-0.63, 166.85, -0.43, 167.05),
+    # North Tarawa (Naa) and Kiritimati: one country, two time zones (UTC+12 / UTC+14)
+    "kiribati": (1.54, 172.86, 1.74, 173.06),
+    "line-islands": (1.83, -157.60, 2.03, -157.40),
+    "libya": (32.74, 12.91, 32.94, 13.11),
+    "san-andres": (12.38, -81.83, 12.62, -81.61),
+    "aruba": (12.34, -70.15, 12.72, -69.77),
+    "cayman-islands": (19.19, -81.30, 19.39, -81.10),
+    "grenada": (11.89, -61.86, 12.16, -61.66),
+    "togo": (6.12, 1.49, 6.32, 1.69),
+    "benin": (6.19, 1.83, 6.47, 2.80),
+    "cameroon": (3.96, 8.95, 4.16, 9.15),
     # ---- the south-west Atlantic. Uruguay and Argentina face E-SE into the same swell
     # Uruguay: Montevideo east through Punta del Este, La Paloma and Punta del Diablo
     "uruguay": (-35.10, -56.60, -33.60, -53.10),

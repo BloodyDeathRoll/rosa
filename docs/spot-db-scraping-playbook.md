@@ -222,7 +222,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-11-19, DB = 5062 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-26, DB = 5123 spots, ALL sat-verified)
 
 **Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
 was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
@@ -548,10 +548,53 @@ have no other source, so they stay out.
   naval-base access closed since 2023), Colombia (Colpipe sourced but unplaced; El Bolsillo = DB pradomar) and
   Venezuela's other names. Kerala Tourism's list also names Golden Beach (Varkala, 0.6).
 
-**Gap queue (whole areas with zero spots, by box count 2026-11-12):** New Zealand is thin (17). Still
-empty: west Africa (Ivory Coast, Togo / Benin / Nigeria, Gabon, Sao Tome, Mauritania), Queensland north
-of the Sunshine Coast, west Norway, north Brazil, Micronesia, Easter Island, Delaware / Maryland, the
-Great Lakes, Alaska, Haida Gwaii. Ireland is excluded by operator decision.
+**Candidates batch 3: OSM surf tags fleet-wide, zero-spot coasts, thin famous coasts - 5062 -> 5123 (2026-11-26).**
+Candidates came from three checks. (1) **A fleet-wide OSM sweep**: every `sport=surfing` node / way in the
+175 local extracts (528 features, business-filtered) measured against the DB; 89 sat > 3 km from any spot,
+most of them wave pools, schools or windsurf spots. (2) **A box count** over the coasts still at 0 spots.
+(3) **Famous coasts with <= 5 spots** (Baja Sur mid-coast, Guerrero, Michoacan, Miyazaki). Seven subagents (c3-osm /
+c3-wafrica / c3-micronesia / c3-caribbean / c3-misc / c3-mexico / c3-miyazaki), brief
+`tools/spot-seed/work/BRIEF-2026-11-26.md`, web flow, about 25 searches each. The coordinator kept only
+conf >= 0.65 (63 of 108), then dropped 2 more and re-read every kept pin on z16 contact sheets.
+- Added: japan 11 (Miyazaki: Nagahama, Isegahama, Kanegahama, Ikurahama, Kaguchihama, Hitotsuba, Ibii, Kazeta,
+  Umegahama, Kojima, Koigaura - names from a Coast Guard surf-accident report, japan.travel and the prefecture
+  pages), mexico 11 (Baja Sur 4: Isla Natividad, Campo Rene, Punta Pequena, Punta Lobos; Guerrero 4:
+  Las Escolleras, Pantla, Juluchuca, Punta Maldonado; Michoacan 3: Boca de Apiza, Las Penas, Huahua), from
+  the OSM sweep 13 (Sumbawa's Dirty Hippies and Northern Rights at Kertasari; Mitirapa, Tahiti; Pontile di
+  Tonfano; Greve Blanche and Trestel, Brittany; Praia de Chaves, Boa Vista; Awaiura, Niijima; Termeil Beach;
+  Cordoama; Iroquois Point, Oahu; Punta Sur and Sound Bay, San Andres), Caribbean on existing regions 5
+  (cuba 2: Santa Maria del Mar, Playa Verraco; dominica 2: Woodford Hill, Londonderry; saint-lucia 1: Pigeon
+  Point), and 12 new regions (San Andres counted once): aruba 5, benin 5, kosrae 2, grenada 2,
+  san-andres 2, togo 1, cameroon 1 (Seme Beach), cayman-islands 1, kiribati 1 (Naa, North Tarawa),
+  line-islands 1 (Paris, Kiritimati; its own region because Kiritimati is UTC+14), nauru 1, libya 1
+  (Janzour).
+- Basins: Libya joined `sicily`, Togo / Benin `west-africa`, Cameroon `angola`, Grenada / Aruba / San Andres
+  `caribbean-south`, the Caymans `caribbean-north`, Kosrae / Nauru / Kiribati `micronesia`; new basin
+  `line-islands`. Every new spot has a GFS-Wave wet node within 0.6 deg (live 2026-11-26 06Z file, 61/61).
+- Coordinator drops: Malem (Kosrae) again (the take-off is still not located), Playa Azul again (GEBCO land to
+  2 km on the Balsas delta), and everything below 0.65, including Cambodia (one blog, flat tiles), Gabon (Cap
+  Lopez and Mayumba at 0.6), Saint Vincent's Blue Lagoon, Kribi, London and Cook Islet (Kiritimati), Laje
+  da Jagua, the 0.45-0.6 Baja and Guerrero names (Bahia Asuncion, La Bocana, Punta San Carlos, Barra de Potosi,
+  Pie de la Cuesta, Barra Vieja, Playa Ventura, Faro de Bucerias), and ten Miyazaki / Tokushima / Kochi
+  pins (Hozai, Ishinami, Tondahama, Akaehama, Uchiumi, Tsukimigaoka, Komatsu, Minorinbayashi, Uchizuma,
+  Shimonokae).
+- GEBCO land to 0.5 km, deep water beyond (the documented shoreline-cell case): dos-playa, andicuri,
+  dunes-beach-aruba, dirty-hippies, seme-beach, punta-lobos, escolleras-ixtapa, pantla, juluchuca, las-penas;
+  to 1 km: punta-maldonado, huahua.
+- **Two existing pins moved** after a z15-z17 read: `le-petit-minou` 5 km E onto the cove under the Petit Minou
+  lighthouse (the old pin was on another beach; OSM `sport=surfing` sits in the cove); `ikumi` 1.8 km SW from
+  Shirahama's bay onto Ikumi's open surf beach (OSM). Both normals sit inside the open arc; bathy + tide re-cut.
+- `bathing --match nsw` re-run: +66 NSW spots seeded since the first match. The EEA match was not re-run (the
+  workbook is not on this workstation), so the new Brittany / Tuscany / Portugal spots have no EEA grade yet.
+- Nothing sourced or located: Mauritania, Palau, Yap, the Marshalls, Tuvalu, Bonaire (windsurf only), Sulawesi,
+  West Timor, Georgia (skipped: Black Sea, OPEN-ITEMS 45). Leads left: Beran / Ailinglaplap's named reefs
+  (Amnesia, The Bowl), Tabuaeran's Cables / Whalers, Eldorado Beach (Cotonou), Oea Village (Tripoli), Shipping
+  Bay (St Vincent), Pierce Point (Haiti).
+
+**Gap queue (whole areas with zero spots, by box count 2026-11-26):** New Zealand is thin (17). Still
+empty: Mauritania, Gabon, Palau, Yap, the Marshall Islands, Tuvalu, St Vincent, Cambodia, Sulawesi, West
+Timor (each searched 2026-11-26 with nothing kept), the Great Lakes (OPEN-ITEMS 44) and the Black Sea's
+Georgia (OPEN-ITEMS 45). Ireland is excluded by operator decision.
 
 
 **Azores 27, Madeira 25, Sumatra 28, Sumba 9 + Rote 5, 3499 -> 3593 (2026-10-29, second pass).** Four

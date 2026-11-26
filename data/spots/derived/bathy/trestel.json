@@ -1,0 +1,72 @@
+{
+  "spot": "trestel",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    48.8233,
+    -3.3556
+  ],
+  "bearing_seaward_deg": 334.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 70.0,
+  "mean_slope_m_per_km": 3.83,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 48.82532,
+      "lon": -3.3571,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 48.82734,
+      "lon": -3.35859,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 48.83138,
+      "lon": -3.36159,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 48.83947,
+      "lon": -3.36758,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 48.84755,
+      "lon": -3.37357,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 48.86371,
+      "lon": -3.38556,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 48.88795,
+      "lon": -3.40357,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 48.92027,
+      "lon": -3.42759,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 48.96874,
+      "lon": -3.4637,
+      "depth_m": 70.0
+    }
+  ]
+}

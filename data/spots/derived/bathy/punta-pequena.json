@@ -1,0 +1,72 @@
+{
+  "spot": "punta-pequena",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    26.232,
+    -112.4986
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 67.0,
+  "mean_slope_m_per_km": 4.39,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.22989,
+      "lon": -112.49946,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.22777,
+      "lon": -112.50031,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.22355,
+      "lon": -112.50203,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.2151,
+      "lon": -112.50546,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.20665,
+      "lon": -112.50888,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.18974,
+      "lon": -112.51574,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.16439,
+      "lon": -112.52602,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.13058,
+      "lon": -112.53971,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.07987,
+      "lon": -112.56024,
+      "depth_m": 67.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "awaiura",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.4124,
+    139.2869
+  ],
+  "bearing_seaward_deg": 72.0,
+  "nearshore_depth_m": 40.0,
+  "offshore_depth_m": 146.0,
+  "mean_slope_m_per_km": 5.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.41309,
+      "lon": 139.28949,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.41379,
+      "lon": 139.29208,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.41518,
+      "lon": 139.29727,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.41796,
+      "lon": 139.30764,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.42073,
+      "lon": 139.31801,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.42628,
+      "lon": 139.33875,
+      "depth_m": 146.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.4346,
+      "lon": 139.36986,
+      "depth_m": 117.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.44569,
+      "lon": 139.41136,
+      "depth_m": 190.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.46228,
+      "lon": 139.47363,
+      "depth_m": 146.0
+    }
+  ]
+}

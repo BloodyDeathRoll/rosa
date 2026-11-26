@@ -140,3 +140,20 @@ spots:
   # coordinator on contact sheets; tools/spot-seed/work/cand-americas/). North to south.
   - { id: monuments, name: "Monuments", town: "Cabo San Lucas", lat: 22.8977, lon: -109.8689, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, break_type: point, timezone: America/Mazatlan, <<: *mx }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.75)
   - { id: playa-linda-ixtapa, name: "Playa Linda", town: "Ixtapa", lat: 17.6997, lon: -101.6481, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: rivermouth, <<: *mx }  # sat-verified 2026-11-19 (websearch-seeded, conf 0.65)
+
+  # ==== SEEDED 2026-11-26 - candidates batch 3, 11 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c3-mexico/).
+  # North to south.
+  - { id: isla-natividad, name: "Isla Natividad", town: "Isla Natividad", lat: 27.8578, lon: -115.1617, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, break_type: reef, timezone: America/Mazatlan, <<: *mx }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.65)
+  - { id: campo-rene, name: "Campo René", town: "Punta Abreojos", lat: 26.8024, lon: -113.4687, offshore_direction: 342, swell_window: [97, 227], offshore_km: 5.0, break_type: beach, timezone: America/Mazatlan, <<: *mx }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)
+  - { id: punta-pequena, name: "Punta Pequeña", town: "San Juanico", lat: 26.2320, lon: -112.4986, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: point, timezone: America/Mazatlan, <<: *mx }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)
+  - { id: punta-lobos, name: "Punta Lobos", town: "Todos Santos", lat: 23.4140, lon: -110.2323, offshore_direction: 76, swell_window: [191, 321], offshore_km: 5.0, break_type: beach, timezone: America/Mazatlan, <<: *mx }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.65)
+  - { id: boca-de-apiza, name: "Boca de Apiza", town: "Boca de Apiza", lat: 18.6841, lon: -103.7380, offshore_direction: 54, swell_window: [169, 299], offshore_km: 5.0, break_type: beach, <<: *mx }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)
+  - { id: huahua, name: "Huahua", town: "Huahua", lat: 18.1766, lon: -103.0113, offshore_direction: 22, swell_window: [137, 267], offshore_km: 5.0, break_type: beach, <<: *mx }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)
+  - { id: las-penas, name: "Las Peñas", town: "Las Peñas", lat: 18.0204, lon: -102.5036, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: beach, <<: *mx }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)
+  - { id: pantla, name: "Playa Pantla", town: "Pantla", lat: 17.7255, lon: -101.6613, offshore_direction: 74, swell_window: [189, 319], offshore_km: 5.0, break_type: point, <<: *mx }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)
+  - { id: escolleras-ixtapa, name: "Las Escolleras", town: "Ixtapa", lat: 17.6633, lon: -101.6197, offshore_direction: 12, swell_window: [127, 257], offshore_km: 5.0, break_type: point, <<: *mx }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)
+  - { id: juluchuca, name: "Juluchuca", town: "Juluchuca", lat: 17.4429, lon: -101.2358, offshore_direction: 4, swell_window: [119, 249], offshore_km: 5.0, break_type: beach, <<: *mx }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)
+  - { id: punta-maldonado, name: "Punta Maldonado", town: "Punta Maldonado", lat: 16.3264, lon: -98.5712, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, break_type: point, <<: *mx }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.65)

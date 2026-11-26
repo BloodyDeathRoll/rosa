@@ -1,0 +1,72 @@
+{
+  "spot": "punta-lobos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    23.414,
+    -110.2323
+  ],
+  "bearing_seaward_deg": 256.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 463.0,
+  "mean_slope_m_per_km": 26.87,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 23.41346,
+      "lon": -110.23468,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 23.41291,
+      "lon": -110.23705,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 23.41182,
+      "lon": -110.24181,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 23.40965,
+      "lon": -110.25132,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 23.40747,
+      "lon": -110.26083,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 23.40311,
+      "lon": -110.27984,
+      "depth_m": 205.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 23.39658,
+      "lon": -110.30836,
+      "depth_m": 380.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 23.38785,
+      "lon": -110.34639,
+      "depth_m": 473.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 23.37475,
+      "lon": -110.40341,
+      "depth_m": 463.0
+    }
+  ]
+}

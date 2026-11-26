@@ -147,3 +147,10 @@ spots:
   - { id: kaiolohia-shipwreck-beach, name: "Shipwreck Beach", town: "Lanai City", lat: 20.9122, lon: -156.8938, offshore_direction: 205, shore_normal: 45, swell_window: [320, 90], offshore_km: 5.0, break_type: reef, <<: *hi }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
   - { id: lopa-beach, name: "Lopa", town: "Lōpā", lat: 20.8065, lon: -156.8060, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
   - { id: hulopoe-bay, name: "Hulopoe Bay", town: "Lanai City", lat: 20.7388, lon: -156.8937, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+
+  # ==== SEEDED 2026-11-26 - candidates batch 3, 1 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c3-osm/).
+  # North to south.
+  - { id: iroquois-point, name: "Iroquois Point", town: "Ewa Beach", lat: 21.3110, lon: -158.0004, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-26 (osm-seeded, conf 0.65)

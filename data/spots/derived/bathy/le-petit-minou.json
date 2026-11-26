@@ -2,71 +2,71 @@
   "spot": "le-petit-minou",
   "source": "gebco2024 via local grid",
   "origin": [
-    48.3559,
-    -4.6784
+    48.3385,
+    -4.6163
   ],
   "bearing_seaward_deg": 213.0,
-  "nearshore_depth_m": 3.0,
-  "offshore_depth_m": 50.0,
-  "mean_slope_m_per_km": 2.65,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 41.0,
+  "mean_slope_m_per_km": 2.2,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
-  "deepest_is_reference": true,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 48.35401,
-      "lon": -4.68024,
-      "depth_m": 3.0
+      "lat": 48.33661,
+      "lon": -4.61814,
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
-      "lat": 48.35213,
-      "lon": -4.68209,
-      "depth_m": 3.0
+      "lat": 48.33473,
+      "lon": -4.61998,
+      "depth_m": 2.0
     },
     {
       "dist_km": 1.0,
-      "lat": 48.34836,
-      "lon": -4.68577,
-      "depth_m": 7.0
+      "lat": 48.33096,
+      "lon": -4.62367,
+      "depth_m": 14.0
     },
     {
       "dist_km": 2.0,
-      "lat": 48.34081,
-      "lon": -4.69314,
-      "depth_m": 7.0
+      "lat": 48.32341,
+      "lon": -4.63103,
+      "depth_m": 45.0
     },
     {
       "dist_km": 3.0,
-      "lat": 48.33327,
-      "lon": -4.7005,
-      "depth_m": 11.0
+      "lat": 48.31587,
+      "lon": -4.6384,
+      "depth_m": 37.0
     },
     {
       "dist_km": 5.0,
-      "lat": 48.31818,
-      "lon": -4.71523,
-      "depth_m": 20.0
+      "lat": 48.30078,
+      "lon": -4.65312,
+      "depth_m": 31.0
     },
     {
       "dist_km": 8.0,
-      "lat": 48.29555,
-      "lon": -4.7373,
-      "depth_m": 25.0
+      "lat": 48.27815,
+      "lon": -4.67518,
+      "depth_m": 24.0
     },
     {
       "dist_km": 12.0,
-      "lat": 48.26536,
-      "lon": -4.7667,
+      "lat": 48.24796,
+      "lon": -4.70457,
       "depth_m": 35.0
     },
     {
       "dist_km": 18.0,
-      "lat": 48.22006,
-      "lon": -4.81073,
-      "depth_m": 50.0
+      "lat": 48.20266,
+      "lon": -4.74858,
+      "depth_m": 41.0
     }
   ]
 }

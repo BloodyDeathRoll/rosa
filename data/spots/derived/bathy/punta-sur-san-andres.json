@@ -1,0 +1,72 @@
+{
+  "spot": "punta-sur-san-andres",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    12.4802,
+    -81.7274
+  ],
+  "bearing_seaward_deg": 174.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 558.0,
+  "mean_slope_m_per_km": 31.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 12.47796,
+      "lon": -81.72716,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 12.47573,
+      "lon": -81.72692,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 12.47126,
+      "lon": -81.72644,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 12.46231,
+      "lon": -81.72547,
+      "depth_m": 166.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 12.45337,
+      "lon": -81.72451,
+      "depth_m": 300.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 12.43548,
+      "lon": -81.72259,
+      "depth_m": 612.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.40865,
+      "lon": -81.7197,
+      "depth_m": 1089.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.37287,
+      "lon": -81.71585,
+      "depth_m": 1119.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.31921,
+      "lon": -81.71008,
+      "depth_m": 558.0
+    }
+  ]
+}

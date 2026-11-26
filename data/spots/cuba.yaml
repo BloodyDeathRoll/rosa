@@ -23,3 +23,11 @@ spots:
   - { id: la-setenta, name: "La Setenta (Calle 70)", town: "Havana", lat: 23.1153, lon: -82.4392, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, break_type: reef, <<: *cu }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: boca-de-yumuri, name: "Boca de Yumuri", town: "Boca de Yumuri", lat: 20.3020, lon: -74.2974, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, break_type: point, <<: *cu }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: mar-verde, name: "Playa Mar Verde", town: "Santiago de Cuba", lat: 19.9657, lon: -75.9431, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, break_type: beach, <<: *cu }  # sat-verified 2026-11-12 (osm-seeded)
+
+  # ==== SEEDED 2026-11-26 - candidates batch 3, 2 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c3-caribbean/).
+  # North to south.
+  - { id: santa-maria-del-mar-cuba, name: "Santa Maria del Mar", town: "Guanabo", lat: 23.1770, lon: -82.1867, offshore_direction: 185, swell_window: [300, 70], offshore_km: 5.0, break_type: beach, <<: *cu }  # sat-verified 2026-11-26 (osm-seeded, conf 0.65)
+  - { id: playa-verraco, name: "Playa Verraco", town: "El Verraco", lat: 19.8928, lon: -75.5782, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: reef, <<: *cu }  # sat-verified 2026-11-26 (osm-seeded, conf 0.65)

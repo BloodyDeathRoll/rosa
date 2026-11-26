@@ -1,0 +1,72 @@
+{
+  "spot": "cherry-hill-grenada",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    12.0633,
+    -61.7573
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": 34.0,
+  "offshore_depth_m": 1393.0,
+  "mean_slope_m_per_km": 76.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 12.0633,
+      "lon": -61.7596,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 12.0633,
+      "lon": -61.7619,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 12.0633,
+      "lon": -61.7665,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 12.0633,
+      "lon": -61.77569,
+      "depth_m": 301.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 12.0633,
+      "lon": -61.78489,
+      "depth_m": 444.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 12.0633,
+      "lon": -61.80328,
+      "depth_m": 654.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.06329,
+      "lon": -61.83087,
+      "depth_m": 938.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.06328,
+      "lon": -61.86766,
+      "depth_m": 831.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.06325,
+      "lon": -61.92283,
+      "depth_m": 1393.0
+    }
+  ]
+}

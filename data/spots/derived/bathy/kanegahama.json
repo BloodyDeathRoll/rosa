@@ -1,0 +1,72 @@
+{
+  "spot": "kanegahama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.3629,
+    131.6255
+  ],
+  "bearing_seaward_deg": 134.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 122.0,
+  "mean_slope_m_per_km": 6.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.36134,
+      "lon": 131.62741,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.35978,
+      "lon": 131.62933,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.35665,
+      "lon": 131.63316,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.3504,
+      "lon": 131.64082,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.34416,
+      "lon": 131.64847,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.33166,
+      "lon": 131.66378,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.31291,
+      "lon": 131.68674,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.2879,
+      "lon": 131.71733,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.25038,
+      "lon": 131.76319,
+      "depth_m": 122.0
+    }
+  ]
+}

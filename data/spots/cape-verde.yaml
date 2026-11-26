@@ -27,3 +27,10 @@ spots:
   - { id: kite-beach, name: "Kite Beach", town: "Santa Maria", lat: 16.6146, lon: -22.8972, offshore_direction: 245, swell_window: [0, 130], offshore_km: 5.0, <<: *cv }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: ponta-preta, name: "Ponta Preta", town: "Santa Maria", lat: 16.6066, lon: -22.9297, offshore_direction: 113, swell_window: [228, 358], offshore_km: 5.0, <<: *cv }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: ponta-do-sino, name: "Ponta do Sino", town: "Santa Maria", lat: 16.5861, lon: -22.9232, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, <<: *cv }  # sat-verified 2026-09-03 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-26 - candidates batch 3, 1 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c3-osm/).
+  # North to south.
+  - { id: praia-de-chaves, name: "Praia de Chaves", town: "Rabil", lat: 16.1174, lon: -22.9110, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, break_type: beach, <<: *cv }  # sat-verified 2026-11-26 (osm-seeded, conf 0.75)

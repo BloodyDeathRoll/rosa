@@ -32,3 +32,11 @@ spots:
   - { id: supersuck, name: "Supersuck", town: "Maluk", lat: -8.9348, lon: 116.7372, offshore_direction: 64, swell_window: [179, 309], offshore_km: 5.0, <<: *sbw }  # sat-verified 2026-09-02 (osm-seeded)
   - { id: yoyos, name: "Yoyo's", town: "Sekongkang", lat: -8.9753, lon: 116.7195, offshore_direction: 26, swell_window: [141, 271], offshore_km: 5.0, <<: *sbw }  # sat-verified 2026-09-02 (osm-seeded)
   - { id: tropicals, name: "Tropicals", town: "Sekongkang", lat: -8.9996, lon: 116.7399, offshore_direction: 52, swell_window: [167, 297], offshore_km: 5.0, <<: *sbw }  # sat-verified 2026-09-02 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-26 - candidates batch 3, 2 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c3-osm/).
+  # North to south.
+  - { id: dirty-hippies, name: "Dirty Hippies", town: "Kertasari", lat: -8.6751, lon: 116.7724, offshore_direction: 48, swell_window: [163, 293], offshore_km: 5.0, break_type: reef, <<: *sbw }  # sat-verified 2026-11-26 (osm-seeded, conf 0.65)
+  - { id: northern-rights, name: "Northern Rights", town: "Kertasari", lat: -8.6754, lon: 116.7666, offshore_direction: 48, swell_window: [163, 293], offshore_km: 5.0, break_type: reef, <<: *sbw }  # sat-verified 2026-11-26 (osm-seeded, conf 0.65)

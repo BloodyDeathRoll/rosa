@@ -1,0 +1,72 @@
+{
+  "spot": "cordoama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.1089,
+    -8.9401
+  ],
+  "bearing_seaward_deg": 302.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 144.0,
+  "mean_slope_m_per_km": 7.49,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.11009,
+      "lon": -8.94249,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.11128,
+      "lon": -8.94488,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.11367,
+      "lon": -8.94966,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.11843,
+      "lon": -8.95923,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.12319,
+      "lon": -8.9688,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.13272,
+      "lon": -8.98793,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.147,
+      "lon": -9.01665,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.16603,
+      "lon": -9.05495,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.19456,
+      "lon": -9.11244,
+      "depth_m": 144.0
+    }
+  ]
+}

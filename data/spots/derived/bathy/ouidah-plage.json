@@ -1,0 +1,72 @@
+{
+  "spot": "ouidah-plage",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    6.322,
+    2.0887
+  ],
+  "bearing_seaward_deg": 155.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 69.0,
+  "mean_slope_m_per_km": 3.38,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.31996,
+      "lon": 2.08966,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.31792,
+      "lon": 2.09061,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.31385,
+      "lon": 2.09252,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 6.3057,
+      "lon": 2.09635,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 6.29755,
+      "lon": 2.10017,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.28125,
+      "lon": 2.10782,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 6.25679,
+      "lon": 2.11929,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 6.22419,
+      "lon": 2.13458,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 6.17528,
+      "lon": 2.15751,
+      "depth_m": 69.0
+    }
+  ]
+}

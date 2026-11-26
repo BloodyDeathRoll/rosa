@@ -1,0 +1,72 @@
+{
+  "spot": "lighthouse-breakers",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.2938,
+    -81.1991
+  ],
+  "bearing_seaward_deg": 170.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 3445.0,
+  "mean_slope_m_per_km": 193.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.29159,
+      "lon": -81.19869,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.28937,
+      "lon": -81.19827,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.28494,
+      "lon": -81.19745,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.27609,
+      "lon": -81.19579,
+      "depth_m": 161.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.26723,
+      "lon": -81.19414,
+      "depth_m": 381.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.24952,
+      "lon": -81.19083,
+      "depth_m": 1250.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.22295,
+      "lon": -81.18587,
+      "depth_m": 2167.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.18752,
+      "lon": -81.17926,
+      "depth_m": 2952.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.13438,
+      "lon": -81.16935,
+      "depth_m": 3445.0
+    }
+  ]
+}

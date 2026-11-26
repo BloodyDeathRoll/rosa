@@ -1,0 +1,72 @@
+{
+  "spot": "campo-rene",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    26.8024,
+    -113.4687
+  ],
+  "bearing_seaward_deg": 162.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 43.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.80026,
+      "lon": -113.46792,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.79812,
+      "lon": -113.46714,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.79385,
+      "lon": -113.46559,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.78529,
+      "lon": -113.46247,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.77674,
+      "lon": -113.45936,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.75963,
+      "lon": -113.45314,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.73397,
+      "lon": -113.44381,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.69976,
+      "lon": -113.43137,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.64843,
+      "lon": -113.41273,
+      "depth_m": 43.0
+    }
+  ]
+}

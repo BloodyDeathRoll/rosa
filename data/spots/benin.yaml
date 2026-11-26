@@ -1,0 +1,27 @@
+# Rosa spot database - Benin (seeded 2026-11-26). Cotonou, Ouidah and the Bouches du Roy: S-SW South Atlantic swell, heavy shorebreak.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Benin"
+
+defaults: &bj
+  timezone: Africa/Porto-Novo
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [100, 230]
+  ideal:
+    wind_dir: [300, 30]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-26 - candidates batch 3, 5 spots (web flow: names from tourism boards,
+  # councils, news, prose guides and OSM sport=surfing tags, never competitor listings; pins on named
+  # OSM features (© OpenStreetMap contributors, ODbL) or Nominatim / Photon, every pin rendered and
+  # judged at z16, re-read by the coordinator on contact sheets; tools/spot-seed/work/c3-wafrica/).
+  # North to south.
+  - { id: krake, name: "Kraké", town: "Glogbo-Plage", lat: 6.3740, lon: 2.6991, offshore_direction: 358, swell_window: [113, 243], offshore_km: 5.0, break_type: beach, <<: *bj }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.65)
+  - { id: cotonou-rivermouth, name: "Cotonou Rivermouth", town: "Cotonou", lat: 6.3524, lon: 2.4461, offshore_direction: 332, swell_window: [87, 217], offshore_km: 5.0, break_type: beach, <<: *bj }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.75)
+  - { id: novotel-beach-cotonou, name: "Novotel Beach", town: "Cotonou", lat: 6.3423, lon: 2.4012, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: beach, <<: *bj }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)
+  - { id: ouidah-plage, name: "Ouidah-Plage", town: "Ouidah", lat: 6.3220, lon: 2.0887, offshore_direction: 335, swell_window: [90, 220], offshore_km: 5.0, break_type: beach, <<: *bj }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)
+  - { id: bouches-du-roy, name: "Bouches du Roy", town: "Avlo", lat: 6.2943, lon: 1.9254, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, break_type: beach, <<: *bj }  # sat-verified 2026-11-26 (websearch-seeded, conf 0.7)

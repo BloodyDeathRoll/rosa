@@ -1,0 +1,72 @@
+{
+  "spot": "pigeon-point-saint-lucia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.0915,
+    -60.9675
+  ],
+  "bearing_seaward_deg": 315.0,
+  "nearshore_depth_m": 31.0,
+  "offshore_depth_m": 2080.0,
+  "mean_slope_m_per_km": 115.44,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.09309,
+      "lon": -60.96914,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.09468,
+      "lon": -60.97078,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.09786,
+      "lon": -60.97406,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.10422,
+      "lon": -60.98061,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.11058,
+      "lon": -60.98717,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.12329,
+      "lon": -61.00029,
+      "depth_m": 395.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.14237,
+      "lon": -61.01996,
+      "depth_m": 1123.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.1678,
+      "lon": -61.0462,
+      "depth_m": 1648.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.20594,
+      "lon": -61.08558,
+      "depth_m": 2080.0
+    }
+  ]
+}

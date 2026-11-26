@@ -1,0 +1,72 @@
+{
+  "spot": "nagahama-nobeoka",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.5627,
+    131.6918
+  ],
+  "bearing_seaward_deg": 124.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 135.0,
+  "mean_slope_m_per_km": 7.44,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.56144,
+      "lon": 131.69401,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.56019,
+      "lon": 131.69622,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.55767,
+      "lon": 131.70065,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.55264,
+      "lon": 131.70949,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.54761,
+      "lon": 131.71833,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.53755,
+      "lon": 131.73602,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.52245,
+      "lon": 131.76254,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.50231,
+      "lon": 131.79788,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.47208,
+      "lon": 131.85087,
+      "depth_m": 135.0
+    }
+  ]
+}
